@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --omega-purple: #6d2077;
+    --omega-purple-dark: #4a1554;
+    --omega-gold: #b7a57a;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-neutral-800 bg-white antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display tracking-regalia text-omega-purple-dark;
+  }
+
+  ::selection {
+    background-color: #6d2077;
+    color: #fff;
+  }
+}
+
+@layer components {
+  .container-omega {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-omega {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  .eyebrow {
+    @apply font-sans text-xs font-semibold uppercase tracking-[0.2em] text-omega-gold;
+  }
+
+  .heading-display {
+    @apply font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight text-omega-purple-dark;
+  }
+
+  .heading-section {
+    @apply font-display text-3xl sm:text-4xl font-semibold leading-tight text-omega-purple-dark;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center rounded-full px-6 py-3 font-sans text-sm font-semibold tracking-wide transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-omega-purple disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-omega-purple text-white shadow-regalia hover:bg-omega-purple-dark;
+  }
+
+  .btn-gold {
+    @apply btn bg-omega-gold text-omega-purple-dark shadow-gilded hover:brightness-105;
+  }
+
+  .btn-outline {
+    @apply btn border border-omega-purple text-omega-purple hover:bg-omega-purple hover:text-white;
+  }
+
+  .btn-ghost {
+    @apply btn text-omega-purple hover:bg-omega-purple/10;
+  }
+
+  .card {
+    @apply rounded-2xl bg-white shadow-chapter ring-1 ring-omega-purple/10 transition-all duration-200;
+  }
+
+  .card-hover {
+    @apply card hover:-translate-y-1 hover:shadow-regalia hover:ring-omega-purple/30;
+  }
+
+  .divider-gold {
+    @apply h-px w-16 bg-omega-gold;
+  }
+
+  .link-omega {
+    @apply text-omega-purple underline-offset-4 hover:underline hover:text-omega-purple-dark;
+  }
+
+  .input-omega {
+    @apply w-full rounded-lg border border-neutral-300 bg-white px-4 py-3 font-sans text-sm text-neutral-800 placeholder:text-neutral-400 focus:border-omega-purple focus:outline-none focus:ring-2 focus:ring-omega-purple/30 transition;
+  }
+
+  .label-omega {
+    @apply block font-sans text-xs font-semibold uppercase tracking-[0.18em] text-omega-purple-dark mb-2;
+  }
+}
