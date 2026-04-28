@@ -8,12 +8,12 @@ export const metadata: Metadata = {
 };
 
 const LEADERSHIP = [
-  { role: "Foundation President", name: "TBA" },
-  { role: "Vice President", name: "TBA" },
-  { role: "Treasurer", name: "TBA" },
-  { role: "Secretary", name: "TBA" },
-  { role: "Conclave 2028 Chair", name: "TBA" },
-  { role: "Council of Basilei Liaison", name: "TBA" },
+  { role: "Foundation President", name: "Sean Long" },
+  { role: "Vice President", name: "Will Baker" },
+  { role: "Treasurer", name: "Mauricio Rainey" },
+  { role: "Secretary", name: "Karl Bryant" },
+  { role: "Conclave 2028 Grand Marshal", name: "The Hon. Steve Watkins" },
+  { role: "Council of Basilei Liaison", name: "Jason Poindexter" },
 ];
 
 export default function AboutPage() {
