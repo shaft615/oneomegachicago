@@ -1,7 +1,9 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
+import { submitToFormspree, type FormStatus } from "@/lib/forms";
+import { StatusError, SuccessPanel } from "@/components/FormFeedback";
 
 type InquiryType = "media" | "sponsor" | "chapter" | "volunteer" | "general";
 
@@ -27,9 +29,46 @@ export default function ContactForm() {
   const [type, setType] = useState<InquiryType>(
     TYPE_OPTIONS.some((o) => o.value === initial) ? initial : "general"
   );
+  const [status, setStatus] = useState<FormStatus>("idle");
+
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (status === "submitting") return;
+    setStatus("submitting");
+
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    try {
+      const ok = await submitToFormspree({
+        ...data,
+        _form: "contact",
+        _routedTo: ROUTING_LABEL[type],
+      });
+      if (ok) {
+        setStatus("success");
+        form.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  }
+
+  if (status === "success") {
+    return <SuccessPanel />;
+  }
 
   return (
-    <form className="card p-8 space-y-5" aria-label="Contact form">
+    <form
+      onSubmit={onSubmit}
+      action="https://formspree.io/f/xgorjngd"
+      method="POST"
+      className="card p-8 space-y-5"
+      aria-label="Contact form"
+      noValidate
+    >
       <div>
         <label className="label-omega" htmlFor="contact-type">
           Inquiry Type
@@ -120,14 +159,16 @@ export default function ContactForm() {
         />
       </div>
 
+      <StatusError status={status} />
+
       <div className="pt-2">
-        <button type="submit" className="btn-primary">
-          Send Inquiry
+        <button
+          type="submit"
+          disabled={status === "submitting"}
+          className="btn-primary"
+        >
+          {status === "submitting" ? "Sending…" : "Send Inquiry"}
         </button>
-        <p className="mt-3 font-sans text-xs text-neutral-500 italic">
-          Form is a preview — submission handler will be wired to the
-          Foundation&rsquo;s intake routing when officers are confirmed.
-        </p>
       </div>
     </form>
   );

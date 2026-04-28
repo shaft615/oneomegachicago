@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import ConclaveCountdown from "@/components/home/ConclaveCountdown";
+import SponsorForm from "./SponsorForm";
 import { CONCLAVE_NUMBER, CONCLAVE_CITY } from "@/lib/conclave";
 
 export const metadata: Metadata = {
@@ -52,87 +53,9 @@ export default function Conclave2028Page() {
               and follow-up call.
             </p>
 
-            <form
-              className="mt-8 grid gap-5 sm:grid-cols-2"
-              aria-label="Sponsor interest form"
-            >
-              <div className="sm:col-span-1">
-                <label className="label-omega" htmlFor="sponsor-name">
-                  Contact Name
-                </label>
-                <input
-                  id="sponsor-name"
-                  name="name"
-                  type="text"
-                  className="input-omega"
-                  required
-                />
-              </div>
-              <div className="sm:col-span-1">
-                <label className="label-omega" htmlFor="sponsor-org">
-                  Organization
-                </label>
-                <input
-                  id="sponsor-org"
-                  name="organization"
-                  type="text"
-                  className="input-omega"
-                  required
-                />
-              </div>
-              <div className="sm:col-span-1">
-                <label className="label-omega" htmlFor="sponsor-email">
-                  Email
-                </label>
-                <input
-                  id="sponsor-email"
-                  name="email"
-                  type="email"
-                  className="input-omega"
-                  required
-                />
-              </div>
-              <div className="sm:col-span-1">
-                <label className="label-omega" htmlFor="sponsor-tier">
-                  Interest Tier
-                </label>
-                <select
-                  id="sponsor-tier"
-                  name="tier"
-                  className="input-omega"
-                  defaultValue=""
-                >
-                  <option value="" disabled>
-                    Select a tier
-                  </option>
-                  <option value="founders-circle">Founders&rsquo; Circle</option>
-                  <option value="cardinal-patron">Cardinal Patron</option>
-                  <option value="chapter-champion">Chapter Champion</option>
-                  <option value="custom">Custom / Discuss</option>
-                </select>
-              </div>
-              <div className="sm:col-span-2">
-                <label className="label-omega" htmlFor="sponsor-message">
-                  Message
-                </label>
-                <textarea
-                  id="sponsor-message"
-                  name="message"
-                  rows={5}
-                  className="input-omega"
-                />
-              </div>
-              <div className="sm:col-span-2">
-                <button type="submit" className="btn-primary">
-                  Submit Interest
-                </button>
-                <p className="mt-3 font-sans text-xs text-neutral-500 italic">
-                  Form is a preview — submission handler will be wired to the
-                  Foundation&rsquo;s intake when the host committee finalizes
-                  routing.
-                </p>
-              </div>
-            </form>
+            <div className="mt-8">
+              <SponsorForm />
+            </div>
           </div>
 
           <aside className="lg:col-span-5 space-y-4">
