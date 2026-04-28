@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -38,9 +39,14 @@ export default function NavBar() {
           className="flex items-center gap-3 group"
           aria-label="One Omega Foundation home"
         >
-          <span className="grid h-11 w-11 place-items-center rounded-full bg-regalia-gradient text-white font-display text-lg font-semibold shadow-regalia">
-            ΩΩ
-          </span>
+          <Image
+            src="/OneOmegaClean.png"
+            alt="One Omega Foundation — Chicagoland"
+            width={256}
+            height={256}
+            priority
+            className="h-12 w-12 object-contain"
+          />
           <span className="flex flex-col leading-tight">
             <span className="font-display text-lg font-semibold text-omega-purple-dark tracking-regalia">
               One Omega Foundation

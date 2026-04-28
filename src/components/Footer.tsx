@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { NAV_LINKS } from "@/lib/nav";
 
@@ -9,9 +10,13 @@ export default function Footer() {
       <div className="container-omega py-16 grid gap-12 lg:grid-cols-4">
         <div className="lg:col-span-2 space-y-4">
           <div className="flex items-center gap-3">
-            <span className="grid h-11 w-11 place-items-center rounded-full bg-omega-gold text-omega-purple-dark font-display text-lg font-semibold">
-              ΩΩ
-            </span>
+            <Image
+              src="/OneOmegaClean.png"
+              alt="One Omega Foundation — Chicagoland"
+              width={256}
+              height={256}
+              className="h-16 w-16 object-contain rounded-full bg-white/95 p-1"
+            />
             <div className="flex flex-col leading-tight">
               <span className="font-display text-lg font-semibold tracking-regalia">
                 One Omega Foundation, Inc.
