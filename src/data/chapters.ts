@@ -27,7 +27,7 @@ export const chapters: Chapter[] = [
   {
     id: 'xll',
     name: 'Chi Lambda Lambda',
-    designation: 'XLL',
+    designation: 'ΧΛΛ',
     area: 'Chicagoland',
     basileus: 'Bro. Karl Bryant',
     website: 'https://www.chilambdalambda.com'
@@ -35,7 +35,7 @@ export const chapters: Chapter[] = [
   {
     id: 'ee',
     name: 'Epsilon Eta',
-    designation: 'EE',
+    designation: 'ΕΗ',
     area: 'Chicagoland',
     basileus: 'Bro. Daniel Piolet',
     website: undefined
