@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import ChapterCard from "@/components/ChapterCard";
-import { chapters, getChaptersByType } from "@/data/chapters";
+import { chapters, TOTAL_CHAPTERS } from "@/data/chapters";
 
 export const metadata: Metadata = {
   title: "Chapters",
@@ -10,53 +10,31 @@ export const metadata: Metadata = {
 };
 
 export default function ChaptersPage() {
-  const graduate = getChaptersByType("graduate");
-  const undergraduate = getChaptersByType("undergraduate");
-
   return (
     <>
       <PageHeader
         eyebrow="The Chicagoland Thirteen"
         title="Thirteen chapters. One coordinated voice."
-        description="Graduate and undergraduate chapters of Omega Psi Phi Fraternity, Inc., active across Chicago, the suburbs, and surrounding universities."
+        description="Chapters of Omega Psi Phi Fraternity, Inc., active across Chicago, the suburbs, Northwest Indiana, and surrounding communities — coordinated through One Omega Foundation."
       />
 
       <section className="section-omega bg-white">
-        <div className="container-omega space-y-16">
-          <div>
-            <div className="flex items-end justify-between mb-8 gap-4">
-              <div>
-                <span className="eyebrow">Graduate Chapters</span>
-                <h2 className="heading-section mt-2">Graduate Chapters</h2>
-              </div>
-              <span className="font-sans text-sm text-neutral-500">
-                {graduate.length} chapters
-              </span>
+        <div className="container-omega">
+          <div className="flex items-end justify-between mb-10 gap-4 flex-wrap">
+            <div>
+              <span className="eyebrow">Directory</span>
+              <h2 className="heading-section mt-2">All Chapters</h2>
+              <div className="divider-gold mt-3" />
             </div>
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {graduate.map((c) => (
-                <ChapterCard key={c.id} chapter={c} />
-              ))}
-            </div>
+            <span className="font-sans text-sm text-neutral-500">
+              {TOTAL_CHAPTERS} chapters
+            </span>
           </div>
 
-          <div>
-            <div className="flex items-end justify-between mb-8 gap-4">
-              <div>
-                <span className="eyebrow">Undergraduate Chapters</span>
-                <h2 className="heading-section mt-2">
-                  Undergraduate Chapters
-                </h2>
-              </div>
-              <span className="font-sans text-sm text-neutral-500">
-                {undergraduate.length} chapters
-              </span>
-            </div>
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {undergraduate.map((c) => (
-                <ChapterCard key={c.id} chapter={c} />
-              ))}
-            </div>
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {chapters.map((c) => (
+              <ChapterCard key={c.id} chapter={c} />
+            ))}
           </div>
         </div>
       </section>
@@ -64,9 +42,9 @@ export default function ChaptersPage() {
       <section className="bg-neutral-50 py-12">
         <div className="container-omega text-center">
           <p className="font-sans text-sm text-neutral-600">
-            Total chapters coordinated by the Foundation:{" "}
+            Coordinated by{" "}
             <span className="font-semibold text-omega-purple-dark">
-              {chapters.length}
+              One Omega Foundation, Inc.
             </span>
           </p>
         </div>

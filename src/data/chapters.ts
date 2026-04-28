@@ -113,3 +113,9 @@ export const chapters: Chapter[] = [
     website: 'https://tkkomegas.org'
   },
 ]
+
+export const TOTAL_CHAPTERS = chapters.length;
+
+export function getChaptersByType(type: string): Chapter[] {
+  return chapters.filter((chapter) => chapter.area === type);
+}
