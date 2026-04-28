@@ -2,75 +2,52 @@
 
 import { useState } from "react";
 import PageHeader from "@/components/PageHeader";
-
-interface EventItem {
-  title: string;
-  category: string;
-  dateLabel: string;
-  date: string;
-  location: string;
-  status: "upcoming" | "past";
-  body: string;
-}
-
-const EVENTS: EventItem[] = [
-  {
-    title: "Council of Basilei Quarterly Convening",
-    category: "Foundation",
-    dateLabel: "Quarterly · TBA",
-    date: "TBA",
-    location: "Chicago, IL",
-    status: "upcoming",
-    body: "Joint session of all thirteen chapter leaders, hosted rotating across Chicagoland.",
-  },
-  {
-    title: "Chicago Conclave 2028 — Sponsor Briefing",
-    category: "Conclave 2028",
-    dateLabel: "TBA",
-    date: "TBA",
-    location: "Chicago, IL",
-    status: "upcoming",
-    body: "Host committee briefing for prospective sponsors — Founders' Circle and Cardinal Patron tiers.",
-  },
-  {
-    title: "Talent Hunt Citywide Showcase",
-    category: "Scholarship",
-    dateLabel: "Spring 2027 (planned)",
-    date: "TBA",
-    location: "Chicago, IL",
-    status: "upcoming",
-    body: "Coordinated citywide Talent Hunt program drawing high school finalists from across Chicagoland chapters.",
-  },
-  {
-    title: "Foundation Inaugural Reception",
-    category: "Foundation",
-    dateLabel: "Past · TBA",
-    date: "TBA",
-    location: "Chicago, IL",
-    status: "past",
-    body: "Inaugural gathering announcing One Omega Foundation, Inc. as the coordinating entity for thirteen chapters.",
-  },
-];
+import FeaturedEventCard from "@/components/FeaturedEventCard";
+import {
+  events,
+  getFeaturedEvent,
+  type EventStatus,
+} from "@/data/events";
 
 export default function EventsPage() {
-  const [filter, setFilter] = useState<"upcoming" | "past">("upcoming");
-  const visible = EVENTS.filter((e) => e.status === filter);
+  const [filter, setFilter] = useState<EventStatus>("upcoming");
+  const featured = getFeaturedEvent();
+  const visible = events.filter(
+    (e) => e.status === filter && !e.featured
+  );
 
   return (
     <>
       <PageHeader
         eyebrow="Events"
         title="Foundation programming pipeline."
-        description="Coordinated events spanning the thirteen chapters — from quarterly leadership convenings to the road to the 86th Grand Conclave."
+        description="Coordinated events spanning the thirteen chapters — from quarterly leadership convenings to community wellness, and the road to the 86th Grand Conclave."
       />
 
-      <section className="section-omega bg-white">
+      {featured && (
+        <section className="section-omega bg-white">
+          <div className="container-omega">
+            <div className="mb-8 flex items-end justify-between gap-4 flex-wrap">
+              <div className="space-y-2">
+                <span className="eyebrow">Featured · Upcoming</span>
+                <h2 className="heading-section">
+                  Don&rsquo;t miss our next gathering.
+                </h2>
+                <div className="divider-gold" />
+              </div>
+            </div>
+            <FeaturedEventCard event={featured} variant="full" />
+          </div>
+        </section>
+      )}
+
+      <section className="section-omega bg-neutral-50">
         <div className="container-omega">
           <div className="flex items-center justify-between flex-wrap gap-4 mb-10">
             <div
               role="tablist"
               aria-label="Event filter"
-              className="inline-flex p-1 rounded-full bg-neutral-100"
+              className="inline-flex p-1 rounded-full bg-white shadow-chapter ring-1 ring-omega-purple/10"
             >
               {(["upcoming", "past"] as const).map((key) => (
                 <button
@@ -102,7 +79,7 @@ export default function EventsPage() {
           ) : (
             <div className="grid gap-5 md:grid-cols-2">
               {visible.map((e) => (
-                <article key={e.title} className="card-hover p-6 flex flex-col">
+                <article key={e.id} className="card-hover p-6 flex flex-col">
                   <div className="flex items-center justify-between">
                     <span className="eyebrow">{e.category}</span>
                     <span className="font-sans text-xs uppercase tracking-[0.18em] text-neutral-500">
@@ -116,7 +93,7 @@ export default function EventsPage() {
                     {e.location}
                   </p>
                   <p className="mt-4 font-sans text-sm leading-relaxed text-neutral-700 flex-1">
-                    {e.body}
+                    {e.description[0]}
                   </p>
                   <div className="mt-5">
                     <span className="link-omega text-sm font-medium">
