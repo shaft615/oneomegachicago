@@ -1,154 +1,115 @@
-export type ChapterType = "undergraduate" | "graduate";
-
 export interface Chapter {
-  /** URL-safe identifier — used for routing and React keys */
-  id: string;
-  /** Full Greek chapter name, e.g. "Alpha Kappa Kappa" */
-  name: string;
-  /** Short letter abbreviation displayed on the ChapterCard, e.g. "AKK" */
-  letters: string;
-  /** Graduate (alumni) or Undergraduate (collegiate) chapter */
-  type: ChapterType;
-  /** City / area of operation within the Chicagoland region */
-  area: string;
-  /** Year chartered, when known */
-  chartered?: number;
-  /** Public-facing meeting location, when published */
-  meetingLocation?: string;
-  /** Chapter website URL, when available */
-  website?: string;
-  /** Public contact address, when available */
-  email?: string;
-  /** Short marketing blurb shown on cards / chapter directory */
-  description?: string;
-  /** True when chapter info is still being collected — card renders a "Details coming soon" state */
-  placeholder?: boolean;
+  id:          string
+  name:        string
+  designation: string
+  area:        string
+  basileus:    string
+  website?:    string
 }
 
-/**
- * 13 Chicagoland chapters of Omega Psi Phi Fraternity, Inc.
- * coordinated by One Omega Foundation, Inc.
- *
- * 3 chapters identified by name; remaining 10 are placeholders
- * pending verified detail from the Foundation. Update each entry's
- * `placeholder: false` once chartering, area, and contact data are confirmed.
- */
 export const chapters: Chapter[] = [
   {
-    id: "alpha-kappa-kappa",
-    name: "Alpha Kappa Kappa",
-    letters: "AKK",
-    type: "graduate",
-    area: "Chicago, IL",
-    description:
-      "Graduate chapter serving the broader Chicago metropolitan area through scholarship, mentorship, and civic engagement.",
+    id: 'ax',
+    name: 'Alpha Chi',
+    designation: 'AX',
+    area: 'Gary, Indiana',
+    basileus: 'Bro. Alex Dunlap',
+    website: 'https://alphachiques.com'
   },
   {
-    id: "epsilon-eta",
-    name: "Epsilon Eta",
-    letters: "EE",
-    type: "graduate",
-    area: "Chicagoland",
-    description:
-      "Long-standing graduate chapter contributing to community uplift, voter education, and youth development across Chicagoland.",
+    id: 'akk',
+    name: 'Alpha Kappa Kappa',
+    designation: 'AKK',
+    area: 'Chicagoland',
+    basileus: 'Bro. Christopher Vincent',
+    website: undefined
   },
   {
-    id: "rho-tau",
-    name: "Rho Tau",
-    letters: "PT",
-    type: "graduate",
-    area: "Chicagoland",
-    description:
-      "Graduate chapter advancing the Cardinal Principles of Manhood, Scholarship, Perseverance, and Uplift in service of the community.",
+    id: 'xll',
+    name: 'Chi Lambda Lambda',
+    designation: 'XLL',
+    area: 'Chicagoland',
+    basileus: 'Bro. Karl Bryant',
+    website: 'https://www.chilambdalambda.com'
   },
   {
-    id: "chapter-04",
-    name: "Chapter Name TBA",
-    letters: "TBA",
-    type: "graduate",
-    area: "Chicagoland",
-    placeholder: true,
+    id: 'ee',
+    name: 'Epsilon Eta',
+    designation: 'EE',
+    area: 'Chicagoland',
+    basileus: 'Bro. Daniel Piolet',
+    website: undefined
   },
   {
-    id: "chapter-05",
-    name: "Chapter Name TBA",
-    letters: "TBA",
-    type: "graduate",
-    area: "Chicagoland",
-    placeholder: true,
+    id: 'iota',
+    name: 'Iota',
+    designation: 'Ι',
+    area: 'Chicagoland',
+    basileus: 'Bro. Eddie Morrow',
+    website: 'https://iotachapterques.org'
   },
   {
-    id: "chapter-06",
-    name: "Chapter Name TBA",
-    letters: "TBA",
-    type: "graduate",
-    area: "Chicagoland",
-    placeholder: true,
+    id: 'mx',
+    name: 'Mu Xi',
+    designation: 'ΜΞ',
+    area: 'Chicagoland',
+    basileus: 'Bro. Bryce O. Walker',
+    website: 'https://muxichapter.org'
   },
   {
-    id: "chapter-07",
-    name: "Chapter Name TBA",
-    letters: "TBA",
-    type: "graduate",
-    area: "Chicagoland",
-    placeholder: true,
+    id: 'np',
+    name: 'Nu Pi',
+    designation: 'ΝΠ',
+    area: 'Chicagoland',
+    basileus: 'Bro. DeMarco Hughes',
+    website: 'https://www.nupiques.org'
   },
   {
-    id: "chapter-08",
-    name: "Chapter Name TBA",
-    letters: "TBA",
-    type: "graduate",
-    area: "Chicagoland",
-    placeholder: true,
+    id: 'omm',
+    name: 'Omicron Mu Mu',
+    designation: 'ΟΜΜ',
+    area: 'Lansing / South Suburban',
+    basileus: 'Bro. Darren Brady',
+    website: 'https://omicronmumu.com'
   },
   {
-    id: "chapter-09",
-    name: "Chapter Name TBA",
-    letters: "TBA",
-    type: "undergraduate",
-    area: "Chicagoland",
-    placeholder: true,
+    id: 'rgg',
+    name: 'Rho Gamma Gamma',
+    designation: 'ΡΓΓ',
+    area: 'Chicagoland',
+    basileus: 'Bro. Willie Baker',
+    website: 'https://rhogammagamma.org'
   },
   {
-    id: "chapter-10",
-    name: "Chapter Name TBA",
-    letters: "TBA",
-    type: "undergraduate",
-    area: "Chicagoland",
-    placeholder: true,
+    id: 'rmm',
+    name: 'Rho Mu Mu',
+    designation: 'ΡΜΜ',
+    area: 'Chicagoland',
+    basileus: 'Bro. Vince Davis',
+    website: 'https://www.pmmques.org'
   },
   {
-    id: "chapter-11",
-    name: "Chapter Name TBA",
-    letters: "TBA",
-    type: "undergraduate",
-    area: "Chicagoland",
-    placeholder: true,
+    id: 'rt',
+    name: 'Rho Tau',
+    designation: 'PT',
+    area: 'Chicagoland',
+    basileus: 'Bro. Tommy Anderson',
+    website: 'https://www.rhotau1961.org'
   },
   {
-    id: "chapter-12",
-    name: "Chapter Name TBA",
-    letters: "TBA",
-    type: "undergraduate",
-    area: "Chicagoland",
-    placeholder: true,
+    id: 'so',
+    name: 'Sigma Omega',
+    designation: 'ΣΩ',
+    area: 'South Suburban',
+    basileus: 'Bro. Dathon K. O\'Banion',
+    website: 'https://www.sigma-omega.org'
   },
   {
-    id: "chapter-13",
-    name: "Chapter Name TBA",
-    letters: "TBA",
-    type: "undergraduate",
-    area: "Chicagoland",
-    placeholder: true,
+    id: 'tkk',
+    name: 'Theta Kappa Kappa',
+    designation: 'ΘΚΚ',
+    area: 'Chicagoland',
+    basileus: 'Bro. Mauricio Rainey',
+    website: 'https://tkkomegas.org'
   },
-];
-
-export const TOTAL_CHAPTERS = chapters.length;
-
-export function getChapterById(id: string): Chapter | undefined {
-  return chapters.find((c) => c.id === id);
-}
-
-export function getChaptersByType(type: ChapterType): Chapter[] {
-  return chapters.filter((c) => c.type === type);
-}
+]
