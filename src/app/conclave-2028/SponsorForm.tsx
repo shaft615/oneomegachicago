@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { submitToFormspree, type FormStatus } from "@/lib/forms";
+import { type FormStatus } from "@/lib/forms";
 import { StatusError, SuccessPanel } from "@/components/FormFeedback";
 
 export default function SponsorForm() {
@@ -13,14 +13,16 @@ export default function SponsorForm() {
     setStatus("submitting");
 
     const form = e.currentTarget;
-    const data = Object.fromEntries(new FormData(form).entries());
+    const formData = Object.fromEntries(new FormData(form).entries());
 
     try {
-      const ok = await submitToFormspree({
-        ...data,
-        _form: "conclave-2028-sponsor",
+      const response = await fetch("https://formspree.io/f/xgorjngd", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
-      if (ok) {
+
+      if (response.ok) {
         setStatus("success");
         form.reset();
       } else {

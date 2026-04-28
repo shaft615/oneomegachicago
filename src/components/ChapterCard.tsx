@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Chapter } from "@/data/chapters";
 
@@ -8,12 +9,24 @@ export default function ChapterCard({ chapter }: { chapter: Chapter }) {
   return (
     <article className="card-hover relative overflow-hidden p-6 flex flex-col h-full">
       <div className="flex items-start justify-between gap-4">
-        <div
-          className={`grid h-14 min-w-14 px-3 place-items-center rounded-2xl bg-regalia-gradient text-white font-display ${designationSize} font-semibold tracking-regalia shadow-chapter`}
-          aria-hidden
-        >
-          {chapter.designation}
-        </div>
+        {chapter.logo ? (
+          <div className="grid h-20 w-20 place-items-center rounded-2xl bg-white ring-1 ring-omega-purple/10 shadow-chapter p-2">
+            <Image
+              src={chapter.logo}
+              alt={chapter.name}
+              width={80}
+              height={80}
+              className="object-contain h-full w-full"
+            />
+          </div>
+        ) : (
+          <div
+            className={`grid h-20 min-w-20 px-3 place-items-center rounded-2xl bg-regalia-gradient text-white font-display ${designationSize} font-semibold tracking-regalia shadow-chapter`}
+            aria-hidden
+          >
+            {chapter.designation}
+          </div>
+        )}
         <span className="eyebrow text-omega-gold text-right">
           {chapter.area}
         </span>

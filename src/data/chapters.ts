@@ -5,6 +5,7 @@ export interface Chapter {
   area:        string
   basileus:    string
   website?:    string
+  logo?:       string
 }
 
 export const chapters: Chapter[] = [
@@ -14,7 +15,8 @@ export const chapters: Chapter[] = [
     designation: 'AX',
     area: 'Gary, Indiana',
     basileus: 'Bro. Alex Dunlap',
-    website: 'https://alphachiques.com'
+    website: 'https://alphachiques.com',
+    logo: '/chapters/ax.png'
   },
   {
     id: 'akk',
@@ -22,7 +24,8 @@ export const chapters: Chapter[] = [
     designation: 'AKK',
     area: 'Chicagoland',
     basileus: 'Bro. Christopher Vincent',
-    website: undefined
+    website: undefined,
+    logo: undefined
   },
   {
     id: 'xll',
@@ -30,7 +33,8 @@ export const chapters: Chapter[] = [
     designation: 'ΧΛΛ',
     area: 'Chicagoland',
     basileus: 'Bro. Karl Bryant',
-    website: 'https://www.chilambdalambda.com'
+    website: 'https://www.chilambdalambda.com',
+    logo: '/chapters/xll.png'
   },
   {
     id: 'ee',
@@ -38,7 +42,8 @@ export const chapters: Chapter[] = [
     designation: 'ΕΗ',
     area: 'Chicagoland',
     basileus: 'Bro. Daniel Piolet',
-    website: undefined
+    website: undefined,
+    logo: undefined
   },
   {
     id: 'iota',
@@ -46,7 +51,8 @@ export const chapters: Chapter[] = [
     designation: 'Ι',
     area: 'Chicagoland',
     basileus: 'Bro. Eddie Morrow',
-    website: 'https://iotachapterques.org'
+    website: 'https://iotachapterques.org',
+    logo: '/chapters/iota.png'
   },
   {
     id: 'mx',
@@ -54,7 +60,8 @@ export const chapters: Chapter[] = [
     designation: 'ΜΞ',
     area: 'Chicagoland',
     basileus: 'Bro. Bryce O. Walker',
-    website: 'https://muxichapter.org'
+    website: 'https://muxichapter.org',
+    logo: '/chapters/mx.png'
   },
   {
     id: 'np',
@@ -62,7 +69,8 @@ export const chapters: Chapter[] = [
     designation: 'ΝΠ',
     area: 'Chicagoland',
     basileus: 'Bro. DeMarco Hughes',
-    website: 'https://www.nupiques.org'
+    website: 'https://www.nupiques.org',
+    logo: '/chapters/np.png'
   },
   {
     id: 'omm',
@@ -70,7 +78,8 @@ export const chapters: Chapter[] = [
     designation: 'ΟΜΜ',
     area: 'Lansing / South Suburban',
     basileus: 'Bro. Darren Brady',
-    website: 'https://omicronmumu.com'
+    website: 'https://omicronmumu.com',
+    logo: '/chapters/omm.png'
   },
   {
     id: 'rgg',
@@ -78,7 +87,8 @@ export const chapters: Chapter[] = [
     designation: 'ΡΓΓ',
     area: 'Chicagoland',
     basileus: 'Bro. Willie Baker',
-    website: 'https://rhogammagamma.org'
+    website: 'https://rhogammagamma.org',
+    logo: '/chapters/rgg.png'
   },
   {
     id: 'rmm',
@@ -86,7 +96,8 @@ export const chapters: Chapter[] = [
     designation: 'ΡΜΜ',
     area: 'Chicagoland',
     basileus: 'Bro. Vince Davis',
-    website: 'https://www.pmmques.org'
+    website: 'https://www.pmmques.org',
+    logo: '/chapters/rmm.png'
   },
   {
     id: 'rt',
@@ -94,7 +105,8 @@ export const chapters: Chapter[] = [
     designation: 'PT',
     area: 'Chicagoland',
     basileus: 'Bro. Tommy Anderson',
-    website: 'https://www.rhotau1961.org'
+    website: 'https://www.rhotau1961.org',
+    logo: undefined
   },
   {
     id: 'so',
@@ -102,7 +114,8 @@ export const chapters: Chapter[] = [
     designation: 'ΣΩ',
     area: 'South Suburban',
     basileus: 'Bro. Dathon K. O\'Banion',
-    website: 'https://www.sigma-omega.org'
+    website: 'https://www.sigma-omega.org',
+    logo: '/chapters/so.png'
   },
   {
     id: 'tkk',
@@ -110,7 +123,8 @@ export const chapters: Chapter[] = [
     designation: 'ΘΚΚ',
     area: 'Chicagoland',
     basileus: 'Bro. Mauricio Rainey',
-    website: 'https://tkkomegas.org'
+    website: 'https://tkkomegas.org',
+    logo: '/chapters/tkk.png'
   },
 ]
 
