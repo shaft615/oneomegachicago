@@ -67,9 +67,9 @@ export default function ConclaveCountdown() {
           </h2>
           <div className="divider-gold" />
           <p className="font-sans text-white/85 leading-relaxed">
-            Every four years, the brothers of Omega Psi Phi convene for the
-            Grand Conclave. In 2028, that gathering returns to Chicago — hosted
-            by One Omega Foundation, Inc.
+            Every two years, the brothers of Omega Psi Phi convene for the
+            Grand Conclave. In 2028, that gathering returns to Chicago after
+            79 years — hosted by One Omega Foundation, Inc.
           </p>
           <div className="flex flex-wrap gap-3 pt-2">
             <Link href="/conclave-2028" className="btn-gold">
