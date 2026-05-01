@@ -3,6 +3,7 @@
 import { useState } from "react";
 import PageHeader from "@/components/PageHeader";
 import FeaturedEventCard from "@/components/FeaturedEventCard";
+import BrotherRegistrationForm from "./BrotherRegistrationForm";
 import {
   events,
   getFeaturedEvent,
@@ -25,20 +26,23 @@ export default function EventsPage() {
       />
 
       {featured && (
-        <section className="section-omega bg-white">
-          <div className="container-omega">
-            <div className="mb-8 flex items-end justify-between gap-4 flex-wrap">
-              <div className="space-y-2">
-                <span className="eyebrow">Featured · Upcoming</span>
-                <h2 className="heading-section">
-                  Don&rsquo;t miss our next gathering.
-                </h2>
-                <div className="divider-gold" />
+        <>
+          <section className="section-omega bg-white">
+            <div className="container-omega">
+              <div className="mb-8 flex items-end justify-between gap-4 flex-wrap">
+                <div className="space-y-2">
+                  <span className="eyebrow">Featured · Upcoming</span>
+                  <h2 className="heading-section">
+                    Don&rsquo;t miss our next gathering.
+                  </h2>
+                  <div className="divider-gold" />
+                </div>
               </div>
+              <FeaturedEventCard event={featured} variant="full" />
             </div>
-            <FeaturedEventCard event={featured} variant="full" />
-          </div>
-        </section>
+          </section>
+          <BrotherRegistrationForm />
+        </>
       )}
 
       <section className="section-omega bg-neutral-50">
