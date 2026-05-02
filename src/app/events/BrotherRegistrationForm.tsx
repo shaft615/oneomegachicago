@@ -56,7 +56,6 @@ export default function BrotherRegistrationForm() {
 
       <div className="container-omega relative max-w-4xl">
         <div className="text-center space-y-3 mb-8">
-          <span className="eyebrow">Step 2 · Brother Registration</span>
           <h2 className="heading-section">
             Brother Registration — Confirm Your Participation
           </h2>
@@ -129,6 +128,20 @@ export default function BrotherRegistrationForm() {
           >
             {/* Hidden event identifier */}
             <input type="hidden" name="event" value={EVENT_LABEL} />
+
+            {/* Step 2 header */}
+            <div className="border-b border-omega-purple/10 pb-5">
+              <span className="font-sans text-[11px] font-semibold uppercase tracking-[0.22em] text-omega-purple-dark">
+                Step 2
+              </span>
+              <h3 className="mt-2 font-display text-xl sm:text-2xl font-semibold text-omega-purple-dark">
+                Confirm your participation
+              </h3>
+              <p className="mt-2 font-sans text-sm leading-relaxed text-neutral-600">
+                Once you&rsquo;ve registered on Eventbrite above, complete the
+                form below so the Foundation can track your attendance.
+              </p>
+            </div>
 
             {/* Name row */}
             <div className="grid sm:grid-cols-2 gap-5">

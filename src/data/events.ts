@@ -76,7 +76,6 @@ export const events: Event[] = [
     flyer: "/events/Fathers Day Cookowt Flyer.jpeg",
     callout:
       "⭐ Arrive Early — Parking fills fast and health screenings begin at 7:00 AM sharp.",
-    registration: "None required — free community event",
     link: "https://www.eventbrite.com/e/2026-black-mens-wellness-day-chicago-tickets-1944149807409",
     status: "upcoming",
     featured: true,
