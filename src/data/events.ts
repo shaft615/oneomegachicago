@@ -1,3 +1,28 @@
+/**
+ * Events data — single source of truth for the calendar, /events page,
+ * and homepage featured-event banner.
+ *
+ * MAINTENANCE WORKFLOW (Path B — Foundation-curated):
+ *   1. A chapter submits via /events/submit → Formspree notifies the
+ *      Foundation events inbox.
+ *   2. The Foundation reviews the submission and adds an entry to the
+ *      `events` array below.
+ *   3. Commit + push → Vercel auto-deploys → event appears on the calendar.
+ *
+ * DATE FORMAT — `start` and `end` are ISO 8601 strings WITH timezone offset:
+ *   - Central Daylight Time (CDT, ~Mar–Nov):  "2026-06-20T07:00:00-05:00"
+ *   - Central Standard Time (CST, ~Nov–Mar):  "2026-12-15T18:00:00-06:00"
+ *
+ * HOST CHAPTER — set `hostChapter` to the chapter's designation
+ *   (e.g. "ΧΛΛ", "AKK") for chapter events; leave undefined for Foundation-
+ *   wide events. The calendar shows the designation as a badge on each entry.
+ *
+ * RECURRING EVENTS — `recurrence` is a free-form label ("Quarterly",
+ *   "Monthly · 1st Saturday", "Annual · June"). The calendar shows only
+ *   the explicit `start` instance; create separate entries for each
+ *   occurrence you want visible on the grid.
+ */
+
 export type EventStatus = "upcoming" | "past";
 
 export interface Event {
@@ -5,6 +30,16 @@ export interface Event {
   title: string;
   host: string;
   category: string;
+  /** ISO 8601 datetime with timezone offset — REQUIRED for calendar positioning */
+  start: string;
+  /** Optional end datetime (ISO 8601 with offset). If omitted, event is treated as starting at `start` only. */
+  end?: string;
+  /** Chapter designation badge (e.g. "ΧΛΛ", "AKK"); undefined for Foundation events */
+  hostChapter?: string;
+  /** Free-form recurrence label, e.g. "Quarterly", "Monthly · 1st Saturday" */
+  recurrence?: string;
+  /** Registration / RSVP / external link URL */
+  link?: string;
   /** Display label for the date, e.g. "Friday, June 20, 2025" */
   dateLabel: string;
   /** Display label for the time window, optional */
@@ -29,6 +64,8 @@ export const events: Event[] = [
     title: "3rd Annual Father's Day CookOwt & Black Men's Wellness Day",
     host: "One Omega Foundation / Chicagoland Omega Chapters",
     category: "Community · Wellness",
+    start: "2026-06-20T07:00:00-05:00",
+    end: "2026-06-20T21:00:00-05:00",
     dateLabel: "Saturday, June 20, 2026",
     timeLabel: "7:00 AM – 9:00 PM",
     location: "Jackson Park, Chicago, IL",
@@ -40,15 +77,18 @@ export const events: Event[] = [
     callout:
       "⭐ Arrive Early — Parking fills fast and health screenings begin at 7:00 AM sharp.",
     registration: "None required — free community event",
+    link: "https://www.eventbrite.com/e/2026-black-mens-wellness-day-chicago-tickets-1944149807409",
     status: "upcoming",
     featured: true,
   },
   {
-    id: "council-basilei-quarterly",
+    id: "council-basilei-q3-2026",
     title: "Council of Basilei Quarterly Convening",
     host: "One Omega Foundation",
     category: "Foundation",
-    dateLabel: "Quarterly · TBA",
+    start: "2026-07-18T10:00:00-05:00",
+    recurrence: "Quarterly",
+    dateLabel: "Quarterly · TBA (placeholder date)",
     location: "Chicago, IL",
     description: [
       "Joint session of all thirteen chapter leaders, hosted rotating across Chicagoland.",
@@ -56,11 +96,12 @@ export const events: Event[] = [
     status: "upcoming",
   },
   {
-    id: "conclave-sponsor-briefing",
+    id: "conclave-sponsor-briefing-2026",
     title: "Chicago Conclave 2028 — Sponsor Briefing",
     host: "Conclave 2028 Host Committee",
     category: "Conclave 2028",
-    dateLabel: "TBA",
+    start: "2026-09-12T18:00:00-05:00",
+    dateLabel: "TBA (placeholder date)",
     location: "Chicago, IL",
     description: [
       "Host committee briefing for prospective sponsors — Founders' Circle and Cardinal Patron tiers.",
@@ -72,6 +113,7 @@ export const events: Event[] = [
     title: "Talent Hunt Citywide Showcase",
     host: "Chicagoland Omega Chapters",
     category: "Scholarship",
+    start: "2027-04-24T14:00:00-05:00",
     dateLabel: "Spring 2027 (planned)",
     location: "Chicago, IL",
     description: [
@@ -84,7 +126,8 @@ export const events: Event[] = [
     title: "Foundation Inaugural Reception",
     host: "One Omega Foundation",
     category: "Foundation",
-    dateLabel: "Past · TBA",
+    start: "2025-11-15T18:00:00-06:00",
+    dateLabel: "November 2025",
     location: "Chicago, IL",
     description: [
       "Inaugural gathering announcing One Omega Foundation, Inc. as the coordinating entity for thirteen chapters.",
@@ -99,4 +142,30 @@ export function getFeaturedEvent(): Event | undefined {
 
 export function getNonFeaturedEventsByStatus(status: EventStatus): Event[] {
   return events.filter((e) => e.status === status && !e.featured);
+}
+
+/** Sort by start date ascending. */
+export function sortByStart(list: Event[]): Event[] {
+  return [...list].sort(
+    (a, b) => new Date(a.start).getTime() - new Date(b.start).getTime()
+  );
+}
+
+/** Group events by their YYYY-MM-DD start date for fast calendar lookup. */
+export function groupByDay(list: Event[]): Map<string, Event[]> {
+  const out = new Map<string, Event[]>();
+  for (const e of list) {
+    const key = isoDateKey(new Date(e.start));
+    const arr = out.get(key) ?? [];
+    arr.push(e);
+    out.set(key, arr);
+  }
+  return out;
+}
+
+export function isoDateKey(d: Date): string {
+  const yyyy = d.getFullYear();
+  const mm = String(d.getMonth() + 1).padStart(2, "0");
+  const dd = String(d.getDate()).padStart(2, "0");
+  return `${yyyy}-${mm}-${dd}`;
 }

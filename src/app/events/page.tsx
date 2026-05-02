@@ -1,21 +1,11 @@
-"use client";
-
-import { useState } from "react";
 import PageHeader from "@/components/PageHeader";
 import FeaturedEventCard from "@/components/FeaturedEventCard";
 import BrotherRegistrationForm from "./BrotherRegistrationForm";
-import {
-  events,
-  getFeaturedEvent,
-  type EventStatus,
-} from "@/data/events";
+import EventCalendar from "@/components/calendar/EventCalendar";
+import { getFeaturedEvent } from "@/data/events";
 
 export default function EventsPage() {
-  const [filter, setFilter] = useState<EventStatus>("upcoming");
   const featured = getFeaturedEvent();
-  const visible = events.filter(
-    (e) => e.status === filter && !e.featured
-  );
 
   return (
     <>
@@ -47,67 +37,22 @@ export default function EventsPage() {
 
       <section className="section-omega bg-neutral-50">
         <div className="container-omega">
-          <div className="flex items-center justify-between flex-wrap gap-4 mb-10">
-            <div
-              role="tablist"
-              aria-label="Event filter"
-              className="inline-flex p-1 rounded-full bg-white shadow-chapter ring-1 ring-omega-purple/10"
-            >
-              {(["upcoming", "past"] as const).map((key) => (
-                <button
-                  key={key}
-                  role="tab"
-                  aria-selected={filter === key}
-                  onClick={() => setFilter(key)}
-                  className={`px-5 py-2 rounded-full font-sans text-sm font-medium transition ${
-                    filter === key
-                      ? "bg-omega-purple text-white shadow-regalia"
-                      : "text-omega-purple-dark hover:bg-omega-purple/10"
-                  }`}
-                >
-                  {key === "upcoming" ? "Upcoming" : "Past Archive"}
-                </button>
-              ))}
-            </div>
-            <span className="font-sans text-sm text-neutral-500">
-              {visible.length} {visible.length === 1 ? "event" : "events"}
-            </span>
-          </div>
-
-          {visible.length === 0 ? (
-            <div className="card p-10 text-center">
-              <p className="font-sans text-neutral-600">
-                No {filter} events to display yet.
+          <div className="mb-10 flex items-end justify-between gap-4 flex-wrap">
+            <div className="space-y-2 max-w-2xl">
+              <span className="eyebrow">Calendar</span>
+              <h2 className="heading-section">
+                Foundation &amp; chapter event calendar.
+              </h2>
+              <div className="divider-gold" />
+              <p className="font-sans text-base leading-relaxed text-neutral-700">
+                Every coordinated event across the Chicagoland Thirteen, in one
+                view. Toggle between month and agenda — chapters can submit
+                their own events for inclusion.
               </p>
             </div>
-          ) : (
-            <div className="grid gap-5 md:grid-cols-2">
-              {visible.map((e) => (
-                <article key={e.id} className="card-hover p-6 flex flex-col">
-                  <div className="flex items-center justify-between">
-                    <span className="eyebrow">{e.category}</span>
-                    <span className="font-sans text-xs uppercase tracking-[0.18em] text-neutral-500">
-                      {e.dateLabel}
-                    </span>
-                  </div>
-                  <h3 className="mt-4 font-display text-xl font-semibold text-omega-purple-dark">
-                    {e.title}
-                  </h3>
-                  <p className="mt-2 font-sans text-sm text-neutral-500">
-                    {e.location}
-                  </p>
-                  <p className="mt-4 font-sans text-sm leading-relaxed text-neutral-700 flex-1">
-                    {e.description[0]}
-                  </p>
-                  <div className="mt-5">
-                    <span className="link-omega text-sm font-medium">
-                      Details coming soon →
-                    </span>
-                  </div>
-                </article>
-              ))}
-            </div>
-          )}
+          </div>
+
+          <EventCalendar />
         </div>
       </section>
     </>
