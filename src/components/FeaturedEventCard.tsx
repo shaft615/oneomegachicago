@@ -121,6 +121,17 @@ export default function FeaturedEventCard({
               <span className="font-semibold">{event.registration}</span>
             </p>
           )}
+
+          {isFull && event.registerHref && (
+            <div className="mt-6">
+              <a
+                href={event.registerHref}
+                className="btn-gold text-omega-purple-dark inline-flex items-center gap-2"
+              >
+                Register below ↓
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </article>

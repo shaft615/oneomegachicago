@@ -40,6 +40,8 @@ export interface Event {
   recurrence?: string;
   /** Registration / RSVP / external link URL */
   link?: string;
+  /** Anchor link (e.g. "#register") for an in-page registration form below the card; renders a "Register below ↓" CTA in the full event card */
+  registerHref?: string;
   /** Display label for the date, e.g. "Friday, June 20, 2025" */
   dateLabel: string;
   /** Display label for the time window, optional */
@@ -77,6 +79,7 @@ export const events: Event[] = [
     callout:
       "⭐ Arrive Early — Parking fills fast and health screenings begin at 7:00 AM sharp.",
     link: "https://www.eventbrite.com/e/2026-black-mens-wellness-day-chicago-tickets-1944149807409",
+    registerHref: "#register",
     status: "upcoming",
     featured: true,
   },

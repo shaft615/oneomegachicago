@@ -44,7 +44,10 @@ export default function BrotherRegistrationForm() {
   }
 
   return (
-    <section className="relative section-omega bg-omega-purple/5 border-t border-omega-purple/10">
+    <section
+      id="register"
+      className="relative section-omega bg-omega-purple/5 border-t border-omega-purple/10 scroll-mt-24"
+    >
       <div
         className="absolute inset-0 opacity-[0.04] pointer-events-none"
         style={{
