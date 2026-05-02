@@ -41,7 +41,9 @@ export default function FeaturedEventCard({
           } p-8 sm:p-10 flex flex-col`}
         >
           <span className="eyebrow text-omega-gold">
-            Featured Event · {event.category}
+            {event.featured
+              ? `Featured Event · ${event.category}`
+              : `${event.hostChapter ?? "Foundation"} · ${event.category}`}
           </span>
           <h3
             className={`mt-3 font-display font-semibold text-omega-purple-dark ${
