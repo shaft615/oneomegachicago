@@ -84,6 +84,27 @@ export const events: Event[] = [
     featured: true,
   },
   {
+    id: "women-of-excellence-2026",
+    title: "Mother's Day Women of Excellence Gospel Brunch & Awards Ceremony",
+    host: "The Uplift Foundation in association with Chi Lambda Lambda (ΧΛΛ)",
+    hostChapter: "ΧΛΛ",
+    category: "Community",
+    start: "2026-05-09T11:00:00-05:00",
+    end: "2026-05-09T15:00:00-05:00",
+    recurrence: "Annual",
+    dateLabel: "Saturday, May 9, 2026",
+    timeLabel: "11:00 AM – 3:00 PM (doors open at 11:00 AM)",
+    location:
+      "Tuscany Falls Banquets & Events, 9425 W 191st St, Mokena, IL 60448",
+    description: [
+      "An afternoon of gospel, community, and recognition — honoring the Women of Excellence in our lives. Co-hosted by The Uplift Foundation and the Chi Lambda Lambda Chapter of Omega Psi Phi Fraternity, Inc.",
+      "Tickets — Early Bird: $75 · General Admission: $85 · Tables: $750.",
+    ],
+    flyer: "/events/MothersDay.jpeg",
+    link: "https://chilambdalambda.wildapricot.org/event-6556815",
+    status: "upcoming",
+  },
+  {
     id: "coleman-love-2026",
     title: "Coleman Love",
     host: "Chi Lambda Lambda (ΧΛΛ)",
