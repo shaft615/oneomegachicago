@@ -88,6 +88,21 @@ export default function Conclave2028Page() {
                 </li>
               </ul>
             </div>
+
+            <Link
+              href="/que-years-eve"
+              className="block rounded-2xl bg-regalia-gradient text-white p-5 ring-1 ring-omega-gold/40 shadow-regalia hover:shadow-gilded transition"
+            >
+              <span className="eyebrow text-omega-gold">
+                Also Available
+              </span>
+              <div className="mt-2 font-display text-lg font-semibold text-white">
+                Que Year&rsquo;s Eve<sup>™</sup> 2026 Sponsorship
+              </div>
+              <p className="mt-1 font-sans text-sm text-white/80">
+                The Foundation&rsquo;s NYE gala — four sponsorship tiers from $2.5K to $15K. View prospectus →
+              </p>
+            </Link>
           </aside>
         </div>
       </section>

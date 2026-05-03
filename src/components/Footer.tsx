@@ -85,6 +85,14 @@ export default function Footer() {
             </li>
             <li>
               <Link
+                href="/que-years-eve"
+                className="hover:text-omega-gold transition-colors"
+              >
+                Que Year&rsquo;s Eve Sponsorship
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/contact?type=volunteer"
                 className="hover:text-omega-gold transition-colors"
               >

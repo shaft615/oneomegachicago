@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import ContactForm from "./ContactForm";
 
@@ -59,6 +60,22 @@ export default function ContactPage() {
                 </li>
               ))}
             </ul>
+
+            {/* Que Year's Eve sponsorship CTA */}
+            <Link
+              href="/que-years-eve"
+              className="mt-6 block rounded-2xl bg-regalia-gradient text-white p-5 ring-1 ring-omega-gold/40 shadow-regalia hover:shadow-gilded transition group"
+            >
+              <span className="eyebrow text-omega-gold">
+                NYE Sponsorship
+              </span>
+              <div className="mt-2 font-display text-lg font-semibold text-white">
+                Que Year&rsquo;s Eve<sup>™</sup> 2026
+              </div>
+              <p className="mt-1 font-sans text-sm text-white/80">
+                Four sponsorship tiers from $2,500 to $15,000. View prospectus &amp; reserve your level →
+              </p>
+            </Link>
           </aside>
 
           <div className="lg:col-span-7">
