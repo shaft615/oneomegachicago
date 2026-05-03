@@ -1,6 +1,7 @@
 import PageHeader from "@/components/PageHeader";
 import FeaturedEventCard from "@/components/FeaturedEventCard";
 import FlyerEventGallery from "@/components/FlyerEventGallery";
+import PastEventHighlights from "@/components/PastEventHighlights";
 import BrotherRegistrationForm from "./BrotherRegistrationForm";
 import EventCalendar from "@/components/calendar/EventCalendar";
 import { getFeaturedEvent } from "@/data/events";
@@ -48,6 +49,8 @@ export default function EventsPage() {
       )}
 
       <FlyerEventGallery />
+
+      <PastEventHighlights />
 
       <section
         id="calendar"

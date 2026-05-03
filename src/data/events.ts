@@ -165,6 +165,28 @@ export const events: Event[] = [
     status: "upcoming",
   },
   {
+    id: "pg-affair-nye-2025",
+    title: "The P&G Affair — A New Year's Eve Experience",
+    host: "Lambda Tau Omega Chapter, Alpha Kappa Alpha Sorority, Inc. & Chi Lambda Lambda Chapter, Omega Psi Phi Fraternity, Inc.",
+    hostChapter: "ΧΛΛ",
+    category: "Social",
+    start: "2025-12-31T20:00:00-06:00",
+    end: "2026-01-01T02:00:00-06:00",
+    dateLabel: "Wednesday, December 31, 2025",
+    timeLabel: "8:00 PM – 2:00 AM",
+    location:
+      "Marriott Marquis Chicago, 2121 S Prairie Ave, Chicago, IL 60616",
+    description: [
+      "An unforgettable New Year's Eve, co-hosted by the Lambda Tau Omega Chapter of Alpha Kappa Alpha Sorority, Inc. and the Chi Lambda Lambda Chapter of Omega Psi Phi Fraternity, Inc., at the Marriott Marquis Chicago.",
+      "Live entertainment from Windy Indie® · Sounds by DJ PHOKISS · Guest appearance by DJ Craig Elliott.",
+    ],
+    flyer: "/events/PGAffair_NYE.jpg",
+    callout:
+      "🎉 Thank you to everyone who came out and rang in 2026 with us!",
+    link: "https://pgaffair.com",
+    status: "past",
+  },
+  {
     id: "foundation-inaugural",
     title: "Foundation Inaugural Reception",
     host: "One Omega Foundation",
