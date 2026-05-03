@@ -354,17 +354,27 @@ export default function QyeSponsorshipPlan() {
                   </th>
                   {TIERS.slice()
                     .reverse()
-                    .map((t) => (
-                      <th
-                        key={t.key}
-                        className="p-4 font-semibold text-center"
-                      >
-                        <div className="font-display text-base">{t.name}</div>
-                        <div className="font-sans text-xs text-omega-gold mt-1">
-                          {formatPrice(t.price)}
-                        </div>
-                      </th>
-                    ))}
+                    .map((t) => {
+                      const isPremium =
+                        t.key === "omega" || t.key === "purple";
+                      return (
+                        <th
+                          key={t.key}
+                          className="p-4 font-semibold text-center"
+                        >
+                          <div
+                            className={`font-display text-base ${
+                              isPremium ? "text-omega-gold" : "text-white"
+                            }`}
+                          >
+                            {t.name}
+                          </div>
+                          <div className="font-sans text-xs text-omega-gold mt-1">
+                            {formatPrice(t.price)}
+                          </div>
+                        </th>
+                      );
+                    })}
                 </tr>
               </thead>
               <tbody>
