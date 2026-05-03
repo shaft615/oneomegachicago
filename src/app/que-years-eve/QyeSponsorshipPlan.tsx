@@ -28,7 +28,7 @@ const TIERS: Tier[] = [
     price: 15000,
     blurb: "Premier presenting sponsorship with full activation rights.",
     emphasis: true,
-    card: "bg-regalia-gradient text-white ring-omega-gold/40",
+    card: "bg-regalia-gradient text-omega-gold ring-omega-gold/40",
     badge: "bg-omega-gold text-omega-purple-dark",
     benefits: [
       "Exclusive presenting sponsorship designation",
@@ -50,7 +50,7 @@ const TIERS: Tier[] = [
     role: "Prestige Partner",
     price: 10000,
     blurb: "Prestige-tier visibility with strong on-site activation.",
-    card: "bg-omega-purple text-white ring-omega-purple-dark/40",
+    card: "bg-omega-purple text-omega-gold ring-omega-purple-dark/40",
     badge: "bg-omega-gold text-omega-purple-dark",
     benefits: [
       "Premier LED wall placement + custom 30-second brand video",
@@ -259,13 +259,8 @@ export default function QyeSponsorshipPlan() {
                     t.card
                   } ${isSelected ? "ring-2 ring-omega-gold shadow-regalia -translate-y-1" : ""}`}
                 >
-                  {t.emphasis && (
-                    <span className="absolute top-3 right-3 inline-flex items-center rounded-full bg-omega-gold text-omega-purple-dark px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.18em]">
-                      Presenting
-                    </span>
-                  )}
                   <span
-                    className={`inline-flex self-start items-center rounded-full ${t.badge} px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.18em]`}
+                    className={`inline-flex self-start items-center rounded-full ${t.badge} px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.18em] whitespace-nowrap`}
                   >
                     {t.role}
                   </span>

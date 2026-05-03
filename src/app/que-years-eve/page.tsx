@@ -120,7 +120,7 @@ export default function QueYearsEvePage() {
 
         <div className="container-omega relative section-omega text-center max-w-5xl">
           <span className="eyebrow text-omega-gold">
-            One Omega Foundation · Chi Lambda Lambda Chapter
+            One Omega Foundation
           </span>
           <h1 className="mt-4 font-display !text-white text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-regalia leading-[0.95]">
             Que Year&rsquo;s Eve<sup className="text-2xl text-omega-gold align-super">™</sup>
@@ -157,14 +157,7 @@ export default function QueYearsEvePage() {
             </div>
           </dl>
 
-          <div className="mt-12 inline-flex flex-col items-center gap-2 rounded-2xl bg-white/10 backdrop-blur-md ring-1 ring-omega-gold/40 px-10 py-6 shadow-regalia">
-            <span className="eyebrow text-omega-gold">Sponsorship Goal</span>
-            <p className="font-display text-5xl sm:text-6xl font-semibold text-omega-gold tracking-regalia">
-              $60,000
-            </p>
-          </div>
-
-          <div className="mt-10 flex flex-wrap justify-center gap-3">
+          <div className="mt-12 flex flex-wrap justify-center gap-3">
             <a href="#levels" className="btn-gold">
               View Sponsorship Levels →
             </a>
