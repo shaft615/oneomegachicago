@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CONCLAVE_NUMBER } from "@/lib/conclave";
+import { DONATE_URL } from "@/lib/donate";
 
 export default function HeroSection() {
   return (
@@ -39,7 +40,28 @@ export default function HeroSection() {
             Conclave, returning to Chicago in 2028.
           </p>
           <div className="flex flex-wrap gap-3 pt-2">
-            <Link href="/conclave-2028" className="btn-gold">
+            <a
+              href={DONATE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-gold inline-flex items-center gap-2"
+              aria-label="Donate to support the 2028 Grand Conclave (opens in a new tab)"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="h-4 w-4"
+                aria-hidden
+              >
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+              Donate
+            </a>
+            <Link
+              href="/conclave-2028"
+              className="btn border border-omega-gold text-omega-gold hover:bg-omega-gold hover:text-omega-purple-dark"
+            >
               Conclave 2028
             </Link>
             <Link

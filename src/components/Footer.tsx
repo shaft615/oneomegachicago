@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { NAV_LINKS } from "@/lib/nav";
+import { DONATE_URL } from "@/lib/donate";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -61,7 +62,7 @@ export default function Footer() {
           <ul className="space-y-2 font-sans text-sm text-white/80">
             <li>
               <a
-                href="https://www.zeffy.com/en-US/donation-form/donate-to-support-the-2028-grand-conclave"
+                href={DONATE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold text-omega-gold hover:text-white transition-colors inline-flex items-center gap-1.5"
