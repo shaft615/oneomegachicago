@@ -124,7 +124,7 @@ const COMPARISON_ROWS: {
   {
     benefit: "Event Tickets",
     bronze: "2 Premier VIP",
-    gold: "4 VIP / 6 GA",
+    gold: "4 Premier VIP",
     purple: "8 Premier VIP",
     omega: "10 Premier VIP",
   },

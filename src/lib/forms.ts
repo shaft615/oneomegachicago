@@ -3,7 +3,7 @@ export const FORMSPREE_ENDPOINT = "https://formspree.io/f/xgorjngd";
 export const FORM_SUCCESS_MESSAGE =
   "Thank you — your message has been received. A representative will be in touch shortly.";
 
-export const FORM_FALLBACK_EMAIL = "secretary@oneomegachicago.org";
+export const FORM_FALLBACK_EMAIL = "events@oneomegachicago.org";
 
 export type FormStatus = "idle" | "submitting" | "success" | "error";
 

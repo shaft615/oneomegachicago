@@ -45,10 +45,10 @@ export default function SubmitEventPage() {
             <p className="mt-3 font-sans text-xs text-neutral-500 italic">
               Need to update or cancel an event already on the calendar? Email{" "}
               <a
-                href="mailto:secretary@oneomegachicago.org"
+                href="mailto:events@oneomegachicago.org"
                 className="link-omega"
               >
-                secretary@oneomegachicago.org
+                events@oneomegachicago.org
               </a>
               .
             </p>

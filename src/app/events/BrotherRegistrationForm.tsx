@@ -326,10 +326,10 @@ export default function BrotherRegistrationForm() {
               >
                 Something went wrong. Please try again or contact us at{" "}
                 <a
-                  href="mailto:secretary@oneomegachicago.org"
+                  href="mailto:events@oneomegachicago.org"
                   className="font-semibold underline underline-offset-4"
                 >
-                  secretary@oneomegachicago.org
+                  events@oneomegachicago.org
                 </a>
                 .
               </div>
