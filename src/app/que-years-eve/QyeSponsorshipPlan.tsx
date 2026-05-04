@@ -29,7 +29,7 @@ const TIERS: Tier[] = [
     blurb: "Premier presenting sponsorship with full activation rights.",
     emphasis: true,
     card: "bg-regalia-gradient text-omega-gold ring-omega-gold/40",
-    badge: "bg-omega-gold text-omega-purple-dark",
+    badge: "bg-omega-purple-dark text-omega-gold ring-1 ring-omega-gold/60",
     benefits: [
       "Exclusive presenting sponsorship designation",
       "Premier LED wall placement + custom 60-second brand video",
@@ -51,7 +51,7 @@ const TIERS: Tier[] = [
     price: 10000,
     blurb: "Prestige-tier visibility with strong on-site activation.",
     card: "bg-omega-purple text-omega-gold ring-omega-purple-dark/40",
-    badge: "bg-omega-gold text-omega-purple-dark",
+    badge: "bg-omega-purple-dark text-omega-gold ring-1 ring-omega-gold/60",
     benefits: [
       "Premier LED wall placement + custom 30-second brand video",
       "Logo on select marketing collateral & digital assets",
