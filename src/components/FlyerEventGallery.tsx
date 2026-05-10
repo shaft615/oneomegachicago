@@ -12,6 +12,7 @@ export default function FlyerEventGallery() {
     (e) =>
       e.flyer &&
       !e.featured &&
+      e.status !== "past" && // explicit "past" wins
       new Date(e.start).getTime() >= cutoff
   );
 

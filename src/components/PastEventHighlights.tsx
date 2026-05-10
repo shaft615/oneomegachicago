@@ -9,7 +9,11 @@ import { events, sortByStart } from "@/data/events";
 export default function PastEventHighlights() {
   const cutoff = Date.now() - 86_400_000; // exclude today and forward
   const pastFlyerEvents = sortByStart(events)
-    .filter((e) => e.flyer && new Date(e.start).getTime() < cutoff)
+    .filter(
+      (e) =>
+        e.flyer &&
+        (e.status === "past" || new Date(e.start).getTime() < cutoff)
+    )
     .reverse(); // newest first
 
   if (pastFlyerEvents.length === 0) return null;

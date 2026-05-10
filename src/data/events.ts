@@ -101,8 +101,9 @@ export const events: Event[] = [
       "Tickets — Early Bird: $75 · General Admission: $85 · Tables: $750.",
     ],
     flyer: "/events/MothersDay.jpeg",
-    link: "https://chilambdalambda.wildapricot.org/event-6556815",
-    status: "upcoming",
+    callout:
+      "🎉 Thank you to everyone who came out to honor the Women of Excellence!",
+    status: "past",
   },
   {
     id: "celebrate-womanhood-2026",
