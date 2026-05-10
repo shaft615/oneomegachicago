@@ -23,7 +23,7 @@ export const chapters: Chapter[] = [
     id: 'so',
     name: 'Sigma Omega',
     designation: 'ΣΩ',
-    area: 'South Suburban',
+    area: 'Chicagoland',
     basileus: 'Bro. Dathon K. O\'Banion',
     website: 'https://www.sigma-omega.org',
     logo: '/chapters/so.png'
@@ -86,7 +86,7 @@ export const chapters: Chapter[] = [
     id: 'akk',
     name: 'Alpha Kappa Kappa',
     designation: 'AKK',
-    area: 'Chicagoland',
+    area: 'Gary, Indiana',
     basileus: 'Bro. Christopher Vincent',
     website: undefined,
     logo: undefined
