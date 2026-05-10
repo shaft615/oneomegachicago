@@ -141,7 +141,7 @@ export const events: Event[] = [
       "Proceeds from Coleman Love benefit students in our local service area, funding school supplies and books for children who need them most. Every ticket purchased, every donation made, and every moment shared at this event puts pencils in hands and pages in front of young minds.",
       "Celebrate love. Invest in the future.",
     ],
-    flyer: "/events/Coleman-Love_2026_1.jpg",
+    flyer: "/events/Coleman-Love_2026.jpg",
     status: "upcoming",
   },
   {
