@@ -130,11 +130,11 @@ export const events: Event[] = [
     host: "Chi Lambda Lambda (ΧΛΛ)",
     hostChapter: "ΧΛΛ",
     category: "Social",
-    start: "2026-05-24T16:00:00-05:00",
+    start: "2026-05-24T18:00:00-05:00",
     end: "2026-05-24T23:00:00-05:00",
     recurrence: "Annual",
     dateLabel: "Sunday, May 24, 2026",
-    timeLabel: "4:00 PM – 11:00 PM",
+    timeLabel: "6:00 PM – 11:00 PM",
     location: "Red Star Kitchen+Bar",
     description: [
       "Coleman Love is an annual celebration honoring the anniversary of Frank Coleman and Edna Brown — a union that has inspired community, commitment, and service. What began as a personal milestone has grown into a beloved tradition of giving back, bringing together friends, family, and neighbors to mark love in its most meaningful form: action.",
