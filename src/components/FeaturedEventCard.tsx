@@ -124,14 +124,27 @@ export default function FeaturedEventCard({
             </p>
           )}
 
-          {isFull && event.registerHref && (
-            <div className="mt-6">
-              <a
-                href={event.registerHref}
-                className="btn-gold text-omega-purple-dark inline-flex items-center gap-2"
-              >
-                Register below ↓
-              </a>
+          {(event.link || (isFull && event.registerHref)) && (
+            <div className="mt-6 flex flex-wrap gap-3">
+              {isFull && event.registerHref && (
+                <a
+                  href={event.registerHref}
+                  className="btn-gold text-omega-purple-dark inline-flex items-center gap-2"
+                >
+                  Register below ↓
+                </a>
+              )}
+              {event.link && (
+                <a
+                  href={event.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn border border-omega-purple text-omega-purple hover:bg-omega-purple hover:text-white inline-flex items-center gap-2"
+                  aria-label={`Tickets and details for ${event.title} (opens in a new tab)`}
+                >
+                  Tickets &amp; Details →
+                </a>
+              )}
             </div>
           )}
         </div>
