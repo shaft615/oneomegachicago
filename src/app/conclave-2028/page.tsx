@@ -3,7 +3,12 @@ import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import ConclaveCountdown from "@/components/home/ConclaveCountdown";
 import SponsorForm from "./SponsorForm";
-import { CONCLAVE_NUMBER, CONCLAVE_CITY } from "@/lib/conclave";
+import {
+  CONCLAVE_NUMBER,
+  CONCLAVE_CITY,
+  CONCLAVE_DATE_LABEL,
+  CONCLAVE_DATE_LABEL_LONG,
+} from "@/lib/conclave";
 
 export const metadata: Metadata = {
   title: "Conclave 2028",
@@ -32,10 +37,23 @@ export default function Conclave2028Page() {
   return (
     <>
       <PageHeader
-        eyebrow={`${CONCLAVE_NUMBER}th Grand Conclave · ${CONCLAVE_CITY} · 2028`}
+        eyebrow={`${CONCLAVE_NUMBER}th Grand Conclave · ${CONCLAVE_CITY} · ${CONCLAVE_DATE_LABEL}`}
         title="The 86th Grand Conclave returns to Chicago."
         description="Hosted by One Omega Foundation, Inc. under the DBA Chicago Conclave 2028 — the official host entity for the Fraternity's quadrennial gathering."
       />
+
+      <section className="bg-omega-purple-dark text-white border-y border-omega-gold/30">
+        <div className="container-omega py-6 sm:py-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-center">
+          <div>
+            <span className="font-sans text-[10px] uppercase tracking-[0.22em] text-omega-gold">
+              Approved Dates
+            </span>
+            <p className="mt-1 font-display text-2xl sm:text-3xl font-semibold tracking-regalia text-white">
+              {CONCLAVE_DATE_LABEL_LONG}
+            </p>
+          </div>
+        </div>
+      </section>
 
       <ConclaveCountdown />
 

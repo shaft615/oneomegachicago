@@ -6,6 +6,7 @@ import {
   CONCLAVE_DATE,
   CONCLAVE_NUMBER,
   CONCLAVE_CITY,
+  CONCLAVE_DATE_LABEL,
 } from "@/lib/conclave";
 
 interface Remaining {
@@ -65,6 +66,9 @@ export default function ConclaveCountdown() {
           <h2 className="heading-section !text-white">
             {CONCLAVE_NUMBER}th Grand Conclave · {CONCLAVE_CITY}
           </h2>
+          <p className="font-display text-xl text-omega-gold tracking-regalia">
+            {CONCLAVE_DATE_LABEL}
+          </p>
           <div className="divider-gold" />
           <p className="font-sans text-white/85 leading-relaxed">
             Every two years, the brothers of Omega Psi Phi convene for the
@@ -101,9 +105,8 @@ export default function ConclaveCountdown() {
               </div>
             ))}
           </div>
-          <p className="mt-4 text-center font-sans text-xs text-white/50 italic">
-            Target date is provisional — subject to confirmation by the
-            International Headquarters.
+          <p className="mt-4 text-center font-sans text-xs text-white/60">
+            Counting down to opening day · {CONCLAVE_DATE_LABEL}
           </p>
         </div>
       </div>
