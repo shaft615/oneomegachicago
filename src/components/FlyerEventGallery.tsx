@@ -22,9 +22,7 @@ export default function FlyerEventGallery() {
       <div className="container-omega">
         <div className="mb-10 max-w-2xl space-y-2">
           <span className="eyebrow">More on the Horizon</span>
-          <h2 className="heading-section">
-            Other upcoming events with flyers.
-          </h2>
+          <h2 className="heading-section">Other upcoming events.</h2>
           <div className="divider-gold" />
           <p className="font-sans text-base leading-relaxed text-neutral-700">
             Browse the latest flyers from across the Chicagoland Thirteen.

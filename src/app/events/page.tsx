@@ -29,26 +29,25 @@ export default function EventsPage() {
       </section>
 
       {featured && (
-        <>
-          <section className="section-omega bg-white">
-            <div className="container-omega">
-              <div className="mb-8 flex items-end justify-between gap-4 flex-wrap">
-                <div className="space-y-2">
-                  <span className="eyebrow">Featured · Upcoming</span>
-                  <h2 className="heading-section">
-                    Don&rsquo;t miss our next gathering.
-                  </h2>
-                  <div className="divider-gold" />
-                </div>
+        <section className="section-omega bg-white">
+          <div className="container-omega">
+            <div className="mb-8 flex items-end justify-between gap-4 flex-wrap">
+              <div className="space-y-2">
+                <span className="eyebrow">Featured · Upcoming</span>
+                <h2 className="heading-section">
+                  Don&rsquo;t miss our next gathering.
+                </h2>
+                <div className="divider-gold" />
               </div>
-              <FeaturedEventCard event={featured} variant="full" />
             </div>
-          </section>
-          <BrotherRegistrationForm />
-        </>
+            <FeaturedEventCard event={featured} variant="full" />
+          </div>
+        </section>
       )}
 
       <FlyerEventGallery />
+
+      {featured && <BrotherRegistrationForm />}
 
       <PastEventHighlights />
 
