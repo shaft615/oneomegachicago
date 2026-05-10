@@ -39,7 +39,7 @@ export default function Conclave2028Page() {
       <PageHeader
         eyebrow={`${CONCLAVE_NUMBER}th Grand Conclave · ${CONCLAVE_CITY} · ${CONCLAVE_DATE_LABEL}`}
         title="The 86th Grand Conclave returns to Chicago."
-        description="Hosted by One Omega Foundation, Inc. under the DBA Chicago Conclave 2028 — the official host entity for the Fraternity's quadrennial gathering."
+        description="Hosted by One Omega Foundation, Inc. under the DBA Chicago Conclave 2028 — the official host entity for the Fraternity's biennial gathering."
       />
 
       <section className="bg-omega-purple-dark text-white border-y border-omega-gold/30">
