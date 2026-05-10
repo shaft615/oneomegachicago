@@ -144,6 +144,26 @@ export const events: Event[] = [
     status: "upcoming",
   },
   {
+    id: "bowties-and-stilettos-2026",
+    title: "Urban Excellence: Bowties and Stilettos",
+    host: "Nu Pi Chapter (ΝΠ), Omega Psi Phi Fraternity, Inc.",
+    hostChapter: "ΝΠ",
+    category: "Social",
+    start: "2026-06-06T15:00:00-05:00",
+    end: "2026-06-06T21:00:00-05:00",
+    dateLabel: "Saturday, June 6, 2026",
+    timeLabel: "3:00 PM – 9:00 PM",
+    location:
+      "Cinecity Studios, 1414 S. Western Ave, Chicago, IL 60608",
+    description: [
+      "An upscale evening of urban excellence — a curated VIP experience featuring premium food truck options at Cinecity Studios' indoor/outdoor venue.",
+      "Hosted by the Nu Pi Chapter of Omega Psi Phi Fraternity, Inc.",
+    ],
+    flyer: "/events/BowtiesStilettos_2026.jpg",
+    link: "https://www.zeffy.com/en-US/ticketing/bowties-and-stilettos-2026-ga-and-vip",
+    status: "upcoming",
+  },
+  {
     id: "council-basilei-q3-2026",
     title: "Council of Basilei Quarterly Convening",
     host: "One Omega Foundation",
