@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Event } from "@/data/events";
 
 interface FeaturedEventCardProps {
@@ -124,7 +125,9 @@ export default function FeaturedEventCard({
             </p>
           )}
 
-          {(event.link || (isFull && event.registerHref)) && (
+          {(event.link ||
+            (isFull && event.registerHref) ||
+            (isFull && event.nominationHref)) && (
             <div className="mt-6 flex flex-wrap gap-3">
               {isFull && event.registerHref && (
                 <a
@@ -133,6 +136,44 @@ export default function FeaturedEventCard({
                 >
                   Register below ↓
                 </a>
+              )}
+              {isFull && event.nominationHref && (
+                event.nominationHref.startsWith("/") ? (
+                  <Link
+                    href={event.nominationHref}
+                    className="btn-primary inline-flex items-center gap-2"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="h-4 w-4"
+                      aria-hidden
+                    >
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                    </svg>
+                    {event.nominationLabel ?? "Nominate"}
+                  </Link>
+                ) : (
+                  <a
+                    href={event.nominationHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary inline-flex items-center gap-2"
+                    aria-label={`${event.nominationLabel ?? "Nominate"} (opens in a new tab)`}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="h-4 w-4"
+                      aria-hidden
+                    >
+                      <path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                    </svg>
+                    {event.nominationLabel ?? "Nominate"}
+                  </a>
+                )
               )}
               {event.link && (
                 <a

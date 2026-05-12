@@ -42,6 +42,10 @@ export interface Event {
   link?: string;
   /** Anchor link (e.g. "#register") for an in-page registration form below the card; renders a "Register below ↓" CTA in the full event card */
   registerHref?: string;
+  /** External URL for a nomination/application form (e.g. Father of the Year); renders an extra solid-purple CTA on the full event card */
+  nominationHref?: string;
+  /** Button label for the nomination CTA, defaults to "Nominate" */
+  nominationLabel?: string;
   /** Display label for the date, e.g. "Friday, June 20, 2025" */
   dateLabel: string;
   /** Display label for the time window, optional */
@@ -80,6 +84,8 @@ export const events: Event[] = [
       "⭐ Arrive Early — Parking fills fast and health screenings begin at 7:00 AM sharp.",
     link: "https://www.eventbrite.com/e/2026-black-mens-wellness-day-chicago-tickets-1944149807409",
     registerHref: "#register",
+    nominationHref: "/events/nominate-father-of-the-year",
+    nominationLabel: "Nominate Father of the Year",
     status: "upcoming",
     featured: true,
   },
