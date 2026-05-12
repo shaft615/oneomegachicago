@@ -22,13 +22,23 @@ export default function BrotherRegistrationForm() {
 
     const form = e.currentTarget;
     const formData = Object.fromEntries(new FormData(form).entries());
+    const firstName = String(formData.first_name || "").trim();
     const lastName = String(formData.last_name || "Brother").trim() || "Brother";
+    const chapter = String(formData.chapter || "").trim();
+
+    // Build a clearly-tagged subject so Father's Day registrations are
+    // instantly identifiable in the events@ inbox and easy to count/report.
+    const subjectName = [firstName, lastName].filter(Boolean).join(" ") || "Brother";
+    const subject = `Father's Day 2026 Registration — ${subjectName}${chapter ? ` (${chapter})` : ""}`;
 
     try {
       const response = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          _subject: subject,
+        }),
       });
 
       if (response.ok) {
