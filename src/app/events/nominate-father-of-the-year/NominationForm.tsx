@@ -3,8 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { chapters } from "@/data/chapters";
 
-// TODO: swap in the dedicated Formspree form ID for Father of the Year nominations
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/REPLACE_WITH_FOTY_ID";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mwvyyvkb";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
