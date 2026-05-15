@@ -112,6 +112,27 @@ export const events: Event[] = [
     status: "past",
   },
   {
+    id: "closet-clean-out-2026",
+    title: "Closet Clean-Out — Declutter and Donate",
+    host: "Rho Gamma Gamma Chapter (ΡΓΓ), Omega Psi Phi Fraternity, Inc.",
+    hostChapter: "ΡΓΓ",
+    category: "Service",
+    start: "2026-05-15T18:00:00-05:00",
+    end: "2026-05-17T17:00:00-05:00",
+    dateLabel: "May 15–17, 2026 (Fri – Sun)",
+    timeLabel: "See collection windows below",
+    location:
+      "Rho Gamma Gamma Facility · 1462 W 115th St, Chicago, IL 60643",
+    description: [
+      "Support Rho Gamma Gamma's Social Action Programs with a community closet clean-out — declutter your home, donate to neighbors in need. Drop off at the chapter's facility on any of three community collection days:",
+      "Friday, May 15 (6:00–9:00 PM) · Saturday, May 16 (10:00 AM–6:00 PM) · Sunday, May 17 (2:00–5:00 PM)",
+      "Items needed: men's, women's, and children's clothing · coats · shoes · winter accessories · handbags · backpacks · bedding · pillows · curtains. All items must be clean and in fair condition.",
+      "Please gather donations into black heavy-duty garbage bags. Chapter goal: 1,250 bags collected for the community.",
+    ],
+    flyer: "/events/ClosetClean-out_2026.jpeg",
+    status: "upcoming",
+  },
+  {
     id: "celebrate-womanhood-2026",
     title: "Celebrate Womanhood — Women's Brunch",
     host: "Sigma Omega Chapter (ΣΩ), Omega Psi Phi Fraternity, Inc.",
