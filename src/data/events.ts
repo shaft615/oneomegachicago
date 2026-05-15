@@ -171,6 +171,27 @@ export const events: Event[] = [
     status: "upcoming",
   },
   {
+    id: "lake-jam-2026",
+    title: "Lake Jam '26",
+    host: "Mu Xi Chapter (ΜΞ), Omega Psi Phi Fraternity, Inc.",
+    hostChapter: "ΜΞ",
+    category: "Social",
+    start: "2026-06-13T18:00:00-05:00",
+    end: "2026-06-14T00:00:00-05:00",
+    dateLabel: "Saturday, June 13, 2026",
+    timeLabel: "6:00 PM – Midnight",
+    location:
+      "13926 S. Croissant Dr., Burnham, IL 60633 (139th & Torrence)",
+    description: [
+      "Lake Jam '26 — an evening of music, refreshments, and brotherhood presented by the Mu Xi Ques at 139th & Torrence in Burnham, IL.",
+      "Music by DJ Rated AG. Refreshments provided · cash bar available. Parking at 14001 S. Croissant Dr.",
+      "Vendor opportunities: 312.531.1171 · Follow @muxibruhz1911",
+    ],
+    flyer: "/events/LakeJam_2026.jpeg",
+    link: "https://www.ticketfalcon.com/e/muxi-chapter-lake-jam/",
+    status: "upcoming",
+  },
+  {
     id: "council-basilei-q3-2026",
     title: "Council of Basilei Quarterly Convening",
     host: "One Omega Foundation",
