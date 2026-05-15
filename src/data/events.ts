@@ -172,6 +172,7 @@ export const events: Event[] = [
       "Celebrate love. Invest in the future.",
     ],
     flyer: "/events/Coleman-Love_2026.jpg",
+    link: "https://chilambdalambda.wildapricot.org/event-6698039",
     status: "upcoming",
   },
   {
