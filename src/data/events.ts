@@ -42,6 +42,8 @@ export interface Event {
   link?: string;
   /** Anchor link (e.g. "#register") for an in-page registration form below the card; renders a "Register below ↓" CTA in the full event card */
   registerHref?: string;
+  /** Extra YYYY-MM-DD dates on which to surface this event on the calendar grid, in addition to its `start` date. Useful for multi-day drives with non-contiguous or distinct daily windows so a single event entry shows up on every relevant calendar cell without fragmenting the data into separate entries. */
+  additionalCalendarDates?: string[];
   /** External URL for a nomination/application form (e.g. Father of the Year); renders an extra solid-purple CTA on the full event card */
   nominationHref?: string;
   /** Button label for the nomination CTA, defaults to "Nominate" */
@@ -130,6 +132,7 @@ export const events: Event[] = [
       "Please gather donations into black heavy-duty garbage bags. Chapter goal: 1,250 bags collected for the community.",
     ],
     flyer: "/events/ClosetClean-out_2026.jpeg",
+    additionalCalendarDates: ["2026-05-16", "2026-05-17"],
     status: "upcoming",
   },
   {
@@ -304,14 +307,23 @@ export function sortByStart(list: Event[]): Event[] {
   );
 }
 
-/** Group events by their YYYY-MM-DD start date for fast calendar lookup. */
+/**
+ * Group events by their YYYY-MM-DD start date for fast calendar lookup.
+ * Honors the optional `additionalCalendarDates` field so a single event
+ * entry can appear on multiple calendar cells (e.g. a multi-day drive).
+ */
 export function groupByDay(list: Event[]): Map<string, Event[]> {
   const out = new Map<string, Event[]>();
   for (const e of list) {
-    const key = isoDateKey(new Date(e.start));
-    const arr = out.get(key) ?? [];
-    arr.push(e);
-    out.set(key, arr);
+    const keys = [
+      isoDateKey(new Date(e.start)),
+      ...(e.additionalCalendarDates ?? []),
+    ];
+    for (const key of keys) {
+      const arr = out.get(key) ?? [];
+      arr.push(e);
+      out.set(key, arr);
+    }
   }
   return out;
 }
