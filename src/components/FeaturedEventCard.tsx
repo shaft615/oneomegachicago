@@ -126,6 +126,7 @@ export default function FeaturedEventCard({
           )}
 
           {(event.link ||
+            event.secondaryLink ||
             (isFull && event.registerHref) ||
             (isFull && event.nominationHref)) && (
             <div className="mt-6 flex flex-wrap gap-3">
@@ -184,6 +185,17 @@ export default function FeaturedEventCard({
                   aria-label={`Tickets and details for ${event.title} (opens in a new tab)`}
                 >
                   Tickets &amp; Details →
+                </a>
+              )}
+              {event.secondaryLink && (
+                <a
+                  href={event.secondaryLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn border border-omega-purple text-omega-purple hover:bg-omega-purple hover:text-white inline-flex items-center gap-2"
+                  aria-label={`${event.secondaryLinkLabel ?? "Event Website"} for ${event.title} (opens in a new tab)`}
+                >
+                  {event.secondaryLinkLabel ?? "Event Website"} →
                 </a>
               )}
             </div>

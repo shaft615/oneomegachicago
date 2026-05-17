@@ -40,6 +40,10 @@ export interface Event {
   recurrence?: string;
   /** Registration / RSVP / external link URL */
   link?: string;
+  /** Optional secondary external URL rendered as an additional outline button next to `link` (e.g. event website alongside a ticketing link) */
+  secondaryLink?: string;
+  /** Button label for the secondary link, defaults to "Event Website" */
+  secondaryLinkLabel?: string;
   /** Anchor link (e.g. "#register") for an in-page registration form below the card; renders a "Register below ↓" CTA in the full event card */
   registerHref?: string;
   /** Extra YYYY-MM-DD dates on which to surface this event on the calendar grid, in addition to its `start` date. Useful for multi-day drives with non-contiguous or distinct daily windows so a single event entry shows up on every relevant calendar cell without fragmenting the data into separate entries. */
@@ -173,6 +177,8 @@ export const events: Event[] = [
     ],
     flyer: "/events/Coleman-Love_2026.jpg",
     link: "https://chilambdalambda.wildapricot.org/event-6698039",
+    secondaryLink: "https://colemanlovechicago.com",
+    secondaryLinkLabel: "Event Website",
     status: "upcoming",
   },
   {
