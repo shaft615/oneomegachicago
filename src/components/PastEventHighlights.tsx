@@ -1,5 +1,5 @@
 import FeaturedEventCard from "@/components/FeaturedEventCard";
-import { events, sortByStart } from "@/data/events";
+import { events, isEventPast, sortByStart } from "@/data/events";
 
 /**
  * "Looking Back" section — surfaces past events that have a flyer,
@@ -7,13 +7,8 @@ import { events, sortByStart } from "@/data/events";
  * events exist. Newest past events appear first.
  */
 export default function PastEventHighlights() {
-  const cutoff = Date.now() - 86_400_000; // exclude today and forward
   const pastFlyerEvents = sortByStart(events)
-    .filter(
-      (e) =>
-        e.flyer &&
-        (e.status === "past" || new Date(e.start).getTime() < cutoff)
-    )
+    .filter((e) => e.flyer && isEventPast(e))
     .reverse(); // newest first
 
   if (pastFlyerEvents.length === 0) return null;

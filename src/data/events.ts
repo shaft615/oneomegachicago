@@ -355,6 +355,22 @@ export function groupByDay(list: Event[]): Map<string, Event[]> {
   return out;
 }
 
+/**
+ * Returns true if the event is finished as of `now`. Uses the event's `end`
+ * when present; otherwise falls back to `start + 24h` so a single-date event
+ * (no end specified) remains visible throughout its start day.
+ *
+ * Events explicitly flagged with status: "past" always return true regardless
+ * of dates — lets us manually retire an event early.
+ */
+export function isEventPast(event: Event, now: number = Date.now()): boolean {
+  if (event.status === "past") return true;
+  const endMs = event.end
+    ? new Date(event.end).getTime()
+    : new Date(event.start).getTime() + 86_400_000;
+  return endMs < now;
+}
+
 export function isoDateKey(d: Date): string {
   const yyyy = d.getFullYear();
   const mm = String(d.getMonth() + 1).padStart(2, "0");

@@ -1,5 +1,5 @@
 import FeaturedEventCard from "@/components/FeaturedEventCard";
-import { events, sortByStart } from "@/data/events";
+import { events, isEventPast, sortByStart } from "@/data/events";
 
 /**
  * Renders every upcoming event that has a flyer and is NOT the featured
@@ -7,13 +7,8 @@ import { events, sortByStart } from "@/data/events";
  * card. Hidden entirely when there are no qualifying events.
  */
 export default function FlyerEventGallery() {
-  const cutoff = Date.now() - 86_400_000; // include today
   const flyerEvents = sortByStart(events).filter(
-    (e) =>
-      e.flyer &&
-      !e.featured &&
-      e.status !== "past" && // explicit "past" wins
-      new Date(e.start).getTime() >= cutoff
+    (e) => e.flyer && !e.featured && !isEventPast(e)
   );
 
   if (flyerEvents.length === 0) return null;
