@@ -137,7 +137,9 @@ export const events: Event[] = [
     ],
     flyer: "/events/ClosetClean-out_2026.jpeg",
     additionalCalendarDates: ["2026-05-16", "2026-05-17"],
-    status: "upcoming",
+    callout:
+      "🎉 Thank you to everyone who donated and supported our Social Action Programs!",
+    status: "past",
   },
   {
     id: "celebrate-womanhood-2026",
