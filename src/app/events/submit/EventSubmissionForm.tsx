@@ -19,23 +19,40 @@ const CATEGORIES = [
   "Other",
 ] as const;
 
+// Formspree Professional accepts file uploads up to 25MB per submission;
+// we cap client-side at 10MB to keep flyers reasonable and submissions fast.
+const MAX_FLYER_BYTES = 10 * 1024 * 1024;
+
 export default function EventSubmissionForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [recurring, setRecurring] = useState(false);
+  const [fileError, setFileError] = useState<string | null>(null);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (status === "submitting") return;
-    setStatus("submitting");
 
     const form = e.currentTarget;
-    const formData = Object.fromEntries(new FormData(form).entries());
+    // Build multipart payload so the flyer file is included. Do NOT set
+    // Content-Type manually — the browser adds the multipart boundary.
+    const formData = new FormData(form);
+
+    // Guard against oversized flyers before hitting the network.
+    const flyer = formData.get("flyer");
+    if (flyer instanceof File && flyer.size > MAX_FLYER_BYTES) {
+      setFileError(
+        "That flyer is larger than 10MB. Please compress it or upload a smaller image/PDF."
+      );
+      return;
+    }
+    setFileError(null);
+    setStatus("submitting");
 
     try {
       const response = await fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        headers: { Accept: "application/json" },
+        body: formData,
       });
 
       if (response.ok) {
@@ -282,6 +299,28 @@ export default function EventSubmissionForm() {
             className="input-omega"
             placeholder="https://eventbrite.com/... or chapter site URL"
           />
+        </div>
+
+        {/* Flyer upload */}
+        <div>
+          <label className="label-omega" htmlFor="flyer">
+            Event Flyer{" "}
+            <span className="font-normal text-neutral-400">(optional)</span>
+          </label>
+          <input
+            id="flyer"
+            name="flyer"
+            type="file"
+            accept="image/png,image/jpeg,image/webp,application/pdf"
+            onChange={() => setFileError(null)}
+            className="block w-full text-sm text-neutral-700 font-sans file:mr-4 file:rounded-full file:border-0 file:bg-omega-purple file:px-5 file:py-2.5 file:text-sm file:font-semibold file:text-white hover:file:bg-omega-purple-dark file:cursor-pointer cursor-pointer rounded-lg border border-neutral-300 bg-white p-2 focus:border-omega-purple focus:outline-none focus:ring-2 focus:ring-omega-purple/30 transition"
+          />
+          <p className="mt-2 font-sans text-xs text-neutral-500">
+            JPG, PNG, WebP, or PDF · up to 10MB. Portrait flyers display best.
+          </p>
+          {fileError && (
+            <p className="mt-2 font-sans text-xs text-red-700">{fileError}</p>
+          )}
         </div>
 
         {/* Recurring */}
