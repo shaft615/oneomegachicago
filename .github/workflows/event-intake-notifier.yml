@@ -1,0 +1,29 @@
+name: Event Intake Notifier
+
+# Phase 2, Step 1: a daily check that pings (via a GitHub issue) when new
+# chapter event submissions land on the Formspree form but aren't on the
+# site yet. Does NOT modify the site — a human runs the add-event flow.
+
+on:
+  schedule:
+    # 13:00 UTC daily (~8 AM Central). Cron is always UTC.
+    - cron: "0 13 * * *"
+  workflow_dispatch: {} # allow manual runs from the Actions tab
+
+permissions:
+  contents: read # read events.ts to diff
+  issues: write # open the notification issue
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Check for new event submissions
+        env:
+          FORMSPREE_API_KEY: ${{ secrets.FORMSPREE_API_KEY }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/intake-notify.mjs

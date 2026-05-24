@@ -1,0 +1,5 @@
+{
+  "_README": "Submissions the intake notifier should NOT flag (e.g. internal chapter business that doesn't belong on the public calendar). Match by title (case-insensitive substring) in ignoreTitles, or by exact submission _date timestamp in ignoreDates.",
+  "ignoreTitles": ["Chapter Meeting"],
+  "ignoreDates": []
+}
