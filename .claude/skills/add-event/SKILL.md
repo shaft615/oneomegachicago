@@ -74,6 +74,20 @@ If anything required is missing or ambiguous (no time, bare venue name with no
 city, unclear host), **ask rather than guess**. Never fabricate dates,
 addresses, or facts about real chapters or people.
 
+## Curation — does this belong on the public calendar?
+
+Not every submission should be posted. The Events page is a public,
+community-facing forum. Post public-facing events: fundraisers, galas, community
+service drives, socials, scholarship programs, wellness days, brunches — anything
+the chapters want the broader community to attend or know about.
+
+**Skip internal chapter business** — routine chapter meetings, council sessions,
+members-only logistics — unless the user explicitly says to include it. When a
+submission looks internal (e.g. a recurring "Chapter Meeting", an officers'
+call), don't post it; flag it and confirm with the user first. This judgment
+matters most for unattended/automated intake, where there's no human pre-filter
+before things would otherwise go live.
+
 ## Step 2 — Place the flyer (if there is one)
 
 Flyers live in `public/events/`. Confirm the file is on disk with `ls`. Use a

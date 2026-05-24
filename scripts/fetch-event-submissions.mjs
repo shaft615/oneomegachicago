@@ -31,6 +31,7 @@ function loadApiKey() {
   if (fs.existsSync(envPath)) {
     const line = fs
       .readFileSync(envPath, "utf8")
+      .replace(/^﻿/, "") // strip BOM some Windows editors prepend
       .split(/\r?\n/)
       .find((l) => l.trim().startsWith("FORMSPREE_API_KEY="));
     if (line) {
