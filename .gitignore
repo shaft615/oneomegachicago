@@ -25,6 +25,9 @@ yarn-error.log*
 # local env files
 .env*.local
 
+# auto-draft workflow scratch (never committed)
+new-submissions.json
+
 # vercel
 .vercel
 

@@ -1,0 +1,94 @@
+name: Auto-Draft Event Submissions
+
+# Phase 2, Step 2: when a new public chapter event submission arrives, Claude
+# (running in CI via the official Claude Code action) drafts the events.ts entry,
+# downloads the flyer, builds, and opens a PR for human review. It never merges
+# or pushes to main — the PR is the approval gate.
+#
+# Cost control: a cheap Node pre-check runs first; the paid Claude step only
+# runs when there is genuinely something new, so empty days cost no API tokens.
+
+on:
+  schedule:
+    # 13:30 UTC daily (~8:30 AM Central), offset from the notifier (13:00).
+    - cron: "30 13 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write # create branch + commit
+  pull-requests: write # open the PR
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # Cheap gate — only Node built-ins, no install. Sets has_new / count.
+      - name: Check for new submissions
+        id: check
+        env:
+          FORMSPREE_API_KEY: ${{ secrets.FORMSPREE_API_KEY }}
+        run: node scripts/intake-check.mjs
+
+      - name: Install dependencies
+        if: steps.check.outputs.has_new == 'true'
+        run: npm ci
+
+      - name: Draft events and open a PR
+        if: steps.check.outputs.has_new == 'true'
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          claude_args: "--max-turns 40"
+          prompt: |
+            You are running unattended in GitHub Actions CI for the One Omega
+            Foundation website (a static Next.js site; events live in
+            src/data/events.ts). New chapter event submissions have arrived.
+            Your job: add the new PUBLIC ones and open ONE pull request for a
+            human to review. NEVER merge. NEVER push to main.
+
+            Read the project skill at .claude/skills/add-event/SKILL.md FIRST and
+            follow it exactly — it is authoritative for the Event schema, the
+            Central Time offset rules (CDT -05:00 / CST -06:00), flyer download,
+            the "the flyer is the source of truth" reconciliation, the curation
+            rules, and file placement.
+
+            The new public submissions to process are in ./new-submissions.json
+            (already filtered against existing events and the ignore list). For
+            each submission:
+              1. If it has a flyer URL (the `flyer` field — a
+                 user-file-uploads.formspree.io link), download it into
+                 public/events/ with a clean name (e.g. EventName_2026.png) via curl.
+              2. Read the downloaded flyer and reconcile it against the submission
+                 fields. The flyer wins on conflicts (date, time, venue, co-hosts).
+                 Record any discrepancy you reconcile for the PR body.
+              3. Add a correct Event entry to src/data/events.ts per the skill.
+
+            Then:
+              4. Run `npm run build` and confirm it compiles. Fix any type errors
+                 you introduced before continuing.
+              5. Create a new branch named intake/auto-draft-<YYYYMMDD>. Set
+                 git user.name and user.email if needed. Commit the events.ts
+                 change and the new flyer file(s) with a clear message. Do NOT
+                 commit new-submissions.json (it is gitignored).
+              6. Open a PR against main with `gh pr create`. Title:
+                 "Auto-draft: <N> new event(s)". In the body, summarize each event
+                 (title, chapter, date, time, location), call out any flyer/form
+                 discrepancies you reconciled, list anything ambiguous that needs
+                 human attention, and remind the reviewer to verify before merging.
+                 Do NOT merge the PR. Output the PR URL.
+
+            Be conservative: this PR will be reviewed by a human before it goes
+            live on a public site. If a submission is ambiguous and you cannot
+            resolve it from the flyer (e.g. no date anywhere), still open the PR
+            but flag that submission clearly as "needs human attention" rather
+            than guessing.
+        env:
+          FORMSPREE_API_KEY: ${{ secrets.FORMSPREE_API_KEY }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
