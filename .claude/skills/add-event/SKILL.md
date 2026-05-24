@@ -65,14 +65,44 @@ Event Submissions form (`mnjwnozy`).
 To find which submissions are NEW (not already on the site), read the current
 `events` array in `src/data/events.ts` and compare titles/dates — skip any
 that already have an entry. Then process each genuinely new submission through
-the steps below. If a submission included an uploaded flyer, the raw `--json`
-output is where its file URL appears; download it into `public/events/` (or, if
-that isn't cleanly possible, draft the entry and ask the user to drop the flyer
-file and confirm the filename).
+the steps below.
+
+**Uploaded flyers come back as a directly fetchable URL.** Formspree
+(Professional plan) represents an uploaded flyer as an array on the `flyer`
+field, e.g.:
+
+```
+flyer: ["https://user-file-uploads.formspree.io/<uuid>/<filename>.png"]
+```
+
+Download it straight into `public/events/` with a clean name:
+
+```bash
+curl -sL "<that-url>" -o "public/events/FoodPantry_2026.png"
+```
+
+Then **always open the downloaded flyer and read it** (Step 1.5 below) — don't
+trust the form fields alone.
 
 If anything required is missing or ambiguous (no time, bare venue name with no
 city, unclear host), **ask rather than guess**. Never fabricate dates,
 addresses, or facts about real chapters or people.
+
+## Step 1.5 — The flyer is the source of truth; reconcile it against the form
+
+When a flyer exists, **read it** and treat it as authoritative over the typed
+form fields. Submitters fat-finger dates, omit times, and under-describe their
+own events. Real example: a submission's date field said June 1, but the flyer
+(the actual published artifact) said "Tuesday, June 2" — and June 2 was indeed a
+Tuesday, so the form was wrong. The flyer also carried the time window, the
+co-hosts (Village of Hazel Crest, Rho Gamma Gamma), and the proper venue name,
+none of which were in the form.
+
+So: pull date, time, venue, co-hosts, and richer description from the flyer.
+Where the flyer and form disagree, the flyer wins — but **call out the
+discrepancy** in your summary so the user knows you overrode a submitted value.
+If the flyer is ambiguous or missing a detail the form has, use the form. When
+neither is conclusive (e.g. no time anywhere), ask rather than guess.
 
 ## Curation — does this belong on the public calendar?
 
