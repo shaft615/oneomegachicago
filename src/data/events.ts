@@ -204,6 +204,24 @@ export const events: Event[] = [
     status: "upcoming",
   },
   {
+    id: "food-pantry-2026",
+    title: "Food Pantry — Free Grocery Giveaway",
+    host: "Chi Lambda Lambda (ΧΛΛ), Omega Psi Phi Fraternity, Inc. & the Village of Hazel Crest",
+    hostChapter: "ΧΛΛ",
+    category: "Service",
+    start: "2026-06-02T11:00:00-05:00",
+    end: "2026-06-02T15:00:00-05:00",
+    dateLabel: "Tuesday, June 2, 2026",
+    timeLabel: "11:00 AM – 3:00 PM",
+    location:
+      "Hazel Crest Municipal Center, 3601 W. 183rd St, Hazel Crest, IL",
+    description: [
+      "A free grocery giveaway open to the community — hosted by the Chi Lambda Lambda Chapter of Omega Psi Phi Fraternity, Inc. and the Village of Hazel Crest, in coordination with the Rho Gamma Gamma Chapter.",
+    ],
+    flyer: "/events/FoodPantry_2026.png",
+    status: "upcoming",
+  },
+  {
     id: "bowties-and-stilettos-2026",
     title: "Urban Excellence: Bowties and Stilettos",
     host: "Nu Pi Chapter (ΝΠ), Omega Psi Phi Fraternity, Inc.",
