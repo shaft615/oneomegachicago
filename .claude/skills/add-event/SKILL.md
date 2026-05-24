@@ -45,6 +45,31 @@ link, recurrence, notes, and possibly a **flyer** (an attached image from the
 Formspree Professional inbox, a pasted image, or a file already dropped in
 `public/events/`).
 
+### Pulling submissions directly from Formspree (Phase-1 API intake)
+
+When the user asks to "pull/check the latest event submissions" rather than
+pasting an email, fetch them from Formspree's Submissions API instead:
+
+```bash
+node scripts/fetch-event-submissions.mjs            # recent submissions, human-readable
+node scripts/fetch-event-submissions.mjs --json     # raw payload (shows file/flyer URLs)
+node scripts/fetch-event-submissions.mjs --since 2026-05-01T00:00:00
+```
+
+The script reads `FORMSPREE_API_KEY` from the environment or a gitignored
+`.env.local`. If it errors with "FORMSPREE_API_KEY not set", tell the user to
+add the key (Form → Settings → HTTP API in Formspree) — never ask them to paste
+the key into the chat, and never commit it. The form defaults to the Chapter
+Event Submissions form (`mnjwnozy`).
+
+To find which submissions are NEW (not already on the site), read the current
+`events` array in `src/data/events.ts` and compare titles/dates — skip any
+that already have an entry. Then process each genuinely new submission through
+the steps below. If a submission included an uploaded flyer, the raw `--json`
+output is where its file URL appears; download it into `public/events/` (or, if
+that isn't cleanly possible, draft the entry and ask the user to drop the flyer
+file and confirm the filename).
+
 If anything required is missing or ambiguous (no time, bare venue name with no
 city, unclear host), **ask rather than guess**. Never fabricate dates,
 addresses, or facts about real chapters or people.
