@@ -182,7 +182,7 @@ export const events: Event[] = [
     secondaryLink: "https://colemanlovechicago.com",
     secondaryLinkLabel: "Event Website",
     callout:
-      "🎉 Thank you to everyone who came out to celebrate Coleman Love!",
+      "🎉 Thank you to everyone who came out! Coleman‑Love III returns Sunday, May 30, 2027 — bigger and better. Save the date.",
     status: "past",
   },
   {
