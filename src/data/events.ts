@@ -181,7 +181,9 @@ export const events: Event[] = [
     link: "https://chilambdalambda.wildapricot.org/event-6698039",
     secondaryLink: "https://colemanlovechicago.com",
     secondaryLinkLabel: "Event Website",
-    status: "upcoming",
+    callout:
+      "🎉 Thank you to everyone who came out to celebrate Coleman Love!",
+    status: "past",
   },
   {
     id: "golf-outing-2026",
