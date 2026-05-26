@@ -157,7 +157,6 @@ export const events: Event[] = [
       "Tickets — $60. Payment via TicketFalcon, Venmo (@SigmaOmegaOPPF), Cash App ($sigmaOmegaOPPF), or check. Donations welcome.",
     ],
     flyer: "/events/SigmaOmega_Womanhood_2026.jpg",
-    link: "https://www.ticketfalcon.com/e/sigma-omega-celebrate-womanhood-annual-womens-brunch-2026/#gallery",
     status: "upcoming",
   },
   {
@@ -178,7 +177,6 @@ export const events: Event[] = [
       "Celebrate love. Invest in the future.",
     ],
     flyer: "/events/Coleman-Love_2026.jpg",
-    link: "https://chilambdalambda.wildapricot.org/event-6698039",
     secondaryLink: "https://colemanlovechicago.com",
     secondaryLinkLabel: "Event Website",
     callout:
@@ -323,7 +321,7 @@ export const events: Event[] = [
     flyer: "/events/PGAffair_NYE.jpg",
     callout:
       "🎉 Thank you to everyone who came out and rang in 2026 with us!",
-    link: "https://pgaffair.com",
+    secondaryLink: "https://pgaffair.com",
     status: "past",
   },
   {
