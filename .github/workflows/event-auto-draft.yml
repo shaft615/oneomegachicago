@@ -82,11 +82,14 @@ jobs:
                  change and the new flyer file(s) with a clear message. Do NOT
                  commit new-submissions.json (it is gitignored).
               6. Open a PR against main with `gh pr create`. Title:
-                 "Auto-draft: <N> new event(s)". In the body, summarize each event
-                 (title, chapter, date, time, location), call out any flyer/form
-                 discrepancies you reconciled, list anything ambiguous that needs
-                 human attention, and remind the reviewer to verify before merging.
-                 Do NOT merge the PR. Output the PR URL.
+                 "Auto-draft: <N> new event(s)". Request shaft615 as a reviewer
+                 (`gh pr create --reviewer shaft615 ...`) and start the PR body
+                 with "@shaft615 — new event(s) drafted for review:" so they get
+                 a notification email regardless of watch settings. In the body,
+                 summarize each event (title, chapter, date, time, location), call
+                 out any flyer/form discrepancies you reconciled, list anything
+                 ambiguous that needs human attention, and remind the reviewer to
+                 verify before merging. Do NOT merge the PR. Output the PR URL.
 
             Be conservative: this PR will be reviewed by a human before it goes
             live on a public site. If a submission is ambiguous and you cannot
