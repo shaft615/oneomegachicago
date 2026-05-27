@@ -263,6 +263,26 @@ export const events: Event[] = [
     status: "upcoming",
   },
   {
+    id: "give-hope-2026",
+    title: "Give Hope — Blood Drive",
+    host: "Chi Lambda Lambda Chapter (ΧΛΛ), Omega Psi Phi Fraternity, Inc.",
+    hostChapter: "ΧΛΛ",
+    category: "Service",
+    start: "2026-06-27T10:00:00-05:00",
+    end: "2026-06-27T14:30:00-05:00",
+    dateLabel: "Saturday, June 27, 2026",
+    timeLabel: "10:00 AM – 2:30 PM",
+    location:
+      "HF Racquet & Fitness, 2920 183rd Street, Homewood, IL 60430",
+    description: [
+      "Donate blood and help save lives. The Chi Lambda Lambda Chapter of Omega Psi Phi Fraternity, Inc., in partnership with Versiti Blood Center of Illinois, is hosting a community blood drive supporting patients across Chicago-area and Northwest Indiana hospitals.",
+      "32 donors needed — appointments preferred. Call 1-800-786-4483 or register online. Donate and receive a Smokey Bear shirt — because only you can prevent a blood shortage.",
+    ],
+    flyer: "/events/GiveHope_2026.png",
+    link: "https://tinyurl.com/2zskubsb",
+    status: "upcoming",
+  },
+  {
     id: "council-basilei-q3-2026",
     title: "Council of Basilei Quarterly Convening",
     host: "One Omega Foundation",
