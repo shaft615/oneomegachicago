@@ -45,7 +45,11 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          claude_args: "--max-turns 40"
+          # Ephemeral CI runner with no human to approve tool use, so let the
+          # agent run its tools (npm/curl/git/gh, file edits) without permission
+          # prompts. Safe here because the runner is throwaway and the PR review
+          # is the real gate — the agent never merges or pushes to main.
+          claude_args: "--dangerously-skip-permissions --max-turns 60"
           prompt: |
             You are running unattended in GitHub Actions CI for the One Omega
             Foundation website (a static Next.js site; events live in
