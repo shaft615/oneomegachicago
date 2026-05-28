@@ -87,6 +87,7 @@ export const events: Event[] = [
       "Omega Memorial Service for our departed Brother, Rev. Jesse L. Jackson, Sr. Hosted by the Iota Chapter of Omega Psi Phi Fraternity, Inc. (Tenth District).",
     ],
     flyer: "/events/JesseJackson_Memorial_2026.jpg",
+    flyerBack: "/events/JesseJackson_Memorial_Program_2026.jpg",
     secondaryLink: "https://youtu.be/GFLXafU1VqU",
     secondaryLinkLabel: "Watch Tribute Video",
     callout: "In Loving Memory of Bro. Rev. Jesse L. Jackson, Sr.",
