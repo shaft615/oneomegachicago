@@ -22,18 +22,36 @@ export default function FeaturedEventCard({
     >
       <div className="grid lg:grid-cols-12">
         {event.flyer && (
-          <div className="lg:col-span-5 relative bg-omega-purple-dark">
-            <div className="relative aspect-[4/5] lg:aspect-auto lg:h-full w-full">
-              <Image
-                src={event.flyer}
-                alt={`${event.title} flyer`}
-                fill
-                className="object-contain p-2"
-                sizes="(min-width: 1024px) 40vw, 100vw"
-                priority={isFull}
-              />
+          event.flyerBack ? (
+            // Two-page flyer (e.g. front + program): stack both images.
+            <div className="lg:col-span-5 bg-omega-purple-dark flex flex-col">
+              {[event.flyer, event.flyerBack].map((src, i) => (
+                <div key={i} className="relative aspect-[4/5] w-full">
+                  <Image
+                    src={src}
+                    alt={`${event.title} flyer${i === 1 ? " — program" : ""}`}
+                    fill
+                    className="object-contain p-2"
+                    sizes="(min-width: 1024px) 40vw, 100vw"
+                    priority={isFull && i === 0}
+                  />
+                </div>
+              ))}
             </div>
-          </div>
+          ) : (
+            <div className="lg:col-span-5 relative bg-omega-purple-dark">
+              <div className="relative aspect-[4/5] lg:aspect-auto lg:h-full w-full">
+                <Image
+                  src={event.flyer}
+                  alt={`${event.title} flyer`}
+                  fill
+                  className="object-contain p-2"
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  priority={isFull}
+                />
+              </div>
+            </div>
+          )
         )}
 
         <div

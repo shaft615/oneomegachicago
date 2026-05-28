@@ -61,6 +61,8 @@ export interface Event {
   description: string[];
   /** Flyer image path (under /public) */
   flyer?: string;
+  /** Optional second flyer image (e.g. the program / back side); rendered stacked beneath the main flyer */
+  flyerBack?: string;
   /** Single-line emphasized callout shown as a banner on the card */
   callout?: string;
   /** Free-text registration note */
@@ -85,6 +87,7 @@ export const events: Event[] = [
       "Omega Memorial Service for our departed Brother, Rev. Jesse L. Jackson, Sr. Hosted by the Iota Chapter of Omega Psi Phi Fraternity, Inc. (Tenth District).",
     ],
     flyer: "/events/JesseJackson_Memorial_2026.jpg",
+    callout: "In Loving Memory of Bro. Rev. Jesse L. Jackson, Sr.",
     status: "upcoming",
   },
   {
