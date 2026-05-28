@@ -72,6 +72,22 @@ export interface Event {
 
 export const events: Event[] = [
   {
+    id: "jesse-jackson-memorial-2026",
+    title: "Omega Memorial Service for Bro. Rev. Jesse L. Jackson, Sr.",
+    host: "Iota Chapter, Omega Psi Phi Fraternity, Inc. — Tenth District",
+    hostChapter: "Ι",
+    category: "Brotherhood",
+    start: "2026-03-05T18:00:00-06:00",
+    dateLabel: "Thursday, March 5, 2026",
+    timeLabel: "6:00 PM",
+    location: "Rainbow PUSH Coalition Headquarters, Chicago, IL",
+    description: [
+      "Omega Memorial Service for our departed Brother, Rev. Jesse L. Jackson, Sr. Hosted by the Iota Chapter of Omega Psi Phi Fraternity, Inc. (Tenth District).",
+    ],
+    flyer: "/events/JesseJackson_Memorial_2026.jpg",
+    status: "upcoming",
+  },
+  {
     id: "fathers-day-cookowt-2026",
     title: "3rd Annual Father's Day CookOwt & Black Men's Wellness Day",
     host: "One Omega Foundation / Chicagoland Omega Chapters",
