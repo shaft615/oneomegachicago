@@ -62,7 +62,7 @@ export const chapters: Chapter[] = [
     area: 'Chicagoland',
     basileus: 'Bro. Daniel Piolet',
     website: undefined,
-    logo: undefined
+    logo: '/chapters/eh.png'
   },
   {
     id: 'mx',
