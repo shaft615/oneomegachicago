@@ -5,7 +5,12 @@ import { chapters } from "@/data/chapters";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/mnjwnozy";
 
-type Status = "idle" | "submitting" | "success" | "error";
+type Status =
+  | "idle"
+  | "submitting"
+  | "success"
+  | "success_no_flyer"
+  | "error";
 
 const CATEGORIES = [
   "Community",
@@ -48,26 +53,50 @@ export default function EventSubmissionForm() {
     setFileError(null);
     setStatus("submitting");
 
-    try {
-      const response = await fetch(FORMSPREE_ENDPOINT, {
+    const hasFlyer = flyer instanceof File && flyer.size > 0;
+    const send = (body: FormData) =>
+      fetch(FORMSPREE_ENDPOINT, {
         method: "POST",
         headers: { Accept: "application/json" },
-        body: formData,
+        body,
       });
 
+    try {
+      let response = await send(formData);
+
+      // Resilience: if a submission carrying a flyer fails, retry once WITHOUT
+      // the flyer so a flyer-upload problem never costs us the whole event.
+      // The submitter is told to email the flyer separately.
+      if (!response.ok && hasFlyer) {
+        console.error(
+          `Event submission failed (HTTP ${response.status}); retrying without the flyer.`
+        );
+        formData.delete("flyer");
+        formData.set("flyer_upload_failed", "yes");
+        response = await send(formData);
+        if (response.ok) {
+          form.reset();
+          setRecurring(false);
+          setStatus("success_no_flyer");
+          return;
+        }
+      }
+
       if (response.ok) {
-        setStatus("success");
         form.reset();
         setRecurring(false);
+        setStatus("success");
       } else {
+        console.error(`Event submission failed (HTTP ${response.status}).`);
         setStatus("error");
       }
-    } catch {
+    } catch (err) {
+      console.error("Event submission request threw:", err);
       setStatus("error");
     }
   }
 
-  if (status === "success") {
+  if (status === "success" || status === "success_no_flyer") {
     return (
       <div
         role="status"
@@ -83,6 +112,19 @@ export default function EventSubmissionForm() {
           calendar within a few business days. You&rsquo;ll receive a
           confirmation email once it&rsquo;s posted.
         </p>
+        {status === "success_no_flyer" && (
+          <p className="mt-4 font-sans text-sm sm:text-base leading-relaxed text-omega-purple-dark max-w-xl mx-auto">
+            One note — we couldn&rsquo;t attach your flyer this time, but your
+            event details came through. Please email the flyer to{" "}
+            <a
+              href="mailto:events@oneomegachicago.org"
+              className="font-semibold underline underline-offset-4"
+            >
+              events@oneomegachicago.org
+            </a>{" "}
+            and we&rsquo;ll add it to your event.
+          </p>
+        )}
         <button
           type="button"
           onClick={() => setStatus("idle")}
