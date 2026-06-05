@@ -59,19 +59,31 @@ export default function NavBar() {
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1" aria-label="Primary">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`px-4 py-2 rounded-full font-sans text-sm font-medium transition-colors ${
-                isActive(link.href)
-                  ? "bg-omega-purple text-white shadow-regalia"
-                  : "text-omega-purple-dark hover:bg-omega-purple/10"
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {NAV_LINKS.map((link) =>
+            link.external ? (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 rounded-full font-sans text-sm font-medium transition-colors text-omega-purple-dark hover:bg-omega-purple/10"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`px-4 py-2 rounded-full font-sans text-sm font-medium transition-colors ${
+                  isActive(link.href)
+                    ? "bg-omega-purple text-white shadow-regalia"
+                    : "text-omega-purple-dark hover:bg-omega-purple/10"
+                }`}
+              >
+                {link.label}
+              </Link>
+            )
+          )}
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
@@ -138,19 +150,31 @@ export default function NavBar() {
             className="container-omega flex flex-col py-4 gap-1"
             aria-label="Mobile"
           >
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`px-4 py-3 rounded-xl font-sans text-base font-medium transition-colors ${
-                  isActive(link.href)
-                    ? "bg-omega-purple text-white"
-                    : "text-omega-purple-dark hover:bg-omega-purple/10"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {NAV_LINKS.map((link) =>
+              link.external ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-3 rounded-xl font-sans text-base font-medium transition-colors text-omega-purple-dark hover:bg-omega-purple/10"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`px-4 py-3 rounded-xl font-sans text-base font-medium transition-colors ${
+                    isActive(link.href)
+                      ? "bg-omega-purple text-white"
+                      : "text-omega-purple-dark hover:bg-omega-purple/10"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
             <a
               href={DONATE_URL}
               target="_blank"
