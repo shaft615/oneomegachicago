@@ -11,10 +11,10 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <CommitteeCTA />
       <MissionBlock />
       <ChapterGrid />
       <ConclaveCountdown />
-      <CommitteeCTA />
       <SponsorCTA />
       <FeaturedEvent />
       <NewsCards />

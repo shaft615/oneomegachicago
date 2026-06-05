@@ -41,10 +41,19 @@ export default function HeroSection() {
           </p>
           <div className="flex flex-wrap gap-3 pt-2">
             <a
+              href="https://portal.oneomegachicago.org/committees"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-gold"
+              aria-label="Serve on a Conclave committee (opens in a new tab)"
+            >
+              Serve on a Committee
+            </a>
+            <a
               href={DONATE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-gold inline-flex items-center gap-2"
+              className="btn border border-omega-gold text-omega-gold hover:bg-omega-gold hover:text-omega-purple-dark inline-flex items-center gap-2"
               aria-label="Donate to support the 2028 Grand Conclave (opens in a new tab)"
             >
               <svg
