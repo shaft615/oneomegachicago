@@ -3,8 +3,10 @@
 import Link from "next/link";
 import { useState, type FormEvent } from "react";
 import { chapters } from "@/data/chapters";
+import { fetchFormspree } from "@/lib/forms";
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xjglvlan";
+const FORMSPREE_FORM_ID = "xjglvlan";
+const FORMSPREE_ENDPOINT = `https://formspree.io/f/${FORMSPREE_FORM_ID}`;
 const EVENTBRITE_URL =
   "https://www.eventbrite.com/e/2026-black-mens-wellness-day-chicago-tickets-1944149807409";
 const EVENT_LABEL = "2026 Father's Day CookOwt";
@@ -32,9 +34,12 @@ export default function BrotherRegistrationForm() {
     const subject = `Father's Day 2026 Registration — ${subjectName}${chapter ? ` (${chapter})` : ""}`;
 
     try {
-      const response = await fetch(FORMSPREE_ENDPOINT, {
+      const response = await fetchFormspree(FORMSPREE_FORM_ID, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
         body: JSON.stringify({
           ...formData,
           _subject: subject,

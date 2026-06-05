@@ -2,8 +2,10 @@
 
 import { useState, type FormEvent } from "react";
 import { chapters } from "@/data/chapters";
+import { fetchFormspree } from "@/lib/forms";
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/mnjwnozy";
+const FORMSPREE_FORM_ID = "mnjwnozy";
+const FORMSPREE_ENDPOINT = `https://formspree.io/f/${FORMSPREE_FORM_ID}`;
 
 type Status =
   | "idle"
@@ -55,7 +57,7 @@ export default function EventSubmissionForm() {
 
     const hasFlyer = flyer instanceof File && flyer.size > 0;
     const send = (body: FormData) =>
-      fetch(FORMSPREE_ENDPOINT, {
+      fetchFormspree(FORMSPREE_FORM_ID, {
         method: "POST",
         headers: { Accept: "application/json" },
         body,

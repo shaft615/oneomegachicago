@@ -1,8 +1,10 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { fetchFormspree } from "@/lib/forms";
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xgorjngd";
+const FORMSPREE_FORM_ID = "xgorjngd";
+const FORMSPREE_ENDPOINT = `https://formspree.io/f/${FORMSPREE_FORM_ID}`;
 
 type TierKey = "omega" | "purple" | "gold" | "bronze";
 type Status = "idle" | "submitting" | "success" | "error";
@@ -206,9 +208,12 @@ export default function QyeSponsorshipPlan() {
     const formData = Object.fromEntries(new FormData(form).entries());
 
     try {
-      const response = await fetch(FORMSPREE_ENDPOINT, {
+      const response = await fetchFormspree(FORMSPREE_FORM_ID, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
         body: JSON.stringify(formData),
       });
 

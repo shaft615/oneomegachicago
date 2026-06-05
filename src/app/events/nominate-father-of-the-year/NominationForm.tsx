@@ -2,8 +2,10 @@
 
 import { useState, type FormEvent } from "react";
 import { chapters } from "@/data/chapters";
+import { fetchFormspree } from "@/lib/forms";
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/mwvyyvkb";
+const FORMSPREE_FORM_ID = "mwvyyvkb";
+const FORMSPREE_ENDPOINT = `https://formspree.io/f/${FORMSPREE_FORM_ID}`;
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -26,9 +28,12 @@ export default function NominationForm() {
       parts.length > 1 ? parts[parts.length - 1] : fullName || "Brother";
 
     try {
-      const response = await fetch(FORMSPREE_ENDPOINT, {
+      const response = await fetchFormspree(FORMSPREE_FORM_ID, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
         body: JSON.stringify(formData),
       });
 

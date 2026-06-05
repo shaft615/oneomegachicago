@@ -1,8 +1,11 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { type FormStatus } from "@/lib/forms";
+import { fetchFormspree, type FormStatus } from "@/lib/forms";
 import { StatusError, SuccessPanel } from "@/components/FormFeedback";
+
+const FORMSPREE_FORM_ID = "xgorjngd";
+const FORMSPREE_ENDPOINT = `https://formspree.io/f/${FORMSPREE_FORM_ID}`;
 
 export default function SponsorForm() {
   const [status, setStatus] = useState<FormStatus>("idle");
@@ -16,9 +19,12 @@ export default function SponsorForm() {
     const formData = Object.fromEntries(new FormData(form).entries());
 
     try {
-      const response = await fetch("https://formspree.io/f/xgorjngd", {
+      const response = await fetchFormspree(FORMSPREE_FORM_ID, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
         body: JSON.stringify(formData),
       });
 
@@ -40,7 +46,7 @@ export default function SponsorForm() {
   return (
     <form
       onSubmit={onSubmit}
-      action="https://formspree.io/f/xgorjngd"
+      action={FORMSPREE_ENDPOINT}
       method="POST"
       className="grid gap-5 sm:grid-cols-2"
       aria-label="Sponsor interest form"
