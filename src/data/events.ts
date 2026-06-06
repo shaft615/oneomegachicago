@@ -264,6 +264,25 @@ export const events: Event[] = [
     status: "upcoming",
   },
   {
+    id: "omega-path-mens-health-2026",
+    title: "Omega Path — Men's Health Day Initiative",
+    host: "Omicron Mu Mu Chapter (ΟΜΜ), Omega Psi Phi Fraternity, Inc.",
+    hostChapter: "ΟΜΜ",
+    category: "Wellness",
+    start: "2026-06-06T10:00:00-05:00",
+    end: "2026-06-06T13:30:00-05:00",
+    dateLabel: "Saturday, June 6, 2026",
+    timeLabel: "10:00 AM – 1:30 PM",
+    location:
+      "Blue Door Neighborhood Center, 11840 S Marshfield Ave, Chicago, IL 60643",
+    description: [
+      "Omega Path — the Men's Health Day Initiative presented by the Omicron Mu Mu Chapter of Omega Psi Phi Fraternity, Inc. Empowering men through health awareness, education, and prevention.",
+      "Five speakers will discuss men's health challenges and preventive measures for a better quality of life and greater awareness — spanning health professionals, expert speakers, mental health, wellness resources, and preventative care. Building stronger men. Healthier communities. Brighter futures.",
+    ],
+    flyer: "/events/MensHealthDay_2026.png",
+    status: "upcoming",
+  },
+  {
     id: "lake-jam-2026",
     title: "Lake Jam '26",
     host: "Mu Xi Chapter (ΜΞ), Omega Psi Phi Fraternity, Inc.",
