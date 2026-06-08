@@ -104,10 +104,13 @@ gh run list --workflow=event-auto-draft.yml --repo shaft615/oneomegachicago --li
   `end` (or `start + 24h`) is in the past. The site **automatically** files
   past-with-flyer events into Looking Back **at the next build**.
 - **Manual curation (with thank-you)**: set `status: "past"` + add a `callout`
-  line ("🎉 Thank you to everyone who came out…"). Push to trigger a rebuild.
-- ⚠️ The site is **static** — the date logic only re-runs on rebuild (any push).
-  An event whose end date has passed won't move to Looking Back until something
-  triggers a deploy.
+  line ("🎉 Thank you to everyone who came out…"). This is still the curated
+  move — it adds the thank-you message and drops any live ticket link.
+- ✅ The `/events` page uses **ISR** (`export const revalidate = 3600`), so the
+  date logic re-runs ~hourly on its own — a finished event rolls into Looking
+  Back without anyone pushing. Manual curation just makes it look nicer (thank
+  -you callout). Note: the **homepage** featured banner is still static and
+  uses `status`, not dates — see Known limitations.
 
 ### Pull latest submissions locally (no AI, no PR)
 ```bash
@@ -143,10 +146,14 @@ leaves stale Next.js artifacts that produce `EINVAL readlink` errors mid-build.
 
 ## Known limitations / next-step ideas
 
-- **Static rebuild gap**: past-event transitions need a rebuild trigger. To make
-  it truly hands-off (no manual push), wire a daily GitHub Action that curls a
-  Vercel **Deploy Hook**, so the site rebuilds nightly even if nothing was
-  committed.
+- **Static rebuild gap** (mostly resolved): the `/events` page now uses ISR
+  (`revalidate = 3600`) so its past/upcoming split self-heals hourly without a
+  push. Still open: the **homepage featured banner** (`getFeaturedEvent()`
+  filters on `status === "upcoming"`, not dates, and the homepage is fully
+  static), so once the featured event passes it lingers until someone flips its
+  `status` (or removes `featured`) and a rebuild happens. To fully automate that,
+  add `!isEventPast(e)` to `getFeaturedEvent()` **and** `export const revalidate`
+  to the homepage — or wire a daily Vercel **Deploy Hook** for a nightly rebuild.
 - **Tribute video for Jesse Jackson memorial**: hosted on YouTube
   ([youtu.be/GFLXafU1VqU](https://youtu.be/GFLXafU1VqU)). Large videos like
   this *cannot* go in the repo — always YouTube/Vimeo + link.
