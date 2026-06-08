@@ -408,7 +408,9 @@ export const events: Event[] = [
 ];
 
 export function getFeaturedEvent(): Event | undefined {
-  return events.find((e) => e.featured && e.status === "upcoming");
+  return events.find(
+    (e) => e.featured && e.status === "upcoming" && !isEventPast(e)
+  );
 }
 
 export function getNonFeaturedEventsByStatus(status: EventStatus): Event[] {
