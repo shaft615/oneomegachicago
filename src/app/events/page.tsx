@@ -6,6 +6,13 @@ import BrotherRegistrationForm from "./BrotherRegistrationForm";
 import EventCalendar from "@/components/calendar/EventCalendar";
 import { getFeaturedEvent } from "@/data/events";
 
+// Re-render hourly (ISR) so the date-driven past/upcoming split (isEventPast)
+// self-heals without a manual rebuild. A fully static page freezes Date.now()
+// at build time, so a finished event would stay in "upcoming" until the next
+// deploy; revalidating re-evaluates the dates and rolls events into
+// "Looking Back" on their own. See OPS.md → "Static rebuild gap".
+export const revalidate = 3600;
+
 export default function EventsPage() {
   const featured = getFeaturedEvent();
 
