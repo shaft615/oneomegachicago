@@ -1,5 +1,8 @@
 {
-  "_README": "Submissions the intake notifier should NOT flag (e.g. internal chapter business that doesn't belong on the public calendar). Match by title (case-insensitive substring) in ignoreTitles, or by exact submission _date timestamp in ignoreDates.",
+  "_README": "Submissions the intake notifier should NOT flag (e.g. internal chapter business that doesn't belong on the public calendar). Match by title (case-insensitive substring) in ignoreTitles, or by exact submission _date timestamp in ignoreDates. The two ignoreDates below are the 2026-06-03 platform-test submissions ('Test' and the 'DIAGNOSTIC … (ignore)' diagnostic, both ΧΛΛ); they have no real curated event to match, so they're suppressed by timestamp to keep the daily pre-check from firing on them forever.",
   "ignoreTitles": ["Chapter Meeting"],
-  "ignoreDates": []
+  "ignoreDates": [
+    "2026-06-03T20:49:54.733615+00:00",
+    "2026-06-03T18:34:10.518188+00:00"
+  ]
 }
