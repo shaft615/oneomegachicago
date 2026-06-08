@@ -91,7 +91,7 @@ export const events: Event[] = [
     secondaryLink: "https://youtu.be/GFLXafU1VqU",
     secondaryLinkLabel: "Watch Tribute Video",
     callout: "In Loving Memory of Bro. Rev. Jesse L. Jackson, Sr.",
-    status: "upcoming",
+    status: "past",
   },
   {
     id: "fathers-day-cookowt-2026",
@@ -179,7 +179,9 @@ export const events: Event[] = [
       "Tickets — $60. Payment via TicketFalcon, Venmo (@SigmaOmegaOPPF), Cash App ($sigmaOmegaOPPF), or check. Donations welcome.",
     ],
     flyer: "/events/SigmaOmega_Womanhood_2026.jpg",
-    status: "upcoming",
+    callout:
+      "🎉 Thank you to everyone who came out to celebrate the women in our lives!",
+    status: "past",
   },
   {
     id: "coleman-love-2026",
@@ -241,7 +243,9 @@ export const events: Event[] = [
       "A free grocery giveaway open to the community — hosted by the Chi Lambda Lambda Chapter of Omega Psi Phi Fraternity, Inc. and the Village of Hazel Crest, in coordination with the Rho Gamma Gamma Chapter.",
     ],
     flyer: "/events/FoodPantry_2026.png",
-    status: "upcoming",
+    callout:
+      "🎉 Thank you to everyone who came out — together we showed up for our neighbors.",
+    status: "past",
   },
   {
     id: "bowties-and-stilettos-2026",
@@ -260,8 +264,9 @@ export const events: Event[] = [
       "Hosted by the Nu Pi Chapter of Omega Psi Phi Fraternity, Inc.",
     ],
     flyer: "/events/BowtiesStilettos_2026.jpg",
-    link: "https://www.zeffy.com/en-US/ticketing/bowties-and-stilettos-2026-ga-and-vip",
-    status: "upcoming",
+    callout:
+      "🎉 Thank you to everyone who came out for an evening of urban excellence!",
+    status: "past",
   },
   {
     id: "lake-jam-2026",
