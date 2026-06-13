@@ -15,7 +15,7 @@ export default function NominateFatherOfTheYearPage() {
       <PageHeader
         eyebrow="Father's Day · 3rd Annual CookOwt"
         title="Nominate the Father of the Year."
-        description="Recognize a father, grandfather, or father figure who has shaped your life and your community. Honorees will be recognized at the 3rd Annual Father's Day CookOwt & Black Men's Wellness Day on Saturday, June 20, 2026 at Jackson Park."
+        description="Recognize a father, grandfather, or father figure who has shaped your life and your community. Honorees will be recognized at the 3rd Annual Father's Day CookOwt & Black Men's Wellness Day on Saturday, June 20, 2026 at Washington Park."
       />
 
       <section className="section-omega bg-white">
@@ -34,8 +34,8 @@ export default function NominateFatherOfTheYearPage() {
                 Honorees and their families are notified ahead of the event.
               </li>
               <li>
-                Recognition takes place during the CookOwt program at Jackson
-                Park on Saturday, June 20.
+                Recognition takes place during the CookOwt program at
+                Washington Park on Saturday, June 20.
               </li>
             </ol>
             <p className="mt-4 font-sans text-xs text-neutral-500 italic">

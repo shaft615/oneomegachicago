@@ -129,7 +129,7 @@ export default function BrotherRegistrationForm() {
             </p>
             <p className="mt-3 font-sans text-sm sm:text-base leading-relaxed text-neutral-700 max-w-xl mx-auto">
               Your registration has been recorded. We look forward to seeing you
-              at Jackson Park on June 20th.
+              at Washington Park on June 20th.
             </p>
             <p className="mt-5 font-display text-xl text-omega-gold tracking-regalia">
               Omega Psi Phi!

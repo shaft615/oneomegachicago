@@ -102,9 +102,9 @@ export const events: Event[] = [
     end: "2026-06-20T21:00:00-05:00",
     dateLabel: "Saturday, June 20, 2026",
     timeLabel: "7:00 AM – 9:00 PM",
-    location: "Jackson Park, Chicago, IL",
+    location: "Washington Park, 5531 S King Dr, Chicago, IL 60615",
     description: [
-      "Join the brothers of One Omega Foundation and Chicagoland's Omega Psi Phi chapters for the 3rd Annual Father's Day CookOwt — a full-day celebration of fatherhood, brotherhood, and Black men's wellness at Jackson Park, Chicago.",
+      "Join the brothers of One Omega Foundation and Chicagoland's Omega Psi Phi chapters for the 3rd Annual Father's Day CookOwt — a full-day celebration of fatherhood, brotherhood, and Black men's wellness at Washington Park, Chicago.",
       "The day features free health screenings, wellness resources, food, and community fellowship. Early arrival is strongly encouraged — parking fills quickly and health screenings begin at opening. Don't miss your chance to participate in free screenings before the crowds arrive.",
     ],
     flyer: "/events/Fathers Day Cookowt Flyer.jpeg",
