@@ -176,6 +176,45 @@ export default function FeaturedEventCard({
           )}
         </div>
       )}
+
+      {isFull && event.sponsors && event.sponsors.length > 0 && (
+        <div className="mt-8 border-t border-omega-purple/10 pt-6">
+          <p className="eyebrow text-omega-purple/70">
+            {event.sponsorsLabel ?? "Thank you to our sponsors"}
+          </p>
+          <div className="mt-4 flex flex-wrap items-center gap-x-8 gap-y-6">
+            {event.sponsors.map((sponsor) => {
+              const logo = (
+                <span className="relative block h-16 w-44 sm:w-52">
+                  <Image
+                    src={sponsor.logo}
+                    alt={`${sponsor.name} logo`}
+                    fill
+                    className="object-contain object-left"
+                    sizes="(min-width: 640px) 208px, 176px"
+                  />
+                </span>
+              );
+              return sponsor.url ? (
+                <a
+                  key={sponsor.name}
+                  href={sponsor.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex transition-opacity hover:opacity-80"
+                  aria-label={`${sponsor.name} (opens in a new tab)`}
+                >
+                  {logo}
+                </a>
+              ) : (
+                <span key={sponsor.name} className="inline-flex">
+                  {logo}
+                </span>
+              );
+            })}
+          </div>
+        </div>
+      )}
     </>
   );
 

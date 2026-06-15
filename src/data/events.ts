@@ -65,6 +65,10 @@ export interface Event {
   flyerBack?: string;
   /** Single-line emphasized callout shown as a banner on the card */
   callout?: string;
+  /** Event sponsors — rendered as a "thank you to our sponsors" logo strip on the full event card */
+  sponsors?: { name: string; logo: string; url?: string }[];
+  /** Heading for the sponsors strip, defaults to "Thank you to our sponsors" */
+  sponsorsLabel?: string;
   /** Free-text registration note */
   registration?: string;
   status: EventStatus;
@@ -110,6 +114,13 @@ export const events: Event[] = [
     flyer: "/events/Fathers Day Cookowt Flyer.jpeg",
     callout:
       "⭐ Arrive Early — Parking fills fast and health screenings begin at 7:00 AM sharp.",
+    sponsors: [
+      {
+        name: "Habilitative Systems, Inc.",
+        logo: "/events/sponsors/Habilitative_Systems.jpg",
+        url: "https://www.habilitative.org",
+      },
+    ],
     link: "https://www.eventbrite.com/e/2026-black-mens-wellness-day-chicago-tickets-1944149807409",
     registerHref: "#register",
     nominationHref: "/events/nominate-father-of-the-year",
