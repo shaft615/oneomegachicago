@@ -1,3 +1,4 @@
+import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import FeaturedEventCard from "@/components/FeaturedEventCard";
 import FlyerEventGallery from "@/components/FlyerEventGallery";
@@ -29,9 +30,14 @@ export default function EventsPage() {
           <p className="font-sans text-sm text-neutral-600">
             Looking for the full event calendar?
           </p>
-          <a href="#calendar" className="btn-outline">
-            Jump to Calendar ↓
-          </a>
+          <div className="flex flex-wrap items-center gap-3">
+            <Link href="/events/submit" className="btn-gold text-omega-purple-dark">
+              Submit an Event →
+            </Link>
+            <a href="#calendar" className="btn-outline">
+              Jump to Calendar ↓
+            </a>
+          </div>
         </div>
       </section>
 
