@@ -203,37 +203,43 @@ export default function FeaturedEventCard({
           <p className="eyebrow text-omega-purple/70">
             {event.sponsorsLabel ?? "Thank you to our sponsors"}
           </p>
-          <div className="mt-4 flex flex-wrap items-center gap-x-8 gap-y-6">
+          <ul className="mt-5 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-7 items-center">
             {event.sponsors.map((sponsor) => {
               const logo = (
-                <span className="relative block h-16 w-44 sm:w-52">
+                <span className="relative block h-12 sm:h-14 w-full">
                   <Image
                     src={sponsor.logo}
                     alt={`${sponsor.name} logo`}
                     fill
-                    className="object-contain object-left"
-                    sizes="(min-width: 640px) 208px, 176px"
+                    className="object-contain"
+                    sizes="(min-width: 1024px) 200px, (min-width: 640px) 30vw, 45vw"
                   />
                 </span>
               );
-              return sponsor.url ? (
-                <a
-                  key={sponsor.name}
-                  href={sponsor.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex transition-opacity hover:opacity-80"
-                  aria-label={`${sponsor.name} (opens in a new tab)`}
-                >
-                  {logo}
-                </a>
-              ) : (
-                <span key={sponsor.name} className="inline-flex">
-                  {logo}
-                </span>
+              return (
+                <li key={sponsor.name} className="flex items-center justify-center">
+                  {sponsor.url ? (
+                    <a
+                      href={sponsor.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex w-full items-center justify-center transition-opacity hover:opacity-80"
+                      aria-label={`${sponsor.name} (opens in a new tab)`}
+                    >
+                      {logo}
+                    </a>
+                  ) : (
+                    <span
+                      className="flex w-full items-center justify-center"
+                      title={sponsor.name}
+                    >
+                      {logo}
+                    </span>
+                  )}
+                </li>
               );
             })}
-          </div>
+          </ul>
         </div>
       )}
     </>

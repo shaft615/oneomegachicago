@@ -80,6 +80,37 @@ export interface Event {
   featured?: boolean;
 }
 
+// Sponsors of the 3rd Annual Father's Day CookOwt & Black Men's Wellness Day.
+// Logos live in /public/events/sponsors. Ordered national presenting →
+// supporting → community partners; the sponsor wall renders them in this order.
+// Add a `url` to make a logo clickable (we only have Habilitative's so far).
+const fathersDayCookOwtSponsors: NonNullable<Event["sponsors"]> = [
+  { name: "Dexcom", logo: "/events/sponsors/dexcom.png" },
+  { name: "Eli Lilly and Company", logo: "/events/sponsors/eli-lilly.png" },
+  { name: "Novartis", logo: "/events/sponsors/novartis.jpg" },
+  { name: "AbbVie", logo: "/events/sponsors/abbvie.png" },
+  { name: "Pfizer", logo: "/events/sponsors/pfizer.png" },
+  { name: "Johnson & Johnson", logo: "/events/sponsors/johnson-and-johnson.jpg" },
+  { name: "Bayer", logo: "/events/sponsors/bayer.png" },
+  { name: "Genentech", logo: "/events/sponsors/genentech.png" },
+  { name: "Alnylam Pharmaceuticals", logo: "/events/sponsors/alnylam.png" },
+  { name: "Travere Therapeutics", logo: "/events/sponsors/travere-therapeutics.png" },
+  { name: "Molina Healthcare of Illinois", logo: "/events/sponsors/molina-healthcare.jpg" },
+  { name: "Gift of Hope", logo: "/events/sponsors/gift-of-hope.png" },
+  { name: "Arthritis Foundation", logo: "/events/sponsors/arthritis-foundation.png" },
+  { name: "UChicago Medicine Urban Health Initiative", logo: "/events/sponsors/urban-health-initiative.jpg" },
+  { name: "NowIncluded", logo: "/events/sponsors/nowincluded.png" },
+  {
+    name: "Habilitative Systems, Inc.",
+    logo: "/events/sponsors/habilitative-systems.jpg",
+    url: "https://www.habilitative.org",
+  },
+  { name: "Solomon Group, LLC", logo: "/events/sponsors/solomon-group.png" },
+  { name: "Neighborhood Loans", logo: "/events/sponsors/neighborhood-loans.png" },
+  { name: "Blaqs Lounge", logo: "/events/sponsors/blaqs-lounge.png" },
+  { name: "Real Men Cook", logo: "/events/sponsors/real-men-cook.png" },
+];
+
 export const events: Event[] = [
   {
     id: "jesse-jackson-memorial-2026",
@@ -118,13 +149,8 @@ export const events: Event[] = [
     flyer: "/events/Fathers Day Cookowt Flyer.jpeg",
     callout:
       "⭐ Arrive Early — Parking fills fast and health screenings begin at 7:00 AM sharp.",
-    sponsors: [
-      {
-        name: "Habilitative Systems, Inc.",
-        logo: "/events/sponsors/Habilitative_Systems.jpg",
-        url: "https://www.habilitative.org",
-      },
-    ],
+    sponsors: fathersDayCookOwtSponsors,
+    sponsorsLabel: "Thank you to our sponsors & partners",
     link: "https://www.eventbrite.com/e/2026-black-mens-wellness-day-chicago-tickets-1944149807409",
     registerHref: "#register",
     nominationHref: "/events/nominate-father-of-the-year",
