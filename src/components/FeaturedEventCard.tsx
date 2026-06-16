@@ -104,7 +104,8 @@ export default function FeaturedEventCard({
       {(event.link ||
         event.secondaryLink ||
         (isFull && event.registerHref) ||
-        (isFull && event.nominationHref)) && (
+        (isFull && event.nominationHref) ||
+        (isFull && event.merchHref)) && (
         <div className="mt-6 flex flex-wrap gap-3">
           {isFull && event.registerHref && (
             <a
@@ -172,6 +173,26 @@ export default function FeaturedEventCard({
               aria-label={`${event.secondaryLinkLabel ?? "Event Website"} for ${event.title} (opens in a new tab)`}
             >
               {event.secondaryLinkLabel ?? "Event Website"} →
+            </a>
+          )}
+          {isFull && event.merchHref && (
+            <a
+              href={event.merchHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn border border-omega-purple text-omega-purple hover:bg-omega-purple hover:text-white inline-flex items-center gap-2"
+              aria-label={`${event.merchLabel ?? "Shop Official Merch"} for ${event.title} (opens in a new tab)`}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className="h-4 w-4"
+                aria-hidden
+              >
+                <path d="M16 2 21 5l-2.5 4-2.5-1.5V22H8V7.5L5.5 9 3 5l5-3 2 2h4z" />
+              </svg>
+              {event.merchLabel ?? "Shop Official Merch"} →
             </a>
           )}
         </div>

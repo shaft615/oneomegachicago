@@ -44,6 +44,10 @@ export interface Event {
   secondaryLink?: string;
   /** Button label for the secondary link, defaults to "Event Website" */
   secondaryLinkLabel?: string;
+  /** External URL to buy official event merchandise (e.g. a t-shirt); renders an extra outline CTA on the full event card */
+  merchHref?: string;
+  /** Button label for the merch CTA, defaults to "Shop Official Merch" */
+  merchLabel?: string;
   /** Anchor link (e.g. "#register") for an in-page registration form below the card; renders a "Register below ↓" CTA in the full event card */
   registerHref?: string;
   /** Extra YYYY-MM-DD dates on which to surface this event on the calendar grid, in addition to its `start` date. Useful for multi-day drives with non-contiguous or distinct daily windows so a single event entry shows up on every relevant calendar cell without fragmenting the data into separate entries. */
@@ -125,6 +129,9 @@ export const events: Event[] = [
     registerHref: "#register",
     nominationHref: "/events/nominate-father-of-the-year",
     nominationLabel: "Nominate Father of the Year",
+    merchHref:
+      "https://www.hustlersmba.com/product-page/2026-father-s-day-cookowt-t-shirt",
+    merchLabel: "Shop the Official T-Shirt",
     status: "upcoming",
     featured: true,
   },
