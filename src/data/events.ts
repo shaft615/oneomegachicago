@@ -85,30 +85,35 @@ export interface Event {
 // supporting → community partners; the sponsor wall renders them in this order.
 // Add a `url` to make a logo clickable (we only have Habilitative's so far).
 const fathersDayCookOwtSponsors: NonNullable<Event["sponsors"]> = [
-  { name: "Dexcom", logo: "/events/sponsors/dexcom.png" },
-  { name: "Eli Lilly and Company", logo: "/events/sponsors/eli-lilly.png" },
-  { name: "Novartis", logo: "/events/sponsors/novartis.jpg" },
-  { name: "AbbVie", logo: "/events/sponsors/abbvie.png" },
-  { name: "Pfizer", logo: "/events/sponsors/pfizer.png" },
-  { name: "Johnson & Johnson", logo: "/events/sponsors/johnson-and-johnson.jpg" },
-  { name: "Bayer", logo: "/events/sponsors/bayer.png" },
-  { name: "Genentech", logo: "/events/sponsors/genentech.png" },
-  { name: "Alnylam Pharmaceuticals", logo: "/events/sponsors/alnylam.png" },
-  { name: "Travere Therapeutics", logo: "/events/sponsors/travere-therapeutics.png" },
-  { name: "Molina Healthcare of Illinois", logo: "/events/sponsors/molina-healthcare.jpg" },
-  { name: "Gift of Hope", logo: "/events/sponsors/gift-of-hope.png" },
-  { name: "Arthritis Foundation", logo: "/events/sponsors/arthritis-foundation.png" },
-  { name: "UChicago Medicine Urban Health Initiative", logo: "/events/sponsors/urban-health-initiative.jpg" },
-  { name: "NowIncluded", logo: "/events/sponsors/nowincluded.png" },
+  { name: "Dexcom", logo: "/events/sponsors/dexcom.png", url: "https://www.dexcom.com" },
+  { name: "Eli Lilly and Company", logo: "/events/sponsors/eli-lilly.png", url: "https://www.lilly.com" },
+  { name: "Novartis", logo: "/events/sponsors/novartis.jpg", url: "https://www.novartis.com" },
+  { name: "AbbVie", logo: "/events/sponsors/abbvie.png", url: "https://www.abbvie.com" },
+  { name: "Pfizer", logo: "/events/sponsors/pfizer.png", url: "https://www.pfizer.com" },
+  { name: "Johnson & Johnson", logo: "/events/sponsors/johnson-and-johnson.jpg", url: "https://www.jnj.com" },
+  { name: "Bayer", logo: "/events/sponsors/bayer.png", url: "https://www.bayer.com" },
+  { name: "Genentech", logo: "/events/sponsors/genentech.png", url: "https://www.gene.com" },
+  { name: "Alnylam Pharmaceuticals", logo: "/events/sponsors/alnylam.png", url: "https://www.alnylam.com" },
+  { name: "Travere Therapeutics", logo: "/events/sponsors/travere-therapeutics.png", url: "https://www.travere.com" },
+  { name: "Molina Healthcare of Illinois", logo: "/events/sponsors/molina-healthcare.jpg", url: "https://www.molinahealthcare.com" },
+  { name: "Gift of Hope", logo: "/events/sponsors/gift-of-hope.png", url: "https://www.giftofhope.org" },
+  { name: "Arthritis Foundation", logo: "/events/sponsors/arthritis-foundation.png", url: "https://www.arthritis.org" },
+  {
+    name: "UChicago Medicine Urban Health Initiative",
+    logo: "/events/sponsors/urban-health-initiative.jpg",
+    url: "https://www.uchicagomedicine.org/about-us/community/urban-health-initiative",
+  },
+  { name: "NowIncluded", logo: "/events/sponsors/nowincluded.png", url: "https://www.nowincluded.com" },
   {
     name: "Habilitative Systems, Inc.",
     logo: "/events/sponsors/habilitative-systems.jpg",
     url: "https://www.habilitative.org",
   },
+  // Display-only (no obvious official site to link confidently):
   { name: "Solomon Group, LLC", logo: "/events/sponsors/solomon-group.png" },
-  { name: "Neighborhood Loans", logo: "/events/sponsors/neighborhood-loans.png" },
+  { name: "Neighborhood Loans", logo: "/events/sponsors/neighborhood-loans.png", url: "https://www.neighborhoodloans.com" },
   { name: "Blaqs Lounge", logo: "/events/sponsors/blaqs-lounge.png" },
-  { name: "Real Men Cook", logo: "/events/sponsors/real-men-cook.png" },
+  { name: "Real Men Cook", logo: "/events/sponsors/real-men-cook.png", url: "https://www.realmencook.com" },
 ];
 
 export const events: Event[] = [
