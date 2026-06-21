@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CONCLAVE_DATE_LABEL } from "@/lib/conclave";
 
 const COMMITTEES_URL = "https://portal.oneomegachicago.org/committees";
 
@@ -59,7 +60,7 @@ export default function CommitteeCTA() {
                 </div>
                 <div className="mt-4 h-px bg-white/15" />
                 <div className="font-sans text-sm text-white/70 mt-4">
-                  July 9–17, 2028 · Chicago
+                  {CONCLAVE_DATE_LABEL} · Chicago
                 </div>
               </div>
             </div>
