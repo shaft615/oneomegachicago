@@ -124,6 +124,18 @@ Requires `FORMSPREE_API_KEY` in `.env.local` (read-only key works).
    update `ANTHROPIC_API_KEY` value directly. **Do not** route through
    `.env.local` — that's what kept re-exposing the key.
 
+### Rotate the Formspree API key
+The key lives in **two places**; regenerating it in Formspree invalidates the
+old value everywhere, so update **both** or the daily auto-draft silently 401s
+(red run, no approval PR):
+1. formspree.io → account settings → API → regenerate. Prefer a **read-only**
+   key — nothing in this repo needs write access to submissions.
+2. `gh secret set FORMSPREE_API_KEY --body "<new key>"` (CI auto-draft).
+3. Update `FORMSPREE_API_KEY=` in `.env.local` (manual local pulls). Never
+   commit this file; it is gitignored.
+4. Verify: `node scripts/intake-check.mjs` locally, then
+   `gh workflow run event-auto-draft.yml` and confirm a green run.
+
 ### Update / replace a flyer
 - Drop the new file in `public/events/` under the same filename → push a
   commit (any) to trigger rebuild → **hard-refresh** (Ctrl+Shift+R) to bust
