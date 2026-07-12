@@ -497,6 +497,28 @@ export const events: Event[] = [
     status: "upcoming",
   },
   {
+    id: "hooks-and-heels-2026",
+    title: "Hooks & Heels — Scholarship Boat Ride (House Edition)",
+    host: "Rho Gamma Gamma Chapter (ΡΓΓ), Omega Psi Phi Fraternity, Inc.",
+    hostChapter: "ΡΓΓ",
+    category: "Social",
+    start: "2026-09-06T16:00:00-05:00",
+    end: "2026-09-06T18:00:00-05:00",
+    dateLabel: "Sunday, September 6, 2026",
+    timeLabel: "4:00 PM – 6:00 PM (boarding at 3:00 PM)",
+    location:
+      "Navy Pier, 600 E. Grand Ave, Chicago, IL 60611 (aboard the Spirit of Chicago)",
+    description: [
+      "Set sail with the Men of the Rho Gamma Gamma Chapter of Omega Psi Phi Fraternity, Inc. for Hooks & Heels — the Scholarship Boat Ride, House Edition, aboard the Spirit of Chicago. Boarding begins at 3:00 PM at Navy Pier; the boat sails 4:00 – 6:00 PM.",
+      "Early Bird Ticket: $85 · VIP Tables available (table of eight — board first, cake at the table, dine first, and a secured table for the After Party) · Park & Ride to Navy Pier available ($30 roundtrip).",
+      "Attire: Summer Chic — no athletic apparel. Must be 21 or older with a valid state-issued ID.",
+      "A portion of the proceeds benefits scholarship programs through the Rho Gamma Gamma Chapter.",
+    ],
+    flyer: "/events/HooksAndHeels_2026.jpeg",
+    link: "https://tinyurl.com/rggboatride2026",
+    status: "upcoming",
+  },
+  {
     id: "conclave-sponsor-briefing-2026",
     title: "Chicago Conclave 2028 — Sponsor Briefing",
     host: "Conclave 2028 Host Committee",
