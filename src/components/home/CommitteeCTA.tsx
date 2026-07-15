@@ -28,7 +28,7 @@ export default function CommitteeCTA() {
               <p className="font-sans text-base leading-relaxed text-white/85 max-w-2xl">
                 Brothers, Quettes, and Friends of Omega — the host committee for
                 the 86th Grand Conclave is forming now. Review the committees,
-                from Registration and Security to STEM, Step Show, and
+                from Registration and Security to Omega STEM, Step Show, and
                 Entertainment, and tell us where you&apos;d like to serve. The
                 Grand Marshal reviews every request.
               </p>
