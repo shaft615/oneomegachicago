@@ -46,6 +46,19 @@ All four forms POST JSON. Notification emails should route to **events@oneomegac
 The chapter-event form (`mnjwnozy`) supports **file uploads** (Formspree Professional plan).
 Uploaded flyers appear in the API response as `flyer: ["https://user-file-uploads.formspree.io/.../file.png"]`.
 
+## Conclave Idea Bank (`/ideas` — not Formspree)
+
+The Idea Bank is shared with the Conclave site and does **not** go through
+Formspree. `/ideas` (CTA on the homepage) POSTs to
+`https://chicagoclave2028.com/api/ideas` (see `src/lib/ideas.ts`), which
+checks the submitter against the Conclave contact list, captures info for
+anyone not on it, and lands the idea in the Conclave admin portal's Idea
+Board submissions queue (`admin.chicagoclave2028.com/admin/board/submissions`)
+— the same queue the Conclave site's own Idea Bank feeds. A same-origin
+relay at `/api/ideas` covers fetch-blocking networks, mirroring the
+Formspree relay pattern. Changes to the intake flow belong in the
+`chicago-conclave-2028` repo (`app/api/ideas/route.ts`).
+
 ## Secrets
 
 | Where | What | Used by |
