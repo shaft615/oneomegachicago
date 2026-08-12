@@ -5,6 +5,11 @@ import { fetchIdeasApi, IDEAS_FALLBACK_EMAIL } from "@/lib/ideas";
 
 type Step = "email" | "details" | "done";
 
+interface Folder {
+  id: string;
+  name: string;
+}
+
 function ErrorBanner({ message }: { message: string }) {
   return (
     <div
@@ -37,6 +42,7 @@ export default function IdeaBankForm() {
     found: false,
     name: null,
   });
+  const [folders, setFolders] = useState<Folder[]>([]);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -48,8 +54,13 @@ export default function IdeaBankForm() {
     try {
       const res = await fetchIdeasApi({ action: "check", email });
       if (!res.ok) throw new Error();
-      const data = (await res.json()) as { found?: boolean; name?: string | null };
+      const data = (await res.json()) as {
+        found?: boolean;
+        name?: string | null;
+        folders?: Folder[];
+      };
       setKnown({ found: Boolean(data.found), name: data.name ?? null });
+      setFolders(Array.isArray(data.folders) ? data.folders : []);
       setStep("details");
     } catch {
       setError("Could not check the contact list.");
@@ -184,6 +195,24 @@ export default function IdeaBankForm() {
         </>
       )}
 
+      {folders.length > 0 && (
+        <div>
+          <label className="label-omega" htmlFor="idea-folder">
+            Subject Area (optional)
+          </label>
+          <select id="idea-folder" name="folder_id" defaultValue="" className="input-omega">
+            <option value="">Choose a subject area…</option>
+            {folders.map((f) => (
+              <option key={f.id} value={f.id}>
+                {f.name}
+              </option>
+            ))}
+          </select>
+          <p className="mt-1 font-sans text-xs text-neutral-500">
+            Where you think this belongs — the leadership team may re-file it.
+          </p>
+        </div>
+      )}
       <div>
         <label className="label-omega" htmlFor="idea-title">
           Short Title (optional)
