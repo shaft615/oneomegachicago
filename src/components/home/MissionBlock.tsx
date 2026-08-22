@@ -36,7 +36,7 @@ export default function MissionBlock() {
             in 2028.
           </p>
           <p className="font-sans text-sm italic text-neutral-500">
-            501(c)(3) status pending. Operating under the DBA{" "}
+            A 501(c)(3) tax-exempt organization. Operating under the DBA{" "}
             <span className="font-semibold not-italic text-omega-purple-dark">
               Chicago Conclave 2028
             </span>{" "}

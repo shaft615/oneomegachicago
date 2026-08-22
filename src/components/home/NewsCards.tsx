@@ -11,9 +11,9 @@ interface NewsItem {
 const NEWS: NewsItem[] = [
   {
     category: "Foundation",
-    title: "One Omega Foundation files for 501(c)(3) recognition",
+    title: "One Omega Foundation awarded 501(c)(3) recognition",
     excerpt:
-      "The Foundation has submitted its IRS Form 1023 and will operate under expedited review while determination is pending.",
+      "The IRS has granted the Foundation federal tax-exempt status under Section 501(c)(3). Contributions are now tax-deductible to the extent allowed by law.",
     date: "Coming soon",
     href: "/about",
   },

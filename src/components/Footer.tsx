@@ -33,7 +33,7 @@ export default function Footer() {
             Fraternity, Inc., and host of the 86th Grand Conclave in 2028.
           </p>
           <p className="font-sans text-xs text-white/60 italic">
-            501(c)(3) status pending.
+            A 501(c)(3) tax-exempt organization.
           </p>
         </div>
 

@@ -496,6 +496,28 @@ export const events: Event[] = [
     status: "upcoming",
   },
   {
+    id: "chapter-cookowt-2026",
+    title: "Chi Lambda Lambda Chapter CookOwt",
+    host: "Chi Lambda Lambda Chapter (ΧΛΛ), Omega Psi Phi Fraternity, Inc.",
+    hostChapter: "ΧΛΛ",
+    category: "Social",
+    start: "2026-08-22T11:00:00-05:00",
+    end: "2026-08-22T20:00:00-05:00",
+    recurrence: "Annual",
+    dateLabel: "Saturday, August 22, 2026",
+    timeLabel: "11:00 AM – 8:00 PM",
+    location:
+      "Midlothian Meadows Forest Preserve — Shelter/Grove #2, Crawford Ave north of W 159th St, Cook County, IL 60428",
+    description: [
+      "The Brothers of the Chi Lambda Lambda Chapter of Omega Psi Phi Fraternity, Inc. invite you to our annual Chapter CookOwt — a day of fellowship, food, and community in the true Omega spirit. Good food. Good brotherhood. Great time.",
+      "Rooted in our motto that \"friendship is essential to the soul,\" the CookOwt brings together Brothers, family, friends, and neighbors for an afternoon of great food, music, games, and good company. Whether you're a longtime member of the Omega family or joining us for the first time, you'll find a warm welcome, a full plate, and the brotherhood that defines Chi Lambda Lambda.",
+      "Come out, bring the family, and enjoy the fellowship. Manhood, Scholarship, Perseverance, and Uplift — on and off the grill.",
+    ],
+    flyer: "/events/ChapterCookOwt_2026.jpg",
+    link: "https://chilambdalambda.com/events/chapter-cookowt",
+    status: "upcoming",
+  },
+  {
     id: "omegas-on-the-lake-2026",
     title: "Omegas On The Lake",
     host: "Alpha Chi Chapter (AX), Omega Psi Phi Fraternity, Inc.",
