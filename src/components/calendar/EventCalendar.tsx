@@ -28,7 +28,13 @@ const MONTHS = [
   "December",
 ];
 
-export default function EventCalendar() {
+export default function EventCalendar({
+  events = allEvents,
+}: {
+  /** Full event list to render; defaults to the static list. The /events
+   *  page passes the merged static + portal list. */
+  events?: Event[];
+}) {
   const [view, setView] = useState<View>("month");
   const today = useMemo(() => new Date(), []);
   const [cursor, setCursor] = useState(
@@ -39,7 +45,7 @@ export default function EventCalendar() {
     "upcoming"
   );
 
-  const eventsByDay = useMemo(() => groupByDay(allEvents), []);
+  const eventsByDay = useMemo(() => groupByDay(events), [events]);
 
   const monthLabel = `${MONTHS[cursor.getMonth()]} ${cursor.getFullYear()}`;
 
@@ -98,6 +104,7 @@ export default function EventCalendar() {
         />
       ) : (
         <AgendaView
+          events={events}
           today={today}
           filter={agendaFilter}
           setFilter={setAgendaFilter}
@@ -264,22 +271,24 @@ function MonthView({
 /* -------------------- Agenda View -------------------- */
 
 function AgendaView({
+  events,
   today,
   filter,
   setFilter,
 }: {
+  events: Event[];
   today: Date;
   filter: "upcoming" | "past";
   setFilter: (f: "upcoming" | "past") => void;
 }) {
   const todayMs = today.getTime();
   const filtered = useMemo(() => {
-    const sorted = sortByStart(allEvents);
+    const sorted = sortByStart(events);
     return sorted.filter((e) => {
       const t = new Date(e.start).getTime();
       return filter === "upcoming" ? t >= todayMs - 86_400_000 : t < todayMs;
     });
-  }, [filter, todayMs]);
+  }, [events, filter, todayMs]);
 
   // Group by month
   const groups = useMemo(() => {

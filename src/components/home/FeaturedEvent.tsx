@@ -1,9 +1,12 @@
 import Link from "next/link";
-import { getFeaturedEvent } from "@/data/events";
+import { getMergedEvents, pickFeatured } from "@/lib/portal-events";
 import FeaturedEventCard from "@/components/FeaturedEventCard";
 
-export default function FeaturedEvent() {
-  const event = getFeaturedEvent();
+export default async function FeaturedEvent() {
+  // Merged static + portal list — an event featured from the governance
+  // portal surfaces here exactly like a static one. Falls back to the
+  // static list alone when the portal feed is unreachable.
+  const event = pickFeatured(await getMergedEvents());
   if (!event) return null;
 
   return (

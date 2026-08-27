@@ -5,17 +5,20 @@ import FlyerEventGallery from "@/components/FlyerEventGallery";
 import PastEventHighlights from "@/components/PastEventHighlights";
 import BrotherRegistrationForm from "./BrotherRegistrationForm";
 import EventCalendar from "@/components/calendar/EventCalendar";
-import { getFeaturedEvent } from "@/data/events";
+import { getMergedEvents, pickFeatured } from "@/lib/portal-events";
 
 // Re-render hourly (ISR) so the date-driven past/upcoming split (isEventPast)
 // self-heals without a manual rebuild. A fully static page freezes Date.now()
 // at build time, so a finished event would stay in "upcoming" until the next
 // deploy; revalidating re-evaluates the dates and rolls events into
 // "Looking Back" on their own. See OPS.md → "Static rebuild gap".
+// The same hourly window also picks up newly published portal events
+// (getMergedEvents fetches the governance portal's public feed).
 export const revalidate = 3600;
 
-export default function EventsPage() {
-  const featured = getFeaturedEvent();
+export default async function EventsPage() {
+  const events = await getMergedEvents();
+  const featured = pickFeatured(events);
 
   return (
     <>
@@ -58,11 +61,11 @@ export default function EventsPage() {
         </section>
       )}
 
-      <FlyerEventGallery />
+      <FlyerEventGallery events={events} />
 
       {featured && <BrotherRegistrationForm />}
 
-      <PastEventHighlights />
+      <PastEventHighlights events={events} />
 
       <section
         id="calendar"
@@ -84,7 +87,7 @@ export default function EventsPage() {
             </div>
           </div>
 
-          <EventCalendar />
+          <EventCalendar events={events} />
         </div>
       </section>
     </>
