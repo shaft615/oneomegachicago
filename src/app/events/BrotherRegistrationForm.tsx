@@ -10,6 +10,9 @@ const FORMSPREE_ENDPOINT = `https://formspree.io/f/${FORMSPREE_FORM_ID}`;
 const EVENTBRITE_URL =
   "https://www.eventbrite.com/e/2026-black-mens-wellness-day-chicago-tickets-1944149807409";
 const EVENT_LABEL = "2026 Father's Day CookOwt";
+/** id of the src/data/events.ts entry this form belongs to; /events only
+ *  renders the form while that event is the featured one. */
+export const BROTHER_REGISTRATION_EVENT_ID = "fathers-day-cookowt-2026";
 
 type Status = "idle" | "submitting" | "success" | "error";
 

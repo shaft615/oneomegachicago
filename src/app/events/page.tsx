@@ -3,7 +3,9 @@ import PageHeader from "@/components/PageHeader";
 import FeaturedEventCard from "@/components/FeaturedEventCard";
 import FlyerEventGallery from "@/components/FlyerEventGallery";
 import PastEventHighlights from "@/components/PastEventHighlights";
-import BrotherRegistrationForm from "./BrotherRegistrationForm";
+import BrotherRegistrationForm, {
+  BROTHER_REGISTRATION_EVENT_ID,
+} from "./BrotherRegistrationForm";
 import EventCalendar from "@/components/calendar/EventCalendar";
 import { getMergedEvents, pickFeatured } from "@/lib/portal-events";
 
@@ -19,6 +21,13 @@ export const revalidate = 3600;
 export default async function EventsPage() {
   const events = await getMergedEvents();
   const featured = pickFeatured(events);
+  // BrotherRegistrationForm is hard-wired to the Father's Day CookOwt (its
+  // Formspree form, Eventbrite link, and copy). Show it only when THAT event
+  // is the featured one — not whenever anything is featured — otherwise a
+  // featured portal event (e.g. the golf fundraiser) resurrects a
+  // registration form for an event that has already happened.
+  const showBrotherRegistration =
+    featured?.id === BROTHER_REGISTRATION_EVENT_ID;
 
   return (
     <>
@@ -63,7 +72,7 @@ export default async function EventsPage() {
 
       <FlyerEventGallery events={events} />
 
-      {featured && <BrotherRegistrationForm />}
+      {showBrotherRegistration && <BrotherRegistrationForm />}
 
       <PastEventHighlights events={events} />
 
