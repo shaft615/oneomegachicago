@@ -623,6 +623,35 @@ export const events: Event[] = [
     status: "upcoming",
   },
   {
+    id: "youth-voter-registration-day-2026",
+    title:
+      "Rev. Jesse L. Jackson, Sr. Youth Voter Registration & Empowerment Day",
+    host: "Rainbow PUSH Coalition & the Jesse L. Jackson Youth Voter Empowerment Bill Coalition — supported by One Omega Foundation and the Chicagoland Omega chapters",
+    category: "Community",
+    start: "2026-09-10T08:30:00-05:00",
+    end: "2026-09-10T14:00:00-05:00",
+    dateLabel: "Thursday, September 10, 2026",
+    timeLabel:
+      "Program 10:00 AM – 1:00 PM · Volunteers 8:30 AM – 2:00 PM (set-up through breakdown)",
+    location:
+      "Rainbow PUSH Coalition Headquarters, 930 E. 50th Street, Chicago, IL 60615",
+    description: [
+      "Chicagoland Men of Omega: let's show up and serve. Commissioner Tara Stamps has called on the Men of Omega Psi Phi Fraternity, Inc., Chicagoland Chapters, to show up in full force for a day of service, civic engagement, and youth empowerment as part of National Teen Voter Registration Day.",
+      "More than 700 young people will gather at Rainbow PUSH for the Rev. Jesse L. Jackson, Sr. Youth Voter Registration & Empowerment Day. The program runs 10:00 AM – 1:00 PM; volunteers are asked to serve the full 8:30 AM – 2:00 PM window.",
+      "Volunteers are needed for student check-in, registration support, wayfinding and guest assistance, event set-up and breakdown, and general support. Omega Psi Phi Fraternity, Inc. is also asked to host a community resource table highlighting the Fraternity's social impact, community initiatives, and upcoming events throughout the Chicagoland area.",
+      "Who should attend: high school juniors and seniors, private-school students, GED students, homeschooled students, young people not currently enrolled in school, and families, educators, schools, and community organizations. You may register to vote if you are a U.S. citizen and will be 18 on or before November 3, 2026.",
+      "Come ready to register: bring an Illinois ID or driver's license, proof of your current address, the last four digits of your Social Security number, and a cell phone or Chromebook. Sponsored school buses are available through Chicago Votes on a first-come, first-served basis.",
+      "For information: Tara4Commissioner24@gmail.com. Brothers may also contact Jamair Atkins, Chief of Staff, at 708-539-1635 for additional details. HB 4339 — it's the law!",
+    ],
+    flyer: "/events/YouthVoterDay_2026.jpg",
+    flyerBack: "/events/YouthVoterDay_Volunteers_2026.jpg",
+    secondaryLink: "https://www.facebook.com/share/p/19dWFbFc46/",
+    secondaryLinkLabel: "Volunteer Sign-Up (Facebook)",
+    callout:
+      "Volunteers needed — comment \"VOLUNTEER\" on the Facebook post to sign up.",
+    status: "upcoming",
+  },
+  {
     id: "conclave-sponsor-briefing-2026",
     title: "Chicago Conclave 2028 — Sponsor Briefing",
     host: "Conclave 2028 Host Committee",
