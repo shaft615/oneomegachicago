@@ -153,18 +153,16 @@ export const events: Event[] = [
     ],
     flyer: "/events/Fathers Day Cookowt Flyer.jpeg",
     callout:
-      "⭐ Arrive Early — Parking fills fast and health screenings begin at 7:00 AM sharp.",
+      "🎉 Thank you to every brother, family, and partner who came out to celebrate fatherhood and Black men's wellness at Washington Park!",
     sponsors: fathersDayCookOwtSponsors,
     sponsorsLabel: "Thank you to our sponsors & partners",
     link: "https://www.eventbrite.com/e/2026-black-mens-wellness-day-chicago-tickets-1944149807409",
-    registerHref: "#register",
     nominationHref: "/events/nominate-father-of-the-year",
     nominationLabel: "Nominate Father of the Year",
     merchHref:
       "https://www.hustlersmba.com/product-page/2026-father-s-day-cookowt-t-shirt",
     merchLabel: "Shop the Official T-Shirt",
-    status: "upcoming",
-    featured: true,
+    status: "past",
   },
   {
     id: "women-of-excellence-2026",
