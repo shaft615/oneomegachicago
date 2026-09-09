@@ -650,6 +650,28 @@ export const events: Event[] = [
     status: "upcoming",
   },
   {
+    id: "your-voice-your-vote-your-health-2026",
+    title: "Your Voice. Your Vote. Your Health.",
+    host: "NAACP Chicago Far-South Suburban Branch, in association with Chi Lambda Lambda (ΧΛΛ)",
+    hostChapter: "ΧΛΛ",
+    category: "Community",
+    start: "2026-09-12T12:00:00-05:00",
+    end: "2026-09-12T14:00:00-05:00",
+    dateLabel: "Saturday, September 12, 2026",
+    timeLabel: "12:00 PM – 2:00 PM",
+    location:
+      "St. John's Lutheran School, 4231 W. 183rd Street, Country Club Hills, IL 60478",
+    description: [
+      "The NAACP Chicago Far-South Suburban Branch invites you, your family, and friends to join us for \"Your Voice. Your Vote. Your Health.\" — a community event that empowers residents through voter engagement, health awareness, and access to resources.",
+      "Come out to get informed, get involved, and make your voice heard. Jewel-Osco Pharmacy will also be on-site, offering flu and other vaccines — scan the QR code on the flyer to register with Jewel-Osco Pharmacy to receive vaccines on-site.",
+      "This is an opportunity to connect with your community, prioritize your health, and remember the power of your vote. Register. Vote. Make a Difference. Your voice matters. Your vote counts. Your health depends on it.",
+      "Please share this invitation with your family, friends, neighbors, and community networks. Our Community. Our Power. Our Future.",
+    ],
+    flyer: "/events/HealthFair_NAACP_2026.jpg",
+    callout: "Be informed. Be involved. Be heard.",
+    status: "upcoming",
+  },
+  {
     id: "conclave-sponsor-briefing-2026",
     title: "Chicago Conclave 2028 — Sponsor Briefing",
     host: "Conclave 2028 Host Committee",
