@@ -1,8 +1,101 @@
+import Image from "next/image";
 import Link from "next/link";
 import { CONCLAVE_NUMBER } from "@/lib/conclave";
 import { DONATE_URL } from "@/lib/donate";
+import { getMergedEvents, pickFeatured } from "@/lib/portal-events";
+import type { Event } from "@/data/events";
 
-export default function HeroSection() {
+/**
+ * The hero's right-hand card. When an upcoming event is featured — from the
+ * governance portal or the static list — it takes the spot: flyer, date,
+ * place and a ticket button. Otherwise the Conclave host card shows, as it
+ * always has. Server component, so the featured lookup runs at render
+ * (hourly ISR on the home page, same as the Featured Event section).
+ */
+function FeaturedHeroCard({ event }: { event: Event }) {
+  return (
+    <div className="relative rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/20 p-6 shadow-regalia">
+      <p className="eyebrow text-omega-gold">Featured Event</p>
+      {event.flyer && (
+        <a
+          href={event.link ?? "/events"}
+          target={event.link ? "_blank" : undefined}
+          rel={event.link ? "noopener noreferrer" : undefined}
+          className="relative mt-4 block aspect-[4/5] overflow-hidden rounded-2xl bg-omega-purple-dark ring-1 ring-white/15"
+          aria-label={`${event.title} flyer`}
+        >
+          <Image
+            src={event.flyer}
+            alt={`${event.title} flyer`}
+            fill
+            priority
+            className="object-contain p-1"
+            sizes="(min-width: 1024px) 24rem, 100vw"
+          />
+        </a>
+      )}
+      <p className="mt-4 font-display text-2xl tracking-regalia leading-tight">
+        {event.title}
+      </p>
+      <p className="mt-2 font-sans text-sm text-white/85">
+        {event.dateLabel}
+        {event.timeLabel ? ` · ${event.timeLabel}` : ""}
+      </p>
+      <p className="font-sans text-sm text-white/65">{event.location}</p>
+      <div className="mt-5 flex flex-wrap gap-3">
+        {event.link && (
+          <a
+            href={event.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-gold"
+            aria-label={`Tickets for ${event.title} (opens in a new tab)`}
+          >
+            Get Tickets
+          </a>
+        )}
+        <Link
+          href="/events"
+          className="btn border border-white/40 text-white hover:bg-white hover:text-omega-purple-dark"
+        >
+          All Events
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+function ConclaveHostCard() {
+  return (
+    <div className="relative rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/20 p-8 shadow-regalia">
+      <p className="eyebrow text-omega-gold">Hosting in 2028</p>
+      <p className="mt-3 font-display text-5xl font-semibold tracking-regalia leading-none">
+        86<sup className="text-3xl text-omega-gold">th</sup>
+      </p>
+      <p className="mt-1 font-display text-2xl tracking-regalia">
+        Grand Conclave
+      </p>
+      <div className="my-5 divider-gold" />
+      <ul className="space-y-2 font-sans text-sm text-white/85">
+        <li className="flex items-center justify-between">
+          <span className="text-white/60">Host City</span>
+          <span className="font-medium">Chicago, IL</span>
+        </li>
+        <li className="flex items-center justify-between">
+          <span className="text-white/60">Host Entity</span>
+          <span className="font-medium">One Omega Foundation</span>
+        </li>
+        <li className="flex items-center justify-between">
+          <span className="text-white/60">DBA</span>
+          <span className="font-medium">Chicago Conclave 2028</span>
+        </li>
+      </ul>
+    </div>
+  );
+}
+
+export default async function HeroSection() {
+  const featured = pickFeatured(await getMergedEvents());
   return (
     <section className="relative overflow-hidden bg-regalia-gradient text-white">
       <div
@@ -85,30 +178,11 @@ export default function HeroSection() {
         <div className="lg:col-span-5">
           <div className="relative mx-auto max-w-sm">
             <div className="absolute inset-0 -translate-x-3 -translate-y-3 rounded-3xl bg-omega-gold/30 blur-xl" />
-            <div className="relative rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/20 p-8 shadow-regalia">
-              <p className="eyebrow text-omega-gold">Hosting in 2028</p>
-              <p className="mt-3 font-display text-5xl font-semibold tracking-regalia leading-none">
-                86<sup className="text-3xl text-omega-gold">th</sup>
-              </p>
-              <p className="mt-1 font-display text-2xl tracking-regalia">
-                Grand Conclave
-              </p>
-              <div className="my-5 divider-gold" />
-              <ul className="space-y-2 font-sans text-sm text-white/85">
-                <li className="flex items-center justify-between">
-                  <span className="text-white/60">Host City</span>
-                  <span className="font-medium">Chicago, IL</span>
-                </li>
-                <li className="flex items-center justify-between">
-                  <span className="text-white/60">Host Entity</span>
-                  <span className="font-medium">One Omega Foundation</span>
-                </li>
-                <li className="flex items-center justify-between">
-                  <span className="text-white/60">DBA</span>
-                  <span className="font-medium">Chicago Conclave 2028</span>
-                </li>
-              </ul>
-            </div>
+            {featured ? (
+              <FeaturedHeroCard event={featured} />
+            ) : (
+              <ConclaveHostCard />
+            )}
           </div>
         </div>
       </div>
