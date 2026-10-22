@@ -444,8 +444,8 @@ export default function QueYearsEvePage() {
           </div>
 
           <p className="mt-12 font-sans text-xs text-white/50 italic">
-            One Omega Foundation, Inc. · 501(c)(3) nonprofit (pending) ·
-            Sponsorships may be tax-deductible.
+            One Omega Foundation, Inc. · 501(c)(3) nonprofit ·
+            Sponsorships are tax-deductible to the extent allowed by law.
           </p>
           <div className="mt-8">
             <Link

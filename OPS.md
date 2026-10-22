@@ -72,6 +72,26 @@ Formspree relay pattern. Changes to the intake flow belong in the
 the file can surface secrets in agent transcripts. Put the Anthropic key
 directly in the GitHub secret via the web UI.
 
+## Portal events feed
+
+The governance portal (portal.oneomegachicago.org) is where the Foundation
+now creates events. This site merges the portal's public JSON feed
+(`/api/public/events`) into the static `src/data/events.ts` list everywhere
+events render: `/events`, the calendar, the home featured card, and the
+`/api/events` JSON the mobile app consumes. See `src/lib/portal-events.ts`.
+
+- **No env var needed in production** — the feed URL defaults to
+  `https://portal.oneomegachicago.org/api/public/events`. Set
+  `PORTAL_EVENTS_URL` (e.g. `http://localhost:3000/api/public/events`) to
+  point at a local portal during development.
+- **Failure-safe by design**: if the portal is unreachable, the site renders
+  the static list alone. No build-time coupling.
+- **Refresh cadence**: hourly (ISR, same window as the `/events` page).
+  Publishing an event in the portal appears on the site within the hour.
+- **Dedupe rule**: a portal event whose id (`portal-<slug>`) or title matches
+  a static entry is dropped in favor of the static entry (which may carry
+  site-only extras like `flyerBack`/`sponsors`).
+
 ## Automation: event intake
 
 Daily workflow at [`.github/workflows/event-auto-draft.yml`](.github/workflows/event-auto-draft.yml)

@@ -1,12 +1,17 @@
 import FeaturedEventCard from "@/components/FeaturedEventCard";
-import { events, isEventPast, sortByStart } from "@/data/events";
+import { events as staticEvents, isEventPast, sortByStart, type Event } from "@/data/events";
 
 /**
  * Renders every upcoming event that has a flyer and is NOT the featured
  * event — useful as a "more on the horizon" section below the featured
  * card. Hidden entirely when there are no qualifying events.
  */
-export default function FlyerEventGallery() {
+export default function FlyerEventGallery({
+  events = staticEvents,
+}: {
+  /** Full event list; the /events page passes the merged static + portal list. */
+  events?: Event[];
+}) {
   const flyerEvents = sortByStart(events).filter(
     (e) => e.flyer && !e.featured && !isEventPast(e)
   );

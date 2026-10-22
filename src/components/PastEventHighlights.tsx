@@ -1,12 +1,17 @@
 import FeaturedEventCard from "@/components/FeaturedEventCard";
-import { events, isEventPast, sortByStart } from "@/data/events";
+import { events as staticEvents, isEventPast, sortByStart, type Event } from "@/data/events";
 
 /**
  * "Looking Back" section — surfaces past events that have a flyer,
  * with a thank-you message to attendees. Auto-hides if no qualifying
  * events exist. Newest past events appear first.
  */
-export default function PastEventHighlights() {
+export default function PastEventHighlights({
+  events = staticEvents,
+}: {
+  /** Full event list; the /events page passes the merged static + portal list. */
+  events?: Event[];
+}) {
   const pastFlyerEvents = sortByStart(events)
     .filter((e) => e.flyer && isEventPast(e))
     .reverse(); // newest first

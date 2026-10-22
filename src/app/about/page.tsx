@@ -59,12 +59,12 @@ export default function AboutPage() {
             <div className="card p-6">
               <span className="eyebrow">Tax Status</span>
               <h3 className="mt-2 font-display text-xl font-semibold text-omega-purple-dark">
-                501(c)(3) — Pending
+                501(c)(3) — Tax-Exempt
               </h3>
               <p className="mt-3 font-sans text-sm leading-relaxed text-neutral-700">
-                The Foundation has applied for federal tax-exempt recognition.
-                Donors should consult counsel regarding deductibility while
-                determination is pending.
+                The Foundation has been awarded federal tax-exempt recognition
+                under Section 501(c)(3) of the Internal Revenue Code.
+                Contributions are tax-deductible to the extent allowed by law.
               </p>
             </div>
             <div className="card p-6">
