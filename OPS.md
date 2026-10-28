@@ -38,7 +38,7 @@ All four forms POST JSON. Notification emails should route to **events@oneomegac
 
 | Form ID | Purpose | Used at |
 |---|---|---|
-| `xgorjngd` | Contact + Conclave 2028 sponsor + Que Year's Eve sponsor | `/contact`, `/conclave-2028`, `/que-years-eve` |
+| `xgorjngd` | Contact + Que Year's Eve sponsor | `/contact`, `/que-years-eve` |
 | `xjglvlan` | Brother Registration | `/events` (Father's Day) |
 | `mnjwnozy` | Chapter Event Submissions | `/events/submit` |
 | `mwvyyvkb` | Father of the Year Nominations | `/events/nominate-father-of-the-year` |

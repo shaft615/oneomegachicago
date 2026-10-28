@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     template: "%s · One Omega Foundation",
   },
   description:
-    "One Omega Foundation, Inc. — coordinating entity for 13 Chicagoland chapters of Omega Psi Phi Fraternity, Inc., and host of the 86th Grand Conclave (Chicago Conclave 2028).",
+    "One Omega Foundation, Inc. — coordinating entity for 13 Chicagoland chapters of Omega Psi Phi Fraternity, Inc.",
   metadataBase: new URL("https://oneomegachicago.org"),
 };
 

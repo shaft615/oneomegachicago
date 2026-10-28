@@ -4,7 +4,7 @@ import PageHeader from "@/components/PageHeader";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "One Omega Foundation, Inc. — story, leadership, 501(c)(3) status, and the Chicago Conclave 2028 DBA.",
+    "One Omega Foundation, Inc. — story, leadership, and 501(c)(3) status.",
 };
 
 const LEADERSHIP = [
@@ -12,7 +12,6 @@ const LEADERSHIP = [
   { role: "Vice President", name: "Will Baker" },
   { role: "Treasurer", name: "Mauricio Rainey" },
   { role: "Secretary", name: "Karl Bryant" },
-  { role: "Conclave 2028 Grand Marshal", name: "The Hon. Steve Watkins" },
   { role: "Council of Basilei Liaison", name: "Jason Poindexter" },
 ];
 
@@ -22,7 +21,7 @@ export default function AboutPage() {
       <PageHeader
         eyebrow="About the Foundation"
         title="One Foundation. Thirteen chapters. One Chicago."
-        description="One Omega Foundation, Inc. is the Illinois not-for-profit corporation that coordinates the work of thirteen Chicagoland chapters of Omega Psi Phi Fraternity, Inc., and serves as host entity for the 86th Grand Conclave."
+        description="One Omega Foundation, Inc. is the Illinois not-for-profit corporation that coordinates the work of thirteen Chicagoland chapters of Omega Psi Phi Fraternity, Inc."
       />
 
       <section className="section-omega bg-white">
@@ -39,9 +38,9 @@ export default function AboutPage() {
               programming, scholarship, and civic impact under one banner.
             </p>
             <p className="font-sans text-base leading-relaxed text-neutral-700">
-              In 2028, the Foundation also serves as the host entity for the
-              International Fraternity&rsquo;s 86th Grand Conclave — a
-              gathering of thousands of Omega men in the city of Chicago.
+              From quarterly leadership convenings to community wellness,
+              scholarship, and civic programming, the Foundation gives the
+              Chicagoland Thirteen a single structure for shared work.
             </p>
           </div>
 
@@ -65,20 +64,6 @@ export default function AboutPage() {
                 The Foundation has been awarded federal tax-exempt recognition
                 under Section 501(c)(3) of the Internal Revenue Code.
                 Contributions are tax-deductible to the extent allowed by law.
-              </p>
-            </div>
-            <div className="card p-6">
-              <span className="eyebrow">Doing Business As</span>
-              <h3 className="mt-2 font-display text-xl font-semibold text-omega-purple-dark">
-                Chicago Conclave 2028
-              </h3>
-              <p className="mt-3 font-sans text-sm leading-relaxed text-neutral-700">
-                The Foundation operates host activities for the 86th Grand
-                Conclave under the registered DBA{" "}
-                <span className="font-semibold text-omega-purple">
-                  Chicago Conclave 2028
-                </span>
-                .
               </p>
             </div>
           </aside>

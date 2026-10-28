@@ -12,7 +12,7 @@ export default function DonateButton() {
       href={DONATE_URL}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Donate to support the 2028 Grand Conclave (opens in a new tab)"
+      aria-label="Donate to One Omega Foundation (opens in a new tab)"
       className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 inline-flex items-center gap-2 rounded-full bg-gilded-gradient text-omega-purple-dark px-5 py-3 sm:px-6 sm:py-3.5 font-sans text-sm font-semibold tracking-wide shadow-regalia ring-2 ring-omega-purple-dark/15 hover:scale-105 hover:shadow-gilded transition-all duration-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-omega-purple"
     >
       <svg

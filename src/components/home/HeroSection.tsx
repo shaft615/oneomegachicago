@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CONCLAVE_NUMBER } from "@/lib/conclave";
 import { DONATE_URL } from "@/lib/donate";
 import { getMergedEvents, pickFeatured } from "@/lib/portal-events";
 import type { Event } from "@/data/events";
@@ -8,8 +7,8 @@ import type { Event } from "@/data/events";
 /**
  * The hero's right-hand card. When an upcoming event is featured — from the
  * governance portal or the static list — it takes the spot: flyer, date,
- * place and a ticket button. Otherwise the Conclave host card shows, as it
- * always has. Server component, so the featured lookup runs at render
+ * place and a ticket button. Otherwise the Foundation card shows. Server
+ * component, so the featured lookup runs at render
  * (hourly ISR on the home page, same as the Featured Event section).
  */
 function FeaturedHeroCard({ event }: { event: Event }) {
@@ -65,29 +64,29 @@ function FeaturedHeroCard({ event }: { event: Event }) {
   );
 }
 
-function ConclaveHostCard() {
+function FoundationCard() {
   return (
     <div className="relative rounded-3xl bg-white/10 backdrop-blur-md ring-1 ring-white/20 p-8 shadow-regalia">
-      <p className="eyebrow text-omega-gold">Hosting in 2028</p>
+      <p className="eyebrow text-omega-gold">Chicagoland</p>
       <p className="mt-3 font-display text-5xl font-semibold tracking-regalia leading-none">
-        86<sup className="text-3xl text-omega-gold">th</sup>
+        13
       </p>
       <p className="mt-1 font-display text-2xl tracking-regalia">
-        Grand Conclave
+        Chapters. One Foundation.
       </p>
       <div className="my-5 divider-gold" />
       <ul className="space-y-2 font-sans text-sm text-white/85">
         <li className="flex items-center justify-between">
-          <span className="text-white/60">Host City</span>
+          <span className="text-white/60">Home</span>
           <span className="font-medium">Chicago, IL</span>
         </li>
         <li className="flex items-center justify-between">
-          <span className="text-white/60">Host Entity</span>
-          <span className="font-medium">One Omega Foundation</span>
+          <span className="text-white/60">Structure</span>
+          <span className="font-medium">Illinois Not-For-Profit</span>
         </li>
         <li className="flex items-center justify-between">
-          <span className="text-white/60">DBA</span>
-          <span className="font-medium">Chicago Conclave 2028</span>
+          <span className="text-white/60">Tax Status</span>
+          <span className="font-medium">501(c)(3)</span>
         </li>
       </ul>
     </div>
@@ -128,26 +127,17 @@ export default async function HeroSection() {
             One Omega.
           </h1>
           <p className="font-sans text-base sm:text-lg text-white/85 max-w-xl leading-relaxed">
-            The coordinating Foundation uniting Chicagoland chapters of Omega
-            Psi Phi Fraternity, Inc. — and the host entity for the {CONCLAVE_NUMBER}th Grand
-            Conclave, returning to Chicago in 2028.
+            The coordinating Foundation uniting thirteen Chicagoland chapters
+            of Omega Psi Phi Fraternity, Inc. — pooling capacity, amplifying
+            impact, and serving the city that raised them.
           </p>
           <div className="flex flex-wrap gap-3 pt-2">
-            <a
-              href="https://portal.oneomegachicago.org/committees"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-gold"
-              aria-label="Serve on a Conclave committee (opens in a new tab)"
-            >
-              Serve on a Committee
-            </a>
             <a
               href={DONATE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn border border-omega-gold text-omega-gold hover:bg-omega-gold hover:text-omega-purple-dark inline-flex items-center gap-2"
-              aria-label="Donate to support the 2028 Grand Conclave (opens in a new tab)"
+              className="btn-gold inline-flex items-center gap-2"
+              aria-label="Donate to One Omega Foundation (opens in a new tab)"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -161,10 +151,10 @@ export default async function HeroSection() {
               Donate
             </a>
             <Link
-              href="/conclave-2028"
+              href="/events"
               className="btn border border-omega-gold text-omega-gold hover:bg-omega-gold hover:text-omega-purple-dark"
             >
-              Conclave 2028
+              Events
             </Link>
             <Link
               href="/about"
@@ -181,7 +171,7 @@ export default async function HeroSection() {
             {featured ? (
               <FeaturedHeroCard event={featured} />
             ) : (
-              <ConclaveHostCard />
+              <FoundationCard />
             )}
           </div>
         </div>

@@ -18,12 +18,12 @@ const NEWS: NewsItem[] = [
     href: "/about",
   },
   {
-    category: "Conclave 2028",
-    title: "Sponsor interest opens for the 86th Grand Conclave",
+    category: "Que Year's Eve",
+    title: "Que Year's Eve\u2122 2026 sponsorship prospectus now available",
     excerpt:
-      "Founders' Circle, Cardinal Patron, and Chapter Champion tiers are now accepting expressions of interest.",
+      "Four sponsorship tiers from $2,500 to $15,000 for the Foundation's New Year's Eve gala at the Marriott Marquis McCormick Place.",
     date: "Coming soon",
-    href: "/conclave-2028",
+    href: "/que-years-eve",
   },
   {
     category: "Chapters",

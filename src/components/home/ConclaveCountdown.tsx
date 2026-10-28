@@ -7,6 +7,7 @@ import {
   CONCLAVE_NUMBER,
   CONCLAVE_CITY,
   CONCLAVE_DATE_LABEL,
+  CONCLAVE_SITE_URL,
 } from "@/lib/conclave";
 
 interface Remaining {
@@ -73,17 +74,23 @@ export default function ConclaveCountdown() {
           <p className="font-sans text-white/85 leading-relaxed">
             Every two years, the brothers of Omega Psi Phi convene for the
             Grand Conclave. In 2028, that gathering returns to Chicago after
-            79 years — hosted by One Omega Foundation, Inc.
+            79 years.
           </p>
           <div className="flex flex-wrap gap-3 pt-2">
-            <Link href="/conclave-2028" className="btn-gold">
-              Conclave Hub
-            </Link>
+            <a
+              href={CONCLAVE_SITE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-gold"
+              aria-label="Visit the Chicago Conclave 2028 website (opens in a new tab)"
+            >
+              Conclave Website
+            </a>
             <Link
-              href="/contact?type=sponsor"
+              href="/ideas"
               className="btn border border-white/40 text-white hover:bg-white hover:text-omega-purple-dark"
             >
-              Become a Sponsor
+              Share an Idea
             </Link>
           </div>
         </div>

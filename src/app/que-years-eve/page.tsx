@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import QyeSponsorshipPlan from "./QyeSponsorshipPlan";
 
 export const metadata: Metadata = {
@@ -447,14 +446,6 @@ export default function QueYearsEvePage() {
             One Omega Foundation, Inc. · 501(c)(3) nonprofit ·
             Sponsorships are tax-deductible to the extent allowed by law.
           </p>
-          <div className="mt-8">
-            <Link
-              href="/conclave-2028"
-              className="font-sans text-xs text-omega-gold hover:underline underline-offset-4"
-            >
-              Looking for Conclave 2028 sponsorship instead? View prospectus →
-            </Link>
-          </div>
         </div>
       </section>
     </>

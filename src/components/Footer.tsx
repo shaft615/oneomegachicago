@@ -23,14 +23,14 @@ export default function Footer() {
                 One Omega Foundation, Inc.
               </span>
               <span className="font-sans text-[10px] uppercase tracking-[0.22em] text-omega-gold">
-                d/b/a Chicago Conclave 2028
+                Thirteen Chapters · One Chicago
               </span>
             </div>
           </div>
           <p className="font-sans text-sm text-white/80 max-w-md leading-relaxed">
             Illinois not-for-profit corporation serving as the coordinating
             entity for thirteen Chicagoland chapters of Omega Psi Phi
-            Fraternity, Inc., and host of the 86th Grand Conclave in 2028.
+            Fraternity, Inc.
           </p>
           <p className="font-sans text-xs text-white/60 italic">
             A 501(c)(3) tax-exempt organization.

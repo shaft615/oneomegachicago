@@ -1,7 +1,8 @@
 /**
  * Central constants for the 86th Grand Conclave (Chicago, 2028).
- * The countdown component, hero card, and Conclave page all read
- * from these constants so the entire site stays in sync.
+ * The countdown and Idea Bank components read from these constants so
+ * the site stays in sync. The Conclave has its own website; this site
+ * only links to it.
  *
  * Official dates confirmed: July 13 – 18, 2028.
  */
@@ -12,4 +13,4 @@ export const CONCLAVE_DATE_LABEL_LONG =
   "Thursday, July 13 – Tuesday, July 18, 2028";
 export const CONCLAVE_CITY = "Chicago, IL";
 export const CONCLAVE_NUMBER = 86;
-export const CONCLAVE_DBA = "Chicago Conclave 2028";
+export const CONCLAVE_SITE_URL = "https://chicagoclave2028.com";

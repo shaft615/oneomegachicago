@@ -672,19 +672,6 @@ export const events: Event[] = [
     status: "upcoming",
   },
   {
-    id: "conclave-sponsor-briefing-2026",
-    title: "Chicago Conclave 2028 — Sponsor Briefing",
-    host: "Conclave 2028 Host Committee",
-    category: "Conclave 2028",
-    start: "2026-09-12T18:00:00-05:00",
-    dateLabel: "TBA (placeholder date)",
-    location: "Chicago, IL",
-    description: [
-      "Host committee briefing for prospective sponsors — Founders' Circle and Cardinal Patron tiers.",
-    ],
-    status: "upcoming",
-  },
-  {
     id: "corks-and-ques-2026",
     title: "Corks & Ques — Wine & Spirit Tasting",
     host: "Nu Pi Chapter (ΝΠ), Omega Psi Phi Fraternity, Inc. & JCCL Community Development Corporation",

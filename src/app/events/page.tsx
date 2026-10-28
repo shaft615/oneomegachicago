@@ -34,7 +34,7 @@ export default async function EventsPage() {
       <PageHeader
         eyebrow="Events"
         title="Foundation programming pipeline."
-        description="Coordinated events spanning the thirteen chapters — from quarterly leadership convenings to community wellness, and the road to the 86th Grand Conclave."
+        description="Coordinated events spanning the thirteen chapters — from quarterly leadership convenings to community wellness and scholarship."
       />
 
       <section className="bg-white border-b border-omega-purple/10">

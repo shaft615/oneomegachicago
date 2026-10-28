@@ -18,7 +18,7 @@ const TYPE_OPTIONS: { value: InquiryType; label: string }[] = [
 const ROUTING_LABEL: Record<InquiryType, string> = {
   general: "Foundation Secretary",
   media: "Communications Officer",
-  sponsor: "Conclave 2028 Sponsorship Chair",
+  sponsor: "Sponsorship Coordinator",
   chapter: "Council of Basilei Liaison",
   volunteer: "Volunteer Coordinator",
 };

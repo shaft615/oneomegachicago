@@ -19,7 +19,7 @@ const ROUTING = [
   {
     type: "sponsor",
     title: "Sponsorship",
-    body: "Conclave 2028 sponsorship interest and prospectus requests.",
+    body: "Que Year's Eve and Foundation program sponsorship interest and prospectus requests.",
   },
   {
     type: "chapter",
@@ -29,7 +29,7 @@ const ROUTING = [
   {
     type: "volunteer",
     title: "Volunteer",
-    body: "Volunteer roles for Conclave 2028 and Foundation programming.",
+    body: "Volunteer roles for Foundation programming and chapter events.",
   },
 ];
 

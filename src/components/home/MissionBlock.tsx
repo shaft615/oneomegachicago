@@ -32,15 +32,11 @@ export default function MissionBlock() {
             One Omega Foundation, Inc. is an Illinois not-for-profit
             corporation that coordinates the work of thirteen Chicagoland
             chapters of Omega Psi Phi Fraternity, Inc. We pool capacity, amplify
-            impact, and steward the host structure for the 86th Grand Conclave
-            in 2028.
+            impact, and elevate shared programming, scholarship, and civic
+            service under one banner.
           </p>
           <p className="font-sans text-sm italic text-neutral-500">
-            A 501(c)(3) tax-exempt organization. Operating under the DBA{" "}
-            <span className="font-semibold not-italic text-omega-purple-dark">
-              Chicago Conclave 2028
-            </span>{" "}
-            for host activities.
+            A 501(c)(3) tax-exempt organization.
           </p>
         </div>
 
