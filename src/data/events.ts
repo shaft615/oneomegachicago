@@ -713,6 +713,23 @@ export const events: Event[] = [
     status: "upcoming",
   },
   {
+    id: "homecoming-alumni-mixer-2026",
+    title: "Homecoming Alumni Mixer",
+    host: "The 9501 Alumni Group Inc.",
+    category: "Social",
+    start: "2026-10-29T19:30:00-05:00",
+    end: "2026-10-29T23:00:00-05:00",
+    dateLabel: "Thursday, October 29, 2026",
+    timeLabel: "7:30 PM – 11:00 PM",
+    location: "Park Manor 7evnty 5ive, 600 E. 75th St., Chicago, IL 60619",
+    description: [
+      "Alumni, come out and celebrate as Chicago State University hosts its first football homecoming! The 9501 Alumni Group Inc. (est. 2024) hosts a Homecoming Alumni Mixer at Park Manor 7evnty 5ive.",
+      "Alumni. Connections. Good vibes. CSU pride. Expect drinks, music, and a room full of fellow Cougars.",
+    ],
+    flyer: "/events/HomecomingAlumniMixer_2026.jpg",
+    status: "upcoming",
+  },
+  {
     id: "jokes-for-hope-2026",
     title: "Jokes for Hope Comedy Show",
     host: "Chi Lambda Lambda Chapter (ΧΛΛ), Omega Psi Phi Fraternity, Inc. & the Chicago Metropolitan Alumnae Chapter of Delta Sigma Theta Sorority, Inc.",
