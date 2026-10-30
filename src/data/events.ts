@@ -730,6 +730,28 @@ export const events: Event[] = [
     status: "upcoming",
   },
   {
+    id: "csu-homecoming-weekend-2026",
+    title: "Chicago State University Homecoming Weekend",
+    host: "Epsilon Eta Chapter (ΕΗ), Omega Psi Phi Fraternity, Inc.",
+    hostChapter: "ΕΗ",
+    category: "Social",
+    start: "2026-10-30T10:00:00-05:00",
+    end: "2026-11-01T02:00:00-05:00",
+    additionalCalendarDates: ["2026-10-31"],
+    dateLabel: "Friday, October 30 – Saturday, October 31, 2026",
+    timeLabel: "Tailgate 10:00 AM – 2:00 AM each day · Game 2:00 PM",
+    location:
+      "Tailgate: Chicago State University, Parking Lot 15 · Game: SeatGeek Stadium",
+    description: [
+      "Chicago State University Homecoming 2026 is almost here — calling all alumni! Come support the university's inaugural football season at CSU's first-ever Homecoming Football Game & Tailgate.",
+      "Homecoming Tailgate: rep your class on the Chicago State University campus in Parking Lot 15, 10:00 AM – 2:00 AM on Friday, October 30 and Saturday, October 31. Food will be provided for all.",
+      "Followed by the Homecoming Football Game at SeatGeek Stadium — game time 2:00 PM. Click below for tickets to the game.",
+    ],
+    flyer: "/events/CSUHomecomingWeekend_2026.jpeg",
+    link: "https://www.gocsucougars.com/sports/2026/2/24/tickets.aspx",
+    status: "upcoming",
+  },
+  {
     id: "jokes-for-hope-2026",
     title: "Jokes for Hope Comedy Show",
     host: "Chi Lambda Lambda Chapter (ΧΛΛ), Omega Psi Phi Fraternity, Inc. & the Chicago Metropolitan Alumnae Chapter of Delta Sigma Theta Sorority, Inc.",
