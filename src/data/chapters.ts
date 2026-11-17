@@ -24,7 +24,7 @@ export const chapters: Chapter[] = [
     name: 'Sigma Omega',
     designation: 'ΣΩ',
     area: 'Chicagoland',
-    basileus: 'Bro. Dathon K. O\'Banion',
+    basileus: 'Bro. Ronald Hughes',
     website: 'https://www.sigma-omega.org',
     logo: '/chapters/so.png'
   },
@@ -42,7 +42,7 @@ export const chapters: Chapter[] = [
     name: 'Rho Tau',
     designation: 'PT',
     area: 'Chicagoland',
-    basileus: 'Bro. Tommy Anderson',
+    basileus: 'Bro. William C. King',
     website: 'https://www.rhotau1961.org',
     logo: undefined
   },
@@ -96,7 +96,7 @@ export const chapters: Chapter[] = [
     name: 'Theta Kappa Kappa',
     designation: 'ΘΚΚ',
     area: 'Chicagoland',
-    basileus: 'Bro. Mauricio Rainey',
+    basileus: 'Bro. John Abney',
     website: 'https://tkkomegas.org',
     logo: '/chapters/tkk.png'
   },
@@ -105,7 +105,7 @@ export const chapters: Chapter[] = [
     name: 'Chi Lambda Lambda',
     designation: 'ΧΛΛ',
     area: 'Chicagoland',
-    basileus: 'Bro. Karl Bryant',
+    basileus: 'Bro. John Roberson',
     website: 'https://www.chilambdalambda.com',
     logo: '/chapters/xll.png'
   },
@@ -114,7 +114,7 @@ export const chapters: Chapter[] = [
     name: 'Omicron Mu Mu',
     designation: 'ΟΜΜ',
     area: 'Lansing / South Suburban',
-    basileus: 'Bro. Darren Brady',
+    basileus: 'Bro. Joseph Gilmore',
     website: 'https://omicronmumu.com',
     logo: '/chapters/omm.png'
   },
@@ -123,7 +123,7 @@ export const chapters: Chapter[] = [
     name: 'Rho Mu Mu',
     designation: 'ΡΜΜ',
     area: 'Chicagoland',
-    basileus: 'Bro. Vince Davis',
+    basileus: 'Bro. Nicholas Henton',
     website: 'https://www.pmmques.org',
     logo: '/chapters/rmm.png'
   },
